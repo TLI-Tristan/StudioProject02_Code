@@ -24,7 +24,7 @@ void SceneSP02::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(10, 10, 30), Vector3(0, 0, 0), Vector3(0, 1, 0));
+	/*camera.Init(Vector3(10, 10, 30), Vector3(0, 0, 0), Vector3(0, 1, 0));*/
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -178,6 +178,8 @@ void SceneSP02::Init()
 	glUniform1f(m_parameters[U_LIGHT2_COSINNER], light[2].cosInner);
 	glUniform1f(m_parameters[U_LIGHT2_EXPONENT], light[2].exponent);
 
+
+
 	//glUniform1i(m_parameters[U_LIGHT3_TYPE], light[3].type);
 	//glUniform3fv(m_parameters[U_LIGHT3_COLOR], 1, &light[3].color.r);
 	//glUniform1f(m_parameters[U_LIGHT3_POWER], light[3].power);
@@ -216,6 +218,18 @@ void SceneSP02::Init()
 
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
+
+	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car","Obj/SP_CarObj.obj");
+
+	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
+
+	meshList[GEO_OBSTACLEBLOCKS] = MeshBuilder::GenerateOBJ("Obstacle squares", "Obj/ObstacleBlocks.obj");
+
+	meshList[GEO_WORLDFLOOR] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/WorldFloor.obj");
+
+	meshList[GEO_TRAPS] = MeshBuilder::GenerateOBJ("Trap", "Obj/Traps.obj");
+
+	meshList[GEO_BRIDGE] = MeshBuilder::GenerateOBJ("Bridge", "Obj/Bridge.obj");
 
 	f_fps = 0;
 
@@ -286,8 +300,38 @@ void SceneSP02::Update(double dt)
 	//	light[3].spotDirection.Set(-view.x, -view.y, -view.z);
 
 	//}
+	camera.position.y = carposy + 20;
+	camera.position.z = carposz +20;
+	camera.position.x = carposx + 70;
+
+	camera.target.y = carposy;
+	camera.target.z = carposz;
+	camera.target.x = carposx;
+	
 
 
+	carspeed = 1.f;
+	jumpheight = 1;
+	carjumptime = 2;
+	if (Application::IsKeyPressed('D') /*&& carposy = 0*/)
+	{
+		carposz -= carspeed;
+	}
+
+	if (Application::IsKeyPressed('A') /*&& carposy = 0*/)
+	{
+		carposz += carspeed;
+	}
+
+	if (Application::IsKeyPressed('W') /*&& carposy = 0*/)
+	{
+		carposy += jumpheight;
+		//if (carposy >= 2)
+		//{
+		//	carposy -= dt * 10;
+		//}
+		
+	}
 	camera.Update(dt);
 
 }
@@ -380,7 +424,50 @@ void SceneSP02::RenderSkybox() {
 
 
 }
+void SceneSP02::RenderGameScene()
+{
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_OBSTACLEFALL], true);
+	modelStack.PopMatrix();
 
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_OBSTACLEBLOCKS], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_WORLDFLOOR], true);
+	modelStack.PopMatrix();
+
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_TRAPS], true);
+	modelStack.PopMatrix();
+
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_BRIDGE], true);
+	modelStack.PopMatrix();
+}
+void SceneSP02::RenderPlayers()
+{
+	modelStack.PushMatrix();
+	modelStack.Translate(0, carposy, carposz);
+	//modelStack.Rotate(0, 0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_CAR], true);
+	modelStack.PopMatrix();
+
+}
 void SceneSP02::RenderText(Mesh* mesh, std::string text, Color color)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
@@ -551,11 +638,13 @@ void SceneSP02::Render()
 
 	viewStack.LoadIdentity();
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
-
 	modelStack.LoadIdentity();
 
 	RenderSkybox();
-
+	RenderPlayers();
+	RenderGameScene();
+	
+	
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X:", Color(220, 20, 60), 2, 1, 4);
 	RenderTextOnScreen(meshList[GEO_TEXT], x, Color(220, 20, 60), 2, 3, 4);

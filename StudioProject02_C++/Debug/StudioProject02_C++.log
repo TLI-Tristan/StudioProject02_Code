@@ -1,2 +1,15 @@
-﻿LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  StudioProject02_C++.vcxproj -> C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe
+﻿  Application.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\drago\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Camera2.cpp
+  SceneSP02.cpp
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(286): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(303): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(304): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(305): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(307): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(308): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(309): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\drago\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(464): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  StudioProject02_C++.vcxproj -> C:\Users\drago\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe

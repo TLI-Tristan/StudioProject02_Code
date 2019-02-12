@@ -1,7 +1,7 @@
 #include "Camera2.h"
 #include "Application.h"
 #include "Mtx44.h"
-
+#include "SceneSP02.h"
 Camera2::Camera2()
 {
 }
@@ -39,6 +39,7 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 	right.Normalize();
 	this->up = defaultUp = right.Cross(view).Normalized();
 }
+
 
 void Camera2::Update(double dt)
 {
@@ -108,47 +109,47 @@ void Camera2::Update(double dt)
 	//	}
 	//}
 
-	if (Application::IsKeyPressed('W')) {
+	//if (Application::IsKeyPressed('W')) {
 
-		Vector3 view = (target - position).Normalized();
-		if (collision(position + view * (float)(150.f * dt))) {
-			position = position + view * (float)(150.f * dt);
-			target = position + view * (float)(150.f * dt);
-		}
+	//	Vector3 view = (target - position).Normalized();
+	//	if (collision(position + view * (float)(150.f * dt))) {
+	//		position = position + view * (float)(150.f * dt);
+	//		target = position + view * (float)(150.f * dt);
+	//	}
 
-	}
-	if (Application::IsKeyPressed('A')) {
+	//}
+	//if (Application::IsKeyPressed('A')) {
 
-		Vector3 view = (target - position).Normalized();
-		Vector3 right = view.Cross(up);
+	//	Vector3 view = (target - position).Normalized();
+	//	Vector3 right = view.Cross(up);
 
-		if (collision(position - right * (float)(150.f * dt))) {
-			position = position - right * (float)(150.f * dt);
-			target = position + view * (float)(150.f * dt);
-		}
-	}
-	if (Application::IsKeyPressed('S')) {
+	//	if (collision(position - right * (float)(150.f * dt))) {
+	//		position = position - right * (float)(150.f * dt);
+	//		target = position + view * (float)(150.f * dt);
+	//	}
+	//}
+	//if (Application::IsKeyPressed('S')) {
 
-	    Vector3 view = (target - position).Normalized();
-		//Vector3 right = view.Cross(up);
+	//    Vector3 view = (target - position).Normalized();
+	//	//Vector3 right = view.Cross(up);
 
-		if (collision(position - view * (float)(150.f * dt))) {
-			position = position - view * (float)(150.f * dt);
-			target = position + view * (float)(150.f * dt);
-		}
+	//	if (collision(position - view * (float)(150.f * dt))) {
+	//		position = position - view * (float)(150.f * dt);
+	//		target = position + view * (float)(150.f * dt);
+	//	}
 
-	}
-	if (Application::IsKeyPressed('D')) {
+	//}
+	//if (Application::IsKeyPressed('D')) {
 
-		Vector3 view = (target - position).Normalized();
-		Vector3 right = view.Cross(up);
+	//	Vector3 view = (target - position).Normalized();
+	//	Vector3 right = view.Cross(up);
 
-		if (collision(position + right * (float)(150.f * dt))) {
-			position = position + right * (float)(150.f * dt);
-			target = position + view * (float)(150.f * dt);
-		}
+	//	if (collision(position + right * (float)(150.f * dt))) {
+	//		position = position + right * (float)(150.f * dt);
+	//		target = position + view * (float)(150.f * dt);
+	//	}
 
-	}
+	//}
 
 
 

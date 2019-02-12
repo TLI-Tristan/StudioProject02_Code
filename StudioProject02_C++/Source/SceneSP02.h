@@ -90,6 +90,12 @@ class SceneSP02 : public Scene
 		GEO_FRONT,
 		GEO_BACK,
 		GEO_TEXT,
+		GEO_CAR,
+		GEO_OBSTACLEFALL,
+		GEO_OBSTACLEBLOCKS,
+		GEO_WORLDFLOOR,
+		GEO_TRAPS,
+		GEO_BRIDGE,
 		NUM_GEOMETRY,
 	};
 
@@ -102,12 +108,20 @@ public:
 	virtual void Render();
 	virtual void Exit();
 
+	float carspeed;
+	double carposz = 0;
+	double carposy = 0;
+	double carposx = 0;
+	float jumpheight;
+	float carjumptime;
 private:
 	unsigned m_vertexArrayID;
 	Mesh* meshList[NUM_GEOMETRY];
 	unsigned m_programID;
 	unsigned m_parameters[U_TOTAL];
 	void RenderSkybox();
+	void RenderGameScene();
+	void RenderPlayers();
 	void RenderText(Mesh* mesh, std::string text, Color color);
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
 	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
@@ -128,6 +142,7 @@ private:
 	std::string z;
 
 	double delay;
+	
 
 };
 
