@@ -10,7 +10,7 @@ public:
 	Entity();
 	~Entity();
 	void updateSpeedStatus();
-	virtual checkKeypress() = 0;
+	virtual void checkKeypress() = 0;
 	bool getAbletoMove();
 	float getMass();
 	float getSpeed();

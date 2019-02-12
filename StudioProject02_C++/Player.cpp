@@ -4,7 +4,7 @@
 
 Player::Player(const Vector3& dir)
 {
-	horsePower = 500;
+	horsePower = 100;
 	speed = 0.0;
 	acceleration = 0.0;
 	

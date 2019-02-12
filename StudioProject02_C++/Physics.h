@@ -13,7 +13,7 @@ class Physics {
 public:
 	Physics();
 	~Physics();
-	float calImpulse(Entity &firstEntity,Entity &secondEntity);
+	float calFinalKE(Entity &firstEntity,Entity &secondEntity);
 	float calMomentum(Entity &movingEntity);
 	float calKineticEnergy(Entity &movingEntity);
 	float calFriction(Entity &movingEntity);
