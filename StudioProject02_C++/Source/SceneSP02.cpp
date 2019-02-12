@@ -424,6 +424,7 @@ void SceneSP02::RenderSkybox() {
 
 
 }
+
 void SceneSP02::RenderGameScene()
 {
 	modelStack.PushMatrix();
