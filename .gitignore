@@ -31,9 +31,9 @@
 
 #Visual Studio Files
 ipch/
-.VC.dv
-.suo
-.pdb
-.log
-.opendb
-.tlog
+*.VC.db
+*.suo
+*.pdb
+*.log
+*.opendb
+*.tlog
