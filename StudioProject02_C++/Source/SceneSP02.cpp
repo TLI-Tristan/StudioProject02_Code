@@ -147,7 +147,7 @@ void SceneSP02::Init()
 	//light[2].exponent = 3.f;
 	//light[2].spotDirection.Set(-1.45f, 0.15f, -1.f);
 
-	
+
 	glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
 	glUniform3fv(m_parameters[U_LIGHT0_COLOR], 1, &light[0].color.r);
 	glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
@@ -219,7 +219,8 @@ void SceneSP02::Init()
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
-	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car","Obj/SP_CarObj.obj");
+	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
 
 	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
 
@@ -231,6 +232,11 @@ void SceneSP02::Init()
 
 	meshList[GEO_BRIDGE] = MeshBuilder::GenerateOBJ("Bridge", "Obj/Bridge.obj");
 
+	meshList[GEO_BLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/Blocks.obj");
+
+	meshList[GEO_MOVINGBLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
+
+	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
 	f_fps = 0;
 
 	x = "/0";
@@ -311,27 +317,65 @@ void SceneSP02::Update(double dt)
 
 
 	carspeed = 1.f;
-	jumpheight = 1;
+	jumpheight = 2;
 	carjumptime = 2;
-	if (Application::IsKeyPressed('D') /*&& carposy = 0*/)
+
+	
+	if ((Application::IsKeyPressed('D')) && stage2 == false )
 	{
 		carposz -= carspeed;
 	}
 
-	if (Application::IsKeyPressed('A') /*&& carposy = 0*/)
+	if ((Application::IsKeyPressed('A')) && stage2 == false)
 	{
 		carposz += carspeed;
 	}
 
-	if (Application::IsKeyPressed('W') /*&& carposy = 0*/)
+	if ((Application::IsKeyPressed('W')) && stage2 == false)
 	{
 		carposy += jumpheight;
-		//if (carposy >= 2)
-		//{
-		//	carposy -= dt * 10;
-		//}
-		
+	/*
+		if (jumpheight + carposy >4)
+			carposy = -carposy;
+		jumpheight += (float)(carposy * 0.1 * dt);*/
+		if (jumpheight > 4)
+			carposy = -carposy;
+
 	}
+	if ((Application::IsKeyPressed('W')) && stage2 == true)
+	{
+		carposx -= carspeed;
+	}
+	if ((Application::IsKeyPressed('D')) && stage2 == true)
+	{
+		carposz -= carspeed;
+	}
+	if ((Application::IsKeyPressed('A')) && stage2 == true)
+	{
+		carposz += carspeed;
+	}
+
+
+	if (carposz < -640)
+	{
+		/*carposx -= 10;
+		if (carposx < -25)
+			carposx = -25;*/
+		stage2 = true;
+		if (stage2 = true)
+		{
+			carrot += rotatespeed;
+			
+			if (carrot > 90)
+			carrot = 90;
+
+			camera.position.y = carposy + 40;
+			camera.position.z = carposz;
+			camera.position.x = carposx + 70;
+			
+		}
+	}
+	
 	camera.Update(dt);
 
 }
@@ -458,12 +502,30 @@ void SceneSP02::RenderGameScene()
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_BRIDGE], true);
 	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_BLOCKS], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_WORLD2FLOOR], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_MOVINGBLOCKS], true);
+	modelStack.PopMatrix();
 }
 void SceneSP02::RenderPlayers()
 {
 	modelStack.PushMatrix();
-	modelStack.Translate(0, carposy, carposz);
-	//modelStack.Rotate(0, 0, 0, 0);
+	modelStack.Translate(carposx, carposy, carposz);
+	modelStack.Rotate(carrot, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_CAR], true);
 	modelStack.PopMatrix();

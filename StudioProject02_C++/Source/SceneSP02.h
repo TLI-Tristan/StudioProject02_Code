@@ -96,6 +96,9 @@ class SceneSP02 : public Scene
 		GEO_WORLDFLOOR,
 		GEO_TRAPS,
 		GEO_BRIDGE,
+		GEO_BLOCKS,
+		GEO_WORLD2FLOOR,
+		GEO_MOVINGBLOCKS,
 		NUM_GEOMETRY,
 	};
 
@@ -114,6 +117,9 @@ public:
 	double carposx = 0;
 	float jumpheight;
 	float carjumptime;
+	bool stage2 = false;
+	int carrot = 0;
+	int rotatespeed = 5;
 private:
 	unsigned m_vertexArrayID;
 	Mesh* meshList[NUM_GEOMETRY];
