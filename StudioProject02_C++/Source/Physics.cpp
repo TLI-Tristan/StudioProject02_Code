@@ -28,7 +28,7 @@ float Physics::calMomentum(Entity &movingEntity) {
 
 	momentum = movingEntity.getMass() * movingEntity.getSpeed();
 
-
+	return momentum;
 }
 
 float Physics::calFriction(Entity &movingEntity) {

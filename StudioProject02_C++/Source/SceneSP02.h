@@ -8,6 +8,9 @@
 #include "MatrixStack.h"
 #include "Light.h"
 #include <string>
+#include <vector>
+#include "Entity.h"
+#include <iostream>
 
 class SceneSP02 : public Scene
 {
@@ -91,6 +94,7 @@ class SceneSP02 : public Scene
 		GEO_BACK,
 		GEO_TEXT,
 		GEO_CAR,
+		GEO_GONG,
 		GEO_OBSTACLEFALL,
 		GEO_OBSTACLEBLOCKS,
 		GEO_WORLDFLOOR,
@@ -121,6 +125,8 @@ public:
 	int carrot = 0;
 	int rotatespeed = 5;
 private:
+
+	std::vector<Entity*> entityContainer;
 	unsigned m_vertexArrayID;
 	Mesh* meshList[NUM_GEOMETRY];
 	unsigned m_programID;
@@ -148,7 +154,7 @@ private:
 	std::string z;
 
 	double delay;
-	
+
 
 };
 

@@ -237,6 +237,9 @@ void SceneSP02::Init()
 	meshList[GEO_MOVINGBLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 
 	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
+
+	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
+	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 	f_fps = 0;
 
 	x = "/0";
@@ -313,14 +316,14 @@ void SceneSP02::Update(double dt)
 	camera.target.y = carposy;
 	camera.target.z = carposz;
 	camera.target.x = carposx;
-	
+
 
 
 	carspeed = 1.f;
 	jumpheight = 2;
 	carjumptime = 2;
 
-	
+
 	if ((Application::IsKeyPressed('D')) && stage2 == false )
 	{
 		carposz -= carspeed;
@@ -365,17 +368,17 @@ void SceneSP02::Update(double dt)
 		if (stage2 = true)
 		{
 			carrot += rotatespeed;
-			
+
 			if (carrot > 90)
 			carrot = 90;
 
 			camera.position.y = carposy + 40;
 			camera.position.z = carposz;
 			camera.position.x = carposx + 70;
-			
+
 		}
 	}
-	
+
 	camera.Update(dt);
 
 }
@@ -521,6 +524,7 @@ void SceneSP02::RenderGameScene()
 	RenderMesh(meshList[GEO_MOVINGBLOCKS], true);
 	modelStack.PopMatrix();
 }
+
 void SceneSP02::RenderPlayers()
 {
 	modelStack.PushMatrix();
@@ -531,6 +535,7 @@ void SceneSP02::RenderPlayers()
 	modelStack.PopMatrix();
 
 }
+
 void SceneSP02::RenderText(Mesh* mesh, std::string text, Color color)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
@@ -706,8 +711,14 @@ void SceneSP02::Render()
 	RenderSkybox();
 	RenderPlayers();
 	RenderGameScene();
-	
-	
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	//modelStack.Rotate(-90, 0, 1, 0);
+	modelStack.Scale(5, 5, 5);
+	RenderMesh(meshList[GEO_GONG], true);
+	modelStack.PopMatrix();
+
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X:", Color(220, 20, 60), 2, 1, 4);
 	RenderTextOnScreen(meshList[GEO_TEXT], x, Color(220, 20, 60), 2, 3, 4);
