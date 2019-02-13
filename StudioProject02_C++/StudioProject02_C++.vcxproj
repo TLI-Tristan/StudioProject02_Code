@@ -147,7 +147,6 @@
     <ClCompile Include="..\Common\Source\Mtx44.cpp" />
     <ClCompile Include="..\Common\Source\timer.cpp" />
     <ClCompile Include="..\Common\Source\Vector3.cpp" />
-    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Camera.cpp" />
     <ClCompile Include="Source\Camera2.cpp" />
@@ -160,7 +159,6 @@
     <ClCompile Include="Source\MeshBuilder.cpp" />
     <ClCompile Include="Source\Object.cpp" />
     <ClCompile Include="Source\Physics.cpp" />
-    <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\SceneSP02.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\Utility.cpp" />

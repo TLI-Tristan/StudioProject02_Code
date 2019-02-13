@@ -1,15 +1,5 @@
 #include "Entity.h"
 
-
-
-Entity::Entity(const Vector3& pos, bool isItMoving, bool isItMovable)
-{
-	this->position = pos;
-	this->movingObj = isItMoving;
-	this->movableObj = isItMovable;
-
-}
-
 Entity::Entity() {
 
 }
@@ -26,6 +16,41 @@ float Entity::getMass() {
 float Entity::getSpeed() {
 
 	return speed;
+}
+
+Vector3 Entity::getPosition()
+{
+	return position;
+}
+
+int Entity::getPosX()
+{
+	return position.x;
+}
+
+int Entity::getPosY()
+{
+	return position.y;
+}
+
+int Entity::getPosZ()
+{
+	return position.z;
+}
+
+int Entity::getRangeLength()
+{
+	return sizeLength;
+}
+
+int Entity::getRangeWidth()
+{
+	return sizeWidth;
+}
+
+int Entity::getRangeHeight()
+{
+	return sizeHeight;
 }
 
 void Entity::updateSpeedStatus() {
