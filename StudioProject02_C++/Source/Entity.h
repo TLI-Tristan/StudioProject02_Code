@@ -6,22 +6,33 @@
 class Entity
 {
 public:
-	Entity(const Vector3& pos, bool isItMoving, bool isItMovable);
 	Entity();
 	~Entity();
 	void updateSpeedStatus();
 	bool getAbletoMove();
 	float getMass();
 	float getSpeed();
+	Vector3 getPosition();
+	int getPosX();
+	int getPosY();
+	int getPosZ();
+	int getRangeLength();
+	int getRangeWidth();
+	int getRangeHeight();
+	virtual void update() = 0;
 
 protected:
 	Vector3 position;
 	bool movingObj; // see if the obj is moving.
 	float speed; // ms^-1
-
-private:
+	int sizeLength;
+	int sizeWidth;
+	int sizeHeight;
 	float mass; // kg
 	bool movableObj; // see if the obj is able to move upon collison
+	bool collisionON;
+
+	
 
 
 };

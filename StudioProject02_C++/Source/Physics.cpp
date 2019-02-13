@@ -28,7 +28,7 @@ float Physics::calMomentum(Entity &movingEntity) {
 
 	momentum = movingEntity.getMass() * movingEntity.getSpeed();
 
-
+	return momentum;
 }
 
 float Physics::calFriction(Entity &movingEntity) {
@@ -44,7 +44,7 @@ float Physics::calFriction(Entity &movingEntity) {
 float Physics::calFinalKE(Entity &firstEntity, Entity &secondEntity) {
 
 	//car and object collision - inelastic
-	if(firstEntity.getAbletoMove() == false || secondEntity.getAbletoMove == false){
+	if(firstEntity.getAbletoMove() == false || secondEntity.getAbletoMove() == false){
 	
 		float finalKE;
 		finalKE = (calKineticEnergy(firstEntity) + calKineticEnergy(secondEntity)) /100 * 5;

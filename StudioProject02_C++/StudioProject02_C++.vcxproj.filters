@@ -63,20 +63,11 @@
     <ClCompile Include="Source\MeshBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Player.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Physics.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Entity.cpp">
       <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics.cpp">
-      <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="..\Common\Source\Vector3.cpp">
       <Filter>Source Files\Math</Filter>
@@ -95,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="Source\SceneSP02.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics.cpp">
+      <Filter>Source Files\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
