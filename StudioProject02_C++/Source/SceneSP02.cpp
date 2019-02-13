@@ -6,6 +6,10 @@
 #include "Application.h"
 #include "Utility.h"
 #include "LoadTGA.h"
+#include "Entity.h"
+#include "Object.h"
+#include "Player.h"
+#include "Collision.h"
 
 SceneSP02::SceneSP02()
 {
@@ -198,6 +202,8 @@ void SceneSP02::Init()
 	m_parameters[U_TEXT_COLOR] = glGetUniformLocation(m_programID,
 		"textColor");
 
+	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
+
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(255, 255, 255), 1000.f, 600.f, true);
 	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//floor_tile.tga", true);
 
@@ -221,7 +227,8 @@ void SceneSP02::Init()
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
-
+	entityContainer.push_back(new Player(Vector3(0, 0, 0), Vector3(0, 0, -1), 5, 5, 6, true, 500.0, "player1"));
+	
 	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
 
 	meshList[GEO_OBSTACLEBLOCKS] = MeshBuilder::GenerateOBJ("Obstacle squares", "Obj/ObstacleBlocks.obj");
@@ -240,12 +247,16 @@ void SceneSP02::Init()
 
 	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
 	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
+
+	entityContainer.push_back(new Object(Vector3(0, 0, 0), false, false, 3.5, 17, 12, true, 0.0, 5000.0, "gong"));
+
 	f_fps = 0;
 
 	x = "/0";
 	y = "/0";
 	z = "/0";
-
+	translateX = 0.0;
+	collisionDetected = false;
 	delay = 0.0;
 }
 
@@ -309,75 +320,83 @@ void SceneSP02::Update(double dt)
 	//	light[3].spotDirection.Set(-view.x, -view.y, -view.z);
 
 	//}
-	camera.position.y = carposy + 20;
-	camera.position.z = carposz +20;
-	camera.position.x = carposx + 70;
 
-	camera.target.y = carposy;
-	camera.target.z = carposz;
-	camera.target.x = carposx;
+	//camera.position.y = carposy + 20;
+	//camera.position.z = carposz +20;
+	//camera.position.x = carposx + 70;
 
-
-
-	carspeed = 1.f;
-	jumpheight = 2;
-	carjumptime = 2;
+	//camera.target.y = carposy;
+	//camera.target.z = carposz;
+	//camera.target.x = carposx;
 
 
-	if ((Application::IsKeyPressed('D')) && stage2 == false )
-	{
-		carposz -= carspeed;
+
+	//carspeed = 1.f;
+	//jumpheight = 2;
+	//carjumptime = 2;
+
+
+	for (size_t i = 0; i < entityContainer.size(); i++) {
+		entityContainer.at(i)->update();
 	}
+	
 
-	if ((Application::IsKeyPressed('A')) && stage2 == false)
-	{
-		carposz += carspeed;
-	}
+	//if ((Application::IsKeyPressed('Q')) && stage2 == false )
+	//{
+	//	carposz -= carspeed;
+	//}
 
-	if ((Application::IsKeyPressed('W')) && stage2 == false)
-	{
-		carposy += jumpheight;
-	/*
-		if (jumpheight + carposy >4)
-			carposy = -carposy;
-		jumpheight += (float)(carposy * 0.1 * dt);*/
-		if (jumpheight > 4)
-			carposy = -carposy;
+	//if ((Application::IsKeyPressed('E')) && stage2 == false)
+	//{
+	//	carposz += carspeed;
+	//}
 
-	}
-	if ((Application::IsKeyPressed('W')) && stage2 == true)
-	{
-		carposx -= carspeed;
-	}
-	if ((Application::IsKeyPressed('D')) && stage2 == true)
-	{
-		carposz -= carspeed;
-	}
-	if ((Application::IsKeyPressed('A')) && stage2 == true)
-	{
-		carposz += carspeed;
-	}
+	//if ((Application::IsKeyPressed('W')) && stage2 == false)
+	//{
+	//	carposy += jumpheight;
+	///*
+	//	if (jumpheight + carposy >4)
+	//		carposy = -carposy;
+	//	jumpheight += (float)(carposy * 0.1 * dt);*/
+	//	if (jumpheight > 4)
+	//		carposy = -carposy;
+
+	//}
+	//if ((Application::IsKeyPressed('W')) && stage2 == true)
+	//{
+	//	carposx -= carspeed;
+	//}
+	//if ((Application::IsKeyPressed('D')) && stage2 == true)
+	//{
+	//	carposz -= carspeed;
+	//}
+	//if ((Application::IsKeyPressed('A')) && stage2 == true)
+	//{
+	//	carposz += carspeed;
+	//}
 
 
-	if (carposz < -640)
-	{
-		/*carposx -= 10;
-		if (carposx < -25)
-			carposx = -25;*/
-		stage2 = true;
-		if (stage2 = true)
-		{
-			carrot += rotatespeed;
+	//if (carposz < -640)
+	//{
+	//	/*carposx -= 10;
+	//	if (carposx < -25)
+	//		carposx = -25;*/
+	//	stage2 = true;
+	//	if (stage2 = true)
+	//	{
+	//		carrot += rotatespeed;
 
-			if (carrot > 90)
-			carrot = 90;
+	//		if (carrot > 90)
+	//		carrot = 90;
 
-			camera.position.y = carposy + 40;
-			camera.position.z = carposz;
-			camera.position.x = carposx + 70;
+	//		camera.position.y = carposy + 40;
+	//		camera.position.z = carposz;
+	//		camera.position.x = carposx + 70;
 
-		}
-	}
+	//	}
+	//}
+
+	collisionDetected = collisionChecker.CollisionCheck(entityContainer);
 
 	camera.Update(dt);
 
@@ -704,6 +723,8 @@ void SceneSP02::Render()
 	RenderLight();
 	modelStack.PopMatrix();*/
 
+	RenderMesh(meshList[GEO_AXES], false); //To be removed
+
 	viewStack.LoadIdentity();
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
@@ -712,12 +733,21 @@ void SceneSP02::Render()
 	RenderPlayers();
 	RenderGameScene();
 
+	// for testing purposes
 	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
+	modelStack.Translate(entityContainer.at(1)->getPosX(), 0, 0);
 	//modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Scale(5, 5, 5);
 	RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
+
+
+	if (collisionDetected == false) {
+		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);
+	}
+	else {
+		RenderTextOnScreen(meshList[GEO_TEXT], "Collision DETECTED", Color(220, 20, 60), 2, 1, 20);
+	}
 
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X:", Color(220, 20, 60), 2, 1, 4);

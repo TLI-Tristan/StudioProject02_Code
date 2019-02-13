@@ -38,19 +38,29 @@ int Entity::getPosZ()
 	return position.z;
 }
 
-int Entity::getRangeLength()
+int Entity::getRangeX()
 {
-	return sizeLength;
+	return sizeX;
 }
 
-int Entity::getRangeWidth()
+int Entity::getRangeY()
 {
-	return sizeWidth;
+	return sizeY;
 }
 
-int Entity::getRangeHeight()
+int Entity::getRangeZ()
 {
-	return sizeHeight;
+	return sizeZ;
+}
+
+bool Entity::getIsItPlayer()
+{
+	return isItPlayer;
+}
+
+std::string Entity::getName()
+{
+	return name;
 }
 
 void Entity::updateSpeedStatus() {
