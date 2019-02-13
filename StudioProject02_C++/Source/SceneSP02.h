@@ -126,6 +126,14 @@ private:
 	std::string x;
 	std::string y;
 	std::string z;
+	std::string speed;
+	
+	int i_mins;
+	int i_secs;
+	int i_milisecs;
+	std::string s_mins;
+	std::string s_secs;
+	std::string s_milisecs;
 
 	double delay;
 

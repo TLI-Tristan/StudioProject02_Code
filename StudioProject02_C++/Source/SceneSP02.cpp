@@ -222,6 +222,10 @@ void SceneSP02::Init()
 	x = "/0";
 	y = "/0";
 	z = "/0";
+	speed = "/0";
+	i_secs = 0;
+	i_mins = 0;
+	i_milisecs = 0;
 
 	delay = 0.0;
 }
@@ -274,6 +278,24 @@ void SceneSP02::Update(double dt)
 	delay += dt;
 
 	s_fps = std::to_string(f_fps);
+	
+	i_milisecs++;
+	if (i_milisecs >60)
+	{
+		i_secs++;
+		i_milisecs = 0;
+	}
+	
+	if (i_secs > 60)
+	{
+		i_mins++;
+		i_secs = 0;
+	}
+
+	s_milisecs = std::to_string(i_milisecs);
+	s_secs = std::to_string(i_secs);
+	s_mins = std::to_string(i_mins);
+	
 	x = std::to_string(camera.position.x);
 	y = std::to_string(camera.position.y);
 	z = std::to_string(camera.position.z);
@@ -557,7 +579,7 @@ void SceneSP02::Render()
 	RenderSkybox();
 
 
-	RenderTextOnScreen(meshList[GEO_TEXT], "X:", Color(220, 20, 60), 2, 1, 4);
+	/*RenderTextOnScreen(meshList[GEO_TEXT], "X:", Color(220, 20, 60), 2, 1, 4);
 	RenderTextOnScreen(meshList[GEO_TEXT], x, Color(220, 20, 60), 2, 3, 4);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Y:", Color(220, 20, 60), 2, 1, 3);
@@ -565,9 +587,50 @@ void SceneSP02::Render()
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Z:", Color(220, 20, 60), 2, 1, 2);
 	RenderTextOnScreen(meshList[GEO_TEXT], z, Color(220, 20, 60), 2, 3, 2);
+	*/
+	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 33, 29);
+	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 29, 29);
 
-	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
-	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Time ", Color(0, 255, 0), 2, 20, 29);
+
+	if (i_milisecs < 10)
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_milisecs, Color(0, 255, 0), 2, 25, 27);
+		RenderTextOnScreen(meshList[GEO_TEXT], "0", Color(0, 255, 0), 2, 24, 27);
+	}
+	else
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_milisecs, Color(0, 255, 0), 2, 24, 27);
+	}
+
+	RenderTextOnScreen(meshList[GEO_TEXT], ":", Color(0, 255, 0), 2, 23, 27);
+
+	if (i_secs<10)
+	{
+	RenderTextOnScreen(meshList[GEO_TEXT], s_secs, Color(0, 255, 0), 2, 22, 27);
+	RenderTextOnScreen(meshList[GEO_TEXT], "0", Color(0, 255, 0), 2, 21, 27);
+	}
+	else
+	{
+	RenderTextOnScreen(meshList[GEO_TEXT], s_secs, Color(0, 255, 0), 2, 21, 27);
+	}
+
+	RenderTextOnScreen(meshList[GEO_TEXT], ":", Color(0, 255, 0), 2, 20, 27);
+	
+	if (i_mins < 10)
+	{
+	RenderTextOnScreen(meshList[GEO_TEXT], s_mins, Color(0, 255, 0), 2, 19, 27);
+	RenderTextOnScreen(meshList[GEO_TEXT], "0", Color(0, 255, 0), 2, 18, 27);
+	}
+	else
+	{
+	RenderTextOnScreen(meshList[GEO_TEXT], s_secs, Color(0, 255, 0), 2, 19, 27);
+	}
+	
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Speed", Color(0, 255, 0), 2, 1, 29);
+	RenderTextOnScreen(meshList[GEO_TEXT], speed, Color(0, 255, 0), 2, 1, 27);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Km/h", Color(0, 255, 0), 2, 1, 25);
 
 }
 
