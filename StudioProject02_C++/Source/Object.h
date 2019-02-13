@@ -6,7 +6,7 @@ class Object : public Entity
 {
 public:
 	Object();
-	Object(const Vector3& pos, bool isItMoving, bool isItMovable, int rangeLength, int rangeWidth, int rangeHeight, bool isCollisionON, float speed, float mass, std::string name);
+	Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float speed, float mass, std::string name);
 	~Object();
 	void update();
 

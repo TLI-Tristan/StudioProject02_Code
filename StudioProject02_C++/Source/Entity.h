@@ -16,9 +16,14 @@ public:
 	int getPosX();
 	int getPosY();
 	int getPosZ();
-	int getRangeX();
-	int getRangeY();
-	int getRangeZ();
+
+	float getHeighestX();
+	float getHeighestY();
+	float getHeighestZ();
+	float getLowestX();
+	float getLowestY();
+	float getLowestZ();
+
 	virtual void update() = 0;
 	bool getIsItPlayer();
 	std::string getName();
@@ -26,14 +31,17 @@ public:
 protected:
 	std::string name;
 	Vector3 position;
-	//float posX;
-	//float posY;
-	//float posZ;
 	bool movingObj; // see if the obj is moving.
 	float speed; // ms^-1
-	int sizeX;
-	int sizeY;
-	int sizeZ;
+	float sizeX;
+	float sizeY;
+	float sizeZ;
+	float heighest_X;
+	float heighest_Y;
+	float heighest_Z;
+	float lowest_X;
+	float lowest_Y;
+	float lowest_Z;
 	float mass; // kg
 	bool movableObj; // see if the obj is able to move upon collison
 	bool collisionON;

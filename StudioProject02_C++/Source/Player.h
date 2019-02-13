@@ -8,7 +8,7 @@ class Player : public Entity
 {
 public:
 	Player();
-	Player(const Vector3& pos, const Vector3& dir, int rangeX, int rangeY, int rangeZ, bool isCollisionON, float mass, std::string name);
+	Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float mass, std::string name);
 	void calAcceleration();
 	~Player();
 	void checkKeypress();

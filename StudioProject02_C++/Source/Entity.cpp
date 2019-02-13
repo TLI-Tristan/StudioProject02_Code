@@ -38,19 +38,34 @@ int Entity::getPosZ()
 	return position.z;
 }
 
-int Entity::getRangeX()
+float Entity::getHeighestX()
 {
-	return sizeX;
+	return (position.x + sizeX);
 }
 
-int Entity::getRangeY()
+float Entity::getHeighestY()
 {
-	return sizeY;
+	return (position.y + sizeY);
 }
 
-int Entity::getRangeZ()
+float Entity::getHeighestZ()
 {
-	return sizeZ;
+	return (position.z + sizeZ);
+}
+
+float Entity::getLowestX()
+{
+	return (position.x - sizeX);
+}
+
+float Entity::getLowestY()
+{
+	return (position.y - sizeY);
+}
+
+float Entity::getLowestZ()
+{
+	return (position.z - sizeZ);
 }
 
 bool Entity::getIsItPlayer()

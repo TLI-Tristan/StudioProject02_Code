@@ -6,7 +6,7 @@ Object::Object()
 {
 }
 
-Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, int rangeX, int rangeY, int rangeZ, bool isCollisionON, float speed, float mass, std::string name)
+Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float speed, float mass, std::string name)
 {
 	this->position = pos;
 	this->movingObj = isItMoving;
@@ -33,12 +33,12 @@ void Object::update()
 
 		if (Application::IsKeyPressed('Q'))
 		{
-			position.x -= 10.0;
+			position.x -= 1.0;
 		}
 
 		if (Application::IsKeyPressed('E'))
 		{
-			position.x += 10.0;
+			position.x += 1.0;
 		}
 
 	}
