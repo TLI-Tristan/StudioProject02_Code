@@ -3,6 +3,8 @@
 
 #include "Vector3.h"
 
+#include "Physics.h"
+
 class Entity
 {
 public:
@@ -24,9 +26,10 @@ public:
 	float getLowestY();
 	float getLowestZ();
 
-	virtual void update() = 0;
+	virtual void update(double dt) = 0;
 	bool getIsItPlayer();
 	std::string getName();
+	Physics c_Physics;
 
 protected:
 	std::string name;
@@ -46,6 +49,7 @@ protected:
 	bool movableObj; // see if the obj is able to move upon collison
 	bool collisionON;
 	bool isItPlayer;
+	double dt;
 
 	
 

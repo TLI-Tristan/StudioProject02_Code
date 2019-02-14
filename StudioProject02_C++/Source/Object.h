@@ -8,7 +8,7 @@ public:
 	Object();
 	Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float speed, float mass, std::string name);
 	~Object();
-	void update();
+	void update(double dt);
 
 };
 

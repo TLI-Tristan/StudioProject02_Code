@@ -27,18 +27,18 @@ Object::~Object()
 
 }
 
-void Object::update()
+void Object::update(double dt)
 {
 	if (name == "gong") {
 
 		if (Application::IsKeyPressed('Q'))
 		{
-			position.x -= 1.0;
+			position.x -= 100.0 * dt;
 		}
 
 		if (Application::IsKeyPressed('E'))
 		{
-			position.x += 1.0;
+			position.x += 100.0 * dt;
 		}
 
 	}

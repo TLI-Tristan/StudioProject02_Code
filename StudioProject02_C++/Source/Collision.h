@@ -5,13 +5,16 @@
 #include "Object.h"
 #include "Player.h"
 #include <vector>
+#include "Physics.h"
 
 class Collision
 {
 public:
 	Collision();
 	~Collision();
-	bool CollisionCheck(std::vector <Entity*> &entityPtr);
+	bool collisionCheck(std::vector <Entity*> &entityPtr);
+	void collisionImpact(Entity& firstEntity, Entity& secondEntity);
+	
 
 };
 

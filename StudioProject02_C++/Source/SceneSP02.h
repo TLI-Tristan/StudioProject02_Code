@@ -160,7 +160,7 @@ private:
 	std::string z;
 
 	double delay;
-
+	double dt;
 	bool collisionDetected;
 };
 
