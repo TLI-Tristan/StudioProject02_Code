@@ -22,7 +22,8 @@ private:
 	Vector3 direction;
 	bool changeCamera;
 	bool ghostMode;
-
+	bool collided;
+	bool impulseDone;
 	// pointer to revive point
 
 

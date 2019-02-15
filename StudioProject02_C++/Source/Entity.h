@@ -1,3 +1,14 @@
+//****************************************//
+// file: Entity.h
+// by: HuiFeng(Tristan) 
+//
+// this is used for all the objects in game, including players
+// refer to derived class for more details
+//
+// if any question just ask me.
+// let me know if you change anyting here too
+//
+//****************************************//
 #ifndef ENTITY_H
 #define ENTITY_H
 
@@ -27,6 +38,7 @@ public:
 	float getLowestZ();
 
 	virtual void update(double dt) = 0;
+	virtual void collisionDetector(bool isThereCollision) = 0;
 	bool getIsItPlayer();
 	std::string getName();
 	Physics c_Physics;

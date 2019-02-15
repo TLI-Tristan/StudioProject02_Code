@@ -1,7 +1,10 @@
 //****************************************//
-// file physics.h
+// file: physics.h
+// by: HuiFeng(Tristan) 
 //
-//
+// this is used to calculate mainly the gravity and impulse on collision
+// if any question just ask me.
+// let me know if you change anyting here too
 //
 //****************************************//
 #ifndef PHYSICS_H
@@ -13,6 +16,7 @@ public:
 	~Physics();
 	void setCoeffFriction(float cof);
 	float calFinalKE(float mass, float speed);
+	float calFinalSpeed(float mass, float speed);
 	float calMomentum();
 	float calKineticEnergy(float mass, float speed);
 	float calFriction(float mass);

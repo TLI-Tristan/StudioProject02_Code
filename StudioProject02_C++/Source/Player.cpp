@@ -19,8 +19,10 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	ghostMode = true;
 	isItPlayer = true;
 	this->name = name;
+	this->impulseDone = true;
 	calAcceleration();
 	calDeceleration();
+
 }
 
 Player::Player() {
@@ -44,7 +46,7 @@ void Player::calDeceleration()
 
 void Player::collisionDetector(bool isThereCollision)
 {
-
+	collided = isThereCollision;
 }
 
 void Player::update(double dt)
@@ -52,18 +54,60 @@ void Player::update(double dt)
 
 	if (name == "player01") {
 
+
+		if (collided == true) {
+
+			if (name == "player01") {
+
+				speed = c_Physics.calFinalSpeed(mass, speed)/150;
+				impulseDone = false;
+
+			}
+
+		}
+
+		if (impulseDone == false) {
+
+			if (name == "player01") {
+
+				if (speed > -0.05 && speed < 0.05) {
+
+					speed = 0.0;
+					impulseDone = true;
+					collided = false;
+				}
+
+				if (speed > 0.0) {
+
+					speed -= deceleration * dt;
+				}
+				else if (speed < 0.0) {
+
+					speed += deceleration * dt;
+				}
+
+				position.z += speed;
+			}
+		}
+
+	}
+
+	if (impulseDone == true) {
+
 		if (Application::IsKeyPressed('Z'))
 		{
-			if (speed < 1.0) {
-				speed += acceleration * dt;
+			direction.z = 1;
+			if (speed < 0.8) {
+				speed += acceleration * dt * direction.z;
 			}
 			position.z += speed;
 			movingObj = true;
 		}
 		if (Application::IsKeyPressed('X'))
 		{
-			if (speed > -1.0) {
-				speed -= acceleration * dt;
+			direction.z = -1;
+			if (speed > -0.8) {
+				speed += acceleration * dt * direction.z;
 				movingObj = true;
 			}
 			position.z += speed;
@@ -79,16 +123,20 @@ void Player::update(double dt)
 			}
 
 			if (speed > 0.0) {
+
 				speed -= deceleration * dt;
 			}
-			else if(speed < 0.0){
+			else if (speed < 0.0) {
+
 
 				speed += deceleration * dt;
+
 			}
+
 			position.z += speed;
 		}
-		// speed += acceleration
 
 	}
-
 }
+
+

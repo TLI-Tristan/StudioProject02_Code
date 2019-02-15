@@ -1,5 +1,5 @@
 #include "Physics.h"
-
+#include <math.h>
 
 
 Physics::Physics()
@@ -59,3 +59,13 @@ float Physics::calFinalKE(float mass, float speed) {
 
 
 }
+
+float Physics::calFinalSpeed(float mass, float speed)
+{
+	float finalSpeed;
+	
+	finalSpeed = sqrt(calFinalKE(mass, speed) * 2 * mass);
+
+	return finalSpeed;
+}
+

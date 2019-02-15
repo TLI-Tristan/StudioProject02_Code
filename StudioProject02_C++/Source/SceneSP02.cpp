@@ -338,7 +338,7 @@ void SceneSP02::Update(double dt)
 
 
 	for (size_t i = 0; i < entityContainer.size(); i++) {
-		//entityContainer.at(i)->
+		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer));
 		entityContainer.at(i)->update(dt);
 	}
 
