@@ -42,30 +42,8 @@ void Player::calDeceleration()
 	deceleration = (c_Physics.calFriction(this->mass) / this->mass);
 }
 
-void Player::checkKeypress() {
-
-	if (changeCamera == false) {
-
-
-		if (Application::IsKeyPressed('W')) {
-
-		}
-		if (Application::IsKeyPressed('S')) {
-
-		}
-		if (Application::IsKeyPressed('A')) {
-
-		}
-		if (Application::IsKeyPressed('D')) {
-
-		}
-	}
-	else {
-
-
-
-	}
-
+void Player::collisionDetector(bool isThereCollision)
+{
 
 }
 

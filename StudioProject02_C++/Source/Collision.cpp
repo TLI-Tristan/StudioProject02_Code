@@ -88,7 +88,7 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 						(entityPtr.at(i)->getLowestZ() <= entityPtr.at(p)->getHeighestZ())))
 					{
 						
-						collisionImpact(*entityPtr.at(i), *entityPtr.at(p));
+					//	collisionImpact(*entityPtr.at(i), *entityPtr.at(p));
 						return true;
 					}
 
@@ -99,6 +99,35 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 		}
 	}
 	
+
+	return false;
+}
+
+bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entityPtr)
+{
+	if (firstEntity.getIsItPlayer == true) {
+		for (size_t i = 0; i < entityPtr.size(); i++) {
+			if (entityPtr.at(i) != &firstEntity) {
+
+				if (((firstEntity.getHeighestX() >= entityPtr.at(i)->getLowestX()) &&
+					(firstEntity.getLowestX() <= entityPtr.at(i)->getHeighestX()))
+					&&
+					((firstEntity.getHeighestY() >= entityPtr.at(i)->getLowestY()) &&
+					(firstEntity.getLowestY() <= entityPtr.at(i)->getHeighestY()))
+					&&
+					((firstEntity.getHeighestZ() >= entityPtr.at(i)->getLowestZ()) &&
+					(firstEntity.getLowestZ() <= entityPtr.at(i)->getHeighestZ())))
+				{
+
+					//collisionImpact(*entityPtr.at(i), *entityPtr.at());
+					return true;
+				}
+
+			}
+
+		}
+
+	}
 
 	return false;
 }

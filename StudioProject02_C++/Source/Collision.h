@@ -13,6 +13,7 @@ public:
 	Collision();
 	~Collision();
 	bool collisionCheck(std::vector <Entity*> &entityPtr);
+	bool collisionCheck(Entity& firstEntity, std::vector <Entity*> &entityPtr);
 	void collisionImpact(Entity& firstEntity, Entity& secondEntity);
 	
 

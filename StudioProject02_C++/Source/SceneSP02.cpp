@@ -338,8 +338,11 @@ void SceneSP02::Update(double dt)
 
 
 	for (size_t i = 0; i < entityContainer.size(); i++) {
+		//entityContainer.at(i)->
 		entityContainer.at(i)->update(dt);
 	}
+
+	collisionDetected = collisionChecker.collisionCheck(entityContainer);
 	
 
 	//if ((Application::IsKeyPressed('Q')) && stage2 == false )
@@ -397,7 +400,7 @@ void SceneSP02::Update(double dt)
 	//	}
 	//}
 
-	collisionDetected = collisionChecker.collisionCheck(entityContainer);
+	
 
 	camera.Update(dt);
 
