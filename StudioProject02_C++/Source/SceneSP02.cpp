@@ -228,7 +228,10 @@ void SceneSP02::Init()
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
 <<<<<<< HEAD
+<<<<<<< HEAD
 	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, -1), 5, 5, 6, true, 1000.0, "player01"));
+=======
+>>>>>>> parent of 948e2fc... Objs movement
 =======
 >>>>>>> parent of 948e2fc... Objs movement
 
@@ -246,6 +249,7 @@ void SceneSP02::Init()
 
 	meshList[GEO_MOVINGBLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("World2Floor", "Obj/World2_Floor.obj");
 
@@ -269,6 +273,9 @@ void SceneSP02::Init()
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
 
+=======
+	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
+>>>>>>> parent of 948e2fc... Objs movement
 =======
 	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
 >>>>>>> parent of 948e2fc... Objs movement
