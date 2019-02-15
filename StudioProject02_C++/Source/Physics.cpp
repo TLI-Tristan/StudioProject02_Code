@@ -5,7 +5,7 @@
 Physics::Physics()
 {
 	gravity = 9.8;
-	coeffFriction = 0.02;
+	coeffFriction = 0.3;
 }
 
 
@@ -13,44 +13,49 @@ Physics::~Physics()
 {
 }
 
-float Physics::calKineticEnergy(Entity &movingEntity) {
+void Physics::setCoeffFriction(float cof)
+{
+	coeffFriction = cof;
+}
+
+float Physics::calKineticEnergy(float mass, float speed) {
 
 	float kineticEnergy;
 
-	kineticEnergy = 0.5 * movingEntity.getMass() * (movingEntity.getSpeed() * movingEntity.getSpeed());
+	kineticEnergy = 0.5 * mass * (speed * speed);
 
 	return kineticEnergy;
 }
 
-float Physics::calMomentum(Entity &movingEntity) {
+//float Physics::calMomentum() {
+//
+//	float momentum;
+//
+//	momentum = movingEntity.getMass() * movingEntity.getSpeed();
+//
+//	return momentum;
+//}
 
-	float momentum;
-
-	momentum = movingEntity.getMass() * movingEntity.getSpeed();
-
-	return momentum;
-}
-
-float Physics::calFriction(Entity &movingEntity) {
+float Physics::calFriction(float mass) {
 
 	float friction;
 
-	friction = movingEntity.getMass() * gravity * coeffFriction;
+	friction = mass * gravity * coeffFriction;
 
 	return friction;
 
 }
 
-float Physics::calFinalKE(Entity &firstEntity, Entity &secondEntity) {
+float Physics::calFinalKE(float mass, float speed) {
 
 	//car and object collision - inelastic
-	if(firstEntity.getAbletoMove() == false || secondEntity.getAbletoMove() == false){
+
+	//TODO CHANGE LOGIC
 	
 		float finalKE;
-		finalKE = (calKineticEnergy(firstEntity) + calKineticEnergy(secondEntity)) /100 * 5;
+		finalKE = calKineticEnergy(mass, speed) /100 * 5;
 		
 		return finalKE;
-	}
 
 
 }

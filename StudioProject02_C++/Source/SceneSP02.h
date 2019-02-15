@@ -11,6 +11,7 @@
 #include <vector>
 #include "Entity.h"
 #include <iostream>
+#include "Collision.h"
 
 class SceneSP02 : public Scene
 {
@@ -100,6 +101,7 @@ class SceneSP02 : public Scene
 		GEO_WORLDFLOOR,
 		GEO_TRAPS,
 		GEO_BRIDGE,
+		GEO_AXES,
 		GEO_BLOCKS,
 		GEO_MOVINGBLOCKS,
 		GEO_WORLD2FLOOR,
@@ -121,6 +123,8 @@ public:
 	SceneSP02();
 	~SceneSP02();
 
+	Collision collisionChecker;
+
 	virtual void Init();
 	virtual void Update(double dt);
 	virtual void Render();
@@ -130,11 +134,13 @@ public:
 	double carposz = 0;
 	double carposy = 0;
 	double carposx = 0;
+	float translateX;
 	float jumpheight;
 	float carjumptime;
 	bool stage2 = false;
 	int carrot = 0;
 	int rotatespeed = 5;
+
 private:
 
 	std::vector<Entity*> entityContainer;
@@ -165,8 +171,8 @@ private:
 	std::string z;
 
 	double delay;
-
-
+	double dt;
+	bool collisionDetected;
 };
 
 #endif

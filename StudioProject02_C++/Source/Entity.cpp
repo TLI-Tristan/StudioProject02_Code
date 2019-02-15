@@ -38,19 +38,44 @@ int Entity::getPosZ()
 	return position.z;
 }
 
-int Entity::getRangeLength()
+float Entity::getHeighestX()
 {
-	return sizeLength;
+	return (position.x + sizeX);
 }
 
-int Entity::getRangeWidth()
+float Entity::getHeighestY()
 {
-	return sizeWidth;
+	return (position.y + sizeY);
 }
 
-int Entity::getRangeHeight()
+float Entity::getHeighestZ()
 {
-	return sizeHeight;
+	return (position.z + sizeZ);
+}
+
+float Entity::getLowestX()
+{
+	return (position.x - sizeX);
+}
+
+float Entity::getLowestY()
+{
+	return (position.y - sizeY);
+}
+
+float Entity::getLowestZ()
+{
+	return (position.z - sizeZ);
+}
+
+bool Entity::getIsItPlayer()
+{
+	return isItPlayer;
+}
+
+std::string Entity::getName()
+{
+	return name;
 }
 
 void Entity::updateSpeedStatus() {

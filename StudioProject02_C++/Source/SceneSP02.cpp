@@ -6,6 +6,10 @@
 #include "Application.h"
 #include "Utility.h"
 #include "LoadTGA.h"
+#include "Entity.h"
+#include "Object.h"
+#include "Player.h"
+#include "Collision.h"
 
 SceneSP02::SceneSP02()
 {
@@ -198,6 +202,8 @@ void SceneSP02::Init()
 	m_parameters[U_TEXT_COLOR] = glGetUniformLocation(m_programID,
 		"textColor");
 
+	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
+
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(255, 255, 255), 1000.f, 600.f, true);
 	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//floor_tile.tga", true);
 
@@ -220,7 +226,8 @@ void SceneSP02::Init()
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
-	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga",false);
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
+	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, -1), 5, 5, 6, true, 1000.0, "player01"));
 
 	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
 
@@ -257,21 +264,26 @@ void SceneSP02::Init()
 	meshList[GEO_UPDOWNBLOCKS] = MeshBuilder::GenerateOBJ("UpDownBlock", "Obj/UPDownBlocks.obj");
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
-	
+
 
 	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
 	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
+
+	entityContainer.push_back(new Object(Vector3(0, 0, -15), false, false, 3.5, 17, 12, true, 0.0, 5000.0, "gong"));
+
 	f_fps = 0;
 
 	x = "/0";
 	y = "/0";
 	z = "/0";
-
+	translateX = 0.0;
+	collisionDetected = false;
 	delay = 0.0;
 }
 
 void SceneSP02::Update(double dt)
 {
+	this->dt = dt;
 	static const float LSPEED = 10.0f;
 
 	//if (Application::IsKeyPressed('1'))
@@ -330,75 +342,86 @@ void SceneSP02::Update(double dt)
 	//	light[3].spotDirection.Set(-view.x, -view.y, -view.z);
 
 	//}
-	camera.position.y = carposy + 20;
-	camera.position.z = carposz +20;
-	camera.position.x = carposx + 70;
 
-	camera.target.y = carposy;
-	camera.target.z = carposz;
-	camera.target.x = carposx;
+	//camera.position.y = carposy + 20;
+	//camera.position.z = carposz +20;
+	//camera.position.x = carposx + 70;
 
-
-
-	carspeed = 1.f;
-	jumpheight = 2;
-	carjumptime = 2;
+	//camera.target.y = carposy;
+	//camera.target.z = carposz;
+	//camera.target.x = carposx;
 
 
-	if ((Application::IsKeyPressed('D')) && stage2 == false )
-	{
-		carposz -= carspeed;
+
+	//carspeed = 1.f;
+	//jumpheight = 2;
+	//carjumptime = 2;
+
+
+	for (size_t i = 0; i < entityContainer.size(); i++) {
+		//entityContainer.at(i)->
+		entityContainer.at(i)->update(dt);
 	}
 
-	if ((Application::IsKeyPressed('A')) && stage2 == false)
-	{
-		carposz += carspeed;
-	}
-
-	if ((Application::IsKeyPressed('W')) && stage2 == false)
-	{
-		carposy += jumpheight;
-	/*
-		if (jumpheight + carposy >4)
-			carposy = -carposy;
-		jumpheight += (float)(carposy * 0.1 * dt);*/
-		if (jumpheight > 4)
-			carposy = -carposy;
-
-	}
-	if ((Application::IsKeyPressed('W')) && stage2 == true)
-	{
-		carposx -= carspeed;
-	}
-	if ((Application::IsKeyPressed('D')) && stage2 == true)
-	{
-		carposz -= carspeed;
-	}
-	if ((Application::IsKeyPressed('A')) && stage2 == true)
-	{
-		carposz += carspeed;
-	}
+	collisionDetected = collisionChecker.collisionCheck(entityContainer);
 
 
-	if (carposz < -640)
-	{
-		/*carposx -= 10;
-		if (carposx < -25)
-			carposx = -25;*/
-		stage2 = true;
-		if (stage2 = true)
-		{
-			carrot += rotatespeed;
+	//if ((Application::IsKeyPressed('Q')) && stage2 == false )
+	//{
+	//	carposz -= carspeed;
+	//}
 
-			if (carrot > 90)
-			carrot = 90;
+	//if ((Application::IsKeyPressed('E')) && stage2 == false)
+	//{
+	//	carposz += carspeed;
+	//}
 
-			camera.position.y = carposy + 40;
-			camera.position.z = carposz;
-			camera.position.x = carposx + 70;
+	//if ((Application::IsKeyPressed('W')) && stage2 == false)
+	//{
+	//	carposy += jumpheight;
+	///*
+	//	if (jumpheight + carposy >4)
+	//		carposy = -carposy;
+	//	jumpheight += (float)(carposy * 0.1 * dt);*/
+	//	if (jumpheight > 4)
+	//		carposy = -carposy;
 
-		}
-	}
+	//}
+	//if ((Application::IsKeyPressed('W')) && stage2 == true)
+	//{
+	//	carposx -= carspeed;
+	//}
+	//if ((Application::IsKeyPressed('D')) && stage2 == true)
+	//{
+	//	carposz -= carspeed;
+	//}
+	//if ((Application::IsKeyPressed('A')) && stage2 == true)
+	//{
+	//	carposz += carspeed;
+	//}
+
+
+	//if (carposz < -640)
+	//{
+	//	/*carposx -= 10;
+	//	if (carposx < -25)
+	//		carposx = -25;*/
+	//	stage2 = true;
+	//	if (stage2 = true)
+	//	{
+	//		carrot += rotatespeed;
+
+	//		if (carrot > 90)
+	//		carrot = 90;
+
+	//		camera.position.y = carposy + 40;
+	//		camera.position.z = carposz;
+	//		camera.position.x = carposx + 70;
+
+	//	}
+	//}
+
+
 
 	camera.Update(dt);
 
@@ -610,7 +633,8 @@ void SceneSP02::RenderGameScene()
 void SceneSP02::RenderPlayers()
 {
 	modelStack.PushMatrix();
-	modelStack.Translate(carposx, carposy, carposz);
+	//modelStack.Translate(carposx, carposy, carposz);
+	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
 	modelStack.Rotate(carrot, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_CAR], true);
@@ -786,6 +810,8 @@ void SceneSP02::Render()
 	RenderLight();
 	modelStack.PopMatrix();*/
 
+	RenderMesh(meshList[GEO_AXES], false); //To be removed
+
 	viewStack.LoadIdentity();
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
@@ -794,14 +820,101 @@ void SceneSP02::Render()
 	RenderPlayers();
 	RenderGameScene();
 
+	// for testing purposes
 	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
+	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
 	//modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Scale(5, 5, 5);
 	RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
 
 
+	if (collisionDetected == false) {
+		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);
+	}
+	else {
+		RenderTextOnScreen(meshList[GEO_TEXT], "Collision DETECTED", Color(220, 20, 60), 2, 1, 20);
+	}
+
+	//RenderTextOnScreen(meshList[GEO_TEXT], "X0: ", Color(220, 20, 60), 2, 1, 10);
+	//std::string test = std::to_string(entityContainer.at(0)->getLowestX());
+	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 10);
+
+	//RenderTextOnScreen(meshList[GEO_TEXT], "Y0: ", Color(220, 20, 60), 2, 1, 9);
+	//test = std::to_string(entityContainer.at(0)->getLowestY());
+	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 9);
+
+	//RenderTextOnScreen(meshList[GEO_TEXT], "Z0: ", Color(220, 20, 60), 2, 1, 8);
+	//test = std::to_string(entityContainer.at(0)->getLowestZ());
+	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 8);
+
+	//RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 1, 7);
+	//test = std::to_string(entityContainer.at(1)->getLowestX());
+	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 7);
+
+	//RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 1, 6);
+	//test = std::to_string(entityContainer.at(1)->getLowestY());
+	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 6);
+
+	//RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 1, 5);
+	//test = std::to_string(entityContainer.at(1)->getLowestZ());
+	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 5);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "DT: ", Color(220, 20, 60), 2, 1, 11);
+	std::string delta = std::to_string(dt);
+	RenderTextOnScreen(meshList[GEO_TEXT], delta, Color(220, 20, 60), 2, 5, 11);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "X0: ", Color(220, 20, 60), 2, 1, 10);
+	std::string test = std::to_string(entityContainer.at(0)->getHeighestX());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 10);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Y0: ", Color(220, 20, 60), 2, 1, 9);
+	test = std::to_string(entityContainer.at(0)->getHeighestY());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 9);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Z0: ", Color(220, 20, 60), 2, 1, 8);
+	test = std::to_string(entityContainer.at(0)->getHeighestZ());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 8);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 1, 7);
+	test = std::to_string(entityContainer.at(1)->getHeighestX());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 7);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 1, 6);
+	test = std::to_string(entityContainer.at(1)->getHeighestY());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 6);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 1, 5);
+	test = std::to_string(entityContainer.at(1)->getHeighestZ());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 5);
+	//////////////////////////////////////
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "SP: ", Color(220, 20, 60), 2, 16, 10);
+	test = std::to_string(entityContainer.at(0)->getSpeed());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 10);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Y0: ", Color(220, 20, 60), 2, 16, 9);
+	test = std::to_string(entityContainer.at(0)->getLowestY());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 9);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Z0: ", Color(220, 20, 60), 2, 16, 8);
+	test = std::to_string(entityContainer.at(0)->getLowestZ());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 8);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 16, 7);
+	test = std::to_string(entityContainer.at(1)->getLowestX());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 7);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 16, 6);
+	test = std::to_string(entityContainer.at(1)->getLowestY());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 6);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 16, 5);
+	test = std::to_string(entityContainer.at(1)->getLowestZ());
+	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 5);
+
+
+	////////////////////////////////////////
 	RenderTextOnScreen(meshList[GEO_TEXT], "X:", Color(220, 20, 60), 2, 1, 4);
 	RenderTextOnScreen(meshList[GEO_TEXT], x, Color(220, 20, 60), 2, 3, 4);
 

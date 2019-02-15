@@ -7,16 +7,15 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
 
-#include "Entity.h"
-
 class Physics {
 public:
 	Physics();
 	~Physics();
-	float calFinalKE(Entity &firstEntity,Entity &secondEntity);
-	float calMomentum(Entity &movingEntity);
-	float calKineticEnergy(Entity &movingEntity);
-	float calFriction(Entity &movingEntity);
+	void setCoeffFriction(float cof);
+	float calFinalKE(float mass, float speed);
+	float calMomentum();
+	float calKineticEnergy(float mass, float speed);
+	float calFriction(float mass);
 
 private:
 	float gravity;

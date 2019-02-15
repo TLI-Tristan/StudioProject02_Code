@@ -17,6 +17,7 @@ public:
 	static Mesh* GenerateQuad(const std::string &meshName, Color color, float length, float height, bool repeat);
 	static Mesh* GenerateOBJ(const std::string &meshName, const std::string &file_path);
 	static Mesh* GenerateText(const std::string &meshName, unsigned numRow, unsigned numCol);
+	static Mesh* GenerateAxes(const std::string &meshName, float lengthX, float lengthY, float lengthZ);
 };
 
 #endif

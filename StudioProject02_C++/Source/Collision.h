@@ -2,13 +2,20 @@
 #define COLLISION_H
 
 #include "Entity.h"
+#include "Object.h"
+#include "Player.h"
+#include <vector>
+#include "Physics.h"
 
 class Collision
 {
 public:
 	Collision();
 	~Collision();
-	bool CollisionCheck(Entity &firstEntity, Entity &secondEntity);
+	bool collisionCheck(std::vector <Entity*> &entityPtr);
+	bool collisionCheck(Entity& firstEntity, std::vector <Entity*> &entityPtr);
+	void collisionImpact(Entity& firstEntity, Entity& secondEntity);
+	
 
 };
 
