@@ -220,7 +220,7 @@ void SceneSP02::Init()
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
-	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga",false);
 
 	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
 
@@ -234,9 +234,30 @@ void SceneSP02::Init()
 
 	meshList[GEO_BLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/Blocks.obj");
 
-	meshList[GEO_MOVINGBLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
+	meshList[GEO_MOVINGBLOCKS] = MeshBuilder::GenerateOBJ("Moving Block", "Obj/MovingBlocks.obj");
 
-	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
+	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("World2Floor", "Obj/World2_Floor.obj");
+
+	meshList[GEO_FALLENTRUNK] = MeshBuilder::GenerateOBJ("FallenTrunk", "Obj/FallenTrunk.obj");
+
+	meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/gate.obj");
+
+	meshList[GEO_GIANTBLOCK] = MeshBuilder::GenerateOBJ("GiantBlock", "Obj/GiantBlock.obj");
+
+
+	meshList[GEO_LEFTCLAMP] = MeshBuilder::GenerateOBJ("LeftClamp", "Obj/LeftClamp.obj");
+
+	meshList[GEO_RIGHTCLAMP] = MeshBuilder::GenerateOBJ("RightClamp", "Obj/RIghtClamp.obj");
+	meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("LeftMovingBlock", "Obj/LeftMovingBlock.obj");
+
+	meshList[GEO_RIGHTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("RightMovingBlock", "Obj/RightMovingBlock.obj");
+
+	meshList[GEO_SLOWPAD] = MeshBuilder::GenerateOBJ("SlowPad", "Obj/SlowPad.obj");
+
+	meshList[GEO_UPDOWNBLOCKS] = MeshBuilder::GenerateOBJ("UpDownBlock", "Obj/UPDownBlocks.obj");
+
+	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
+	
 
 	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
 	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
@@ -523,6 +544,67 @@ void SceneSP02::RenderGameScene()
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_MOVINGBLOCKS], true);
 	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_FALLENTRUNK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_GATE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_GIANTBLOCK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_LEFTCLAMP], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_RIGHTCLAMP], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_LEFTMOVINGBLOCK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_RIGHTMOVINGBLOCK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_SLOWPAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_UPDOWNBLOCKS], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_FLOATINGBLOCK], true);
+	modelStack.PopMatrix();
+
 }
 
 void SceneSP02::RenderPlayers()
