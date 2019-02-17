@@ -8,7 +8,7 @@ class Player : public Entity
 public:
 	Player();
 	~Player();
-	Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float mass, std::string name);
+	Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, float mass, std::string name);
 	void calAcceleration();
 	void calDeceleration();
 	void collisionDetector(bool isThereCollision);
@@ -17,13 +17,15 @@ public:
 private:
 
 	float horsePower;
-	float acceleration; // ms^-2 //need to decide myself
-	float deceleration;
+	float jumpForce;
+	Vector3 acceleration; // ms^-2 //need to decide myself
+	Vector3 deceleration;
 	Vector3 direction;
 	bool changeCamera;
 	bool ghostMode;
 	bool collided;
 	bool impulseDone;
+	bool jumping;
 	// pointer to revive point
 
 

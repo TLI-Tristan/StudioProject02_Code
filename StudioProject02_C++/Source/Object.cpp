@@ -6,7 +6,7 @@ Object::Object()
 {
 }
 
-Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float speed, float mass, std::string name)
+Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, Vector3 speed, float mass, std::string name)
 {
 	this->position = pos;
 	this->movingObj = isItMoving;
@@ -14,7 +14,6 @@ Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rang
 	this->sizeX = rangeX;
 	this->sizeY = rangeY;
 	this->sizeZ = rangeZ;
-	this->collisionON = isCollisionON;
 	this->speed = speed;
 	this->mass = mass;
 	isItPlayer = false;

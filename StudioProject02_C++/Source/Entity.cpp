@@ -13,7 +13,7 @@ float Entity::getMass() {
 	return mass;
 }
 
-float Entity::getSpeed() {
+Vector3 Entity::getSpeed() {
 
 	return speed;
 }

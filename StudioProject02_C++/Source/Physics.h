@@ -17,6 +17,7 @@ public:
 	void setCoeffFriction(float cof);
 	float calFinalKE(float mass, float speed);
 	float calFinalSpeed(float mass, float speed);
+	float calWeight(float mass);
 	float calMomentum();
 	float calKineticEnergy(float mass, float speed);
 	float calFriction(float mass);

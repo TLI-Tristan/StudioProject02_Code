@@ -24,7 +24,7 @@ public:
 	void updateSpeedStatus();
 	bool getAbletoMove();
 	float getMass();
-	float getSpeed();
+	Vector3 getSpeed();
 	Vector3 getPosition();
 	int getPosX();
 	int getPosY();
@@ -47,7 +47,7 @@ protected:
 	std::string name;
 	Vector3 position;
 	bool movingObj; // see if the obj is moving.
-	float speed; // ms^-1
+	Vector3 speed; // ms^-1
 	float sizeX;
 	float sizeY;
 	float sizeZ;
@@ -59,7 +59,6 @@ protected:
 	float lowest_Z;
 	float mass; // kg
 	bool movableObj; // see if the obj is able to move upon collison
-	bool collisionON;
 	bool isItPlayer;
 	double dt;
 
