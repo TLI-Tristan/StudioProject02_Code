@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Application.h"
 
-Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, bool isCollisionON, float mass, std::string name)
+Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, float mass, std::string name)
 {
 	this->position = pos;
 	this->movingObj = false;
@@ -9,18 +9,21 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->sizeX = rangeX;
 	this->sizeY = rangeY;
 	this->sizeZ = rangeZ;
-	this->collisionON = isCollisionON;
 	this->direction = dir;
 	this->mass = mass;
-	horsePower = 10000;
-	speed = 0.0;
-	acceleration = 0.0;
+	this->horsePower = 10000;
+	this->jumpForce = 10000;
+	speed = (0.0, 0.0, 0.0);
+	acceleration = (0.0, 0.0, 0.0);
+	deceleration = (0.0, 0.0, 0.0);
 	changeCamera = false;
 	ghostMode = true;
 	isItPlayer = true;
 	this->name = name;
+	this->impulseDone = true;
 	calAcceleration();
 	calDeceleration();
+	this->jumping = false;
 }
 
 Player::Player() {
@@ -33,18 +36,22 @@ Player::~Player()
 
 void Player::calAcceleration() {
 
-	acceleration = (horsePower - c_Physics.calFriction(this->mass) ) / this->mass;
+	acceleration.z = (horsePower - c_Physics.calFriction(this->mass) ) / this->mass;
+
+	acceleration.y = (jumpForce - c_Physics.calWeight(this->mass)) / this->mass;
 
 }
 
-void Player::calDeceleration()
-{
-	deceleration = (c_Physics.calFriction(this->mass) / this->mass);
+void Player::calDeceleration() {
+
+	deceleration.z = (c_Physics.calFriction(this->mass) / this->mass);
+
+	deceleration.y = (c_Physics.calWeight(this->mass) / this->mass);
 }
 
 void Player::collisionDetector(bool isThereCollision)
 {
-
+	collided = isThereCollision;
 }
 
 void Player::update(double dt)
@@ -52,43 +59,114 @@ void Player::update(double dt)
 
 	if (name == "player01") {
 
+
+		if (collided == true) {
+
+			if (name == "player01") {
+
+				speed.z = c_Physics.calFinalSpeed(mass, speed.z);
+				impulseDone = false;
+
+			}
+
+		}
+
+		if (impulseDone == false) {
+
+			if (name == "player01") {
+
+				if (speed.z > -0.05 && speed.z < 0.05) {
+
+					speed.z = 0.0;
+					impulseDone = true;
+					collided = false;
+				}
+
+				if (speed.z > 0.0) {
+
+					speed.z -= deceleration.z * dt;
+				}
+				else if (speed.z < 0.0) {
+
+					speed.z += deceleration.z * dt;
+				}
+
+				position.z += speed.z;
+			}
+		}
+
+	}
+
+	if (impulseDone == true) {
+
 		if (Application::IsKeyPressed('Z'))
 		{
-			if (speed < 1.0) {
-				speed += acceleration * dt;
+			direction.z = 1;
+			if (speed.z < 0.8) {
+				speed.z += acceleration.z * dt * direction.z;
 			}
-			position.z += speed;
+			position.z += speed.z;
 			movingObj = true;
 		}
+
 		if (Application::IsKeyPressed('X'))
 		{
-			if (speed > -1.0) {
-				speed -= acceleration * dt;
+			direction.z = -1;
+			if (speed.z > -0.8) {
+				speed.z += acceleration.z * dt * direction.z;
 				movingObj = true;
 			}
-			position.z += speed;
+			position.z += speed.z;
 			movingObj = true;
+		}
+
+		if (Application::IsKeyPressed(VK_SPACE) && jumping == false)
+		{
+			jumping = true;
+			direction.y = 1;
+			speed.y = 2.0;
+		}
+		
+		
+		if (jumping == true) {
+
+
+			speed.y -= deceleration.y * dt;
+			position.y += speed.y;
+
+			if (position.y > -1 && position.y < 1) {
+
+				position.y = 0.0;
+				jumping = false;
+			}
+
+			
+
 		}
 
 		if (!Application::IsKeyPressed('Z') &&
 			!Application::IsKeyPressed('X')) {
 
-			if (speed > -0.05 && speed < 0.05) {
-				speed = 0.0;
+			direction = (0,0,0);
+			if (speed.z > -0.05 && speed.z < 0.05) {
+
+				speed.z = 0.0;
+			}
+
+			if (speed.z > 0.0) {
+
+				speed.z -= deceleration.z * dt;
+			}
+			else if (speed.z < 0.0) {
+
+				speed.z += deceleration.z * dt;
 
 			}
 
-			if (speed > 0.0) {
-				speed -= deceleration * dt;
-			}
-			else if(speed < 0.0){
-
-				speed += deceleration * dt;
-			}
-			position.z += speed;
+			position.z += speed.z;
 		}
-		// speed += acceleration
 
 	}
-
 }
+
+

@@ -105,7 +105,7 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 
 bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entityPtr)
 {
-	if (firstEntity.getIsItPlayer == true) {
+	if (firstEntity.getIsItPlayer() == true) {
 		for (size_t i = 0; i < entityPtr.size(); i++) {
 			if (entityPtr.at(i) != &firstEntity) {
 
@@ -119,7 +119,7 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 					(firstEntity.getLowestZ() <= entityPtr.at(i)->getHeighestZ())))
 				{
 
-					//collisionImpact(*entityPtr.at(i), *entityPtr.at());
+					
 					return true;
 				}
 

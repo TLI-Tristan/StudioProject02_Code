@@ -153,11 +153,11 @@ void Camera2::Update(double dt)
 
 
 
-	if(Application::IsKeyPressed(VK_SPACE))
+	/*if(Application::IsKeyPressed(VK_SPACE))
 	{
 		Reset();
 	}
-
+*/
 }
 
 void Camera2::Reset()

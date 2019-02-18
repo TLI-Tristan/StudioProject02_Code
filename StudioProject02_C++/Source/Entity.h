@@ -1,3 +1,14 @@
+//****************************************//
+// file: Entity.h
+// by: HuiFeng(Tristan) 
+//
+// this is used for all the objects in game, including players
+// refer to derived class for more details
+//
+// if any question just ask me.
+// let me know if you change anyting here too
+//
+//****************************************//
 #ifndef ENTITY_H
 #define ENTITY_H
 
@@ -13,7 +24,7 @@ public:
 	void updateSpeedStatus();
 	bool getAbletoMove();
 	float getMass();
-	float getSpeed();
+	Vector3 getSpeed();
 	Vector3 getPosition();
 	int getPosX();
 	int getPosY();
@@ -27,6 +38,7 @@ public:
 	float getLowestZ();
 
 	virtual void update(double dt) = 0;
+	virtual void collisionDetector(bool isThereCollision) = 0;
 	bool getIsItPlayer();
 	std::string getName();
 	Physics c_Physics;
@@ -35,7 +47,7 @@ protected:
 	std::string name;
 	Vector3 position;
 	bool movingObj; // see if the obj is moving.
-	float speed; // ms^-1
+	Vector3 speed; // ms^-1
 	float sizeX;
 	float sizeY;
 	float sizeZ;
@@ -47,7 +59,6 @@ protected:
 	float lowest_Z;
 	float mass; // kg
 	bool movableObj; // see if the obj is able to move upon collison
-	bool collisionON;
 	bool isItPlayer;
 	double dt;
 

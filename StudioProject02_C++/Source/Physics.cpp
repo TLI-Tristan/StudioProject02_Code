@@ -1,5 +1,5 @@
 #include "Physics.h"
-
+#include <math.h>
 
 
 Physics::Physics()
@@ -53,9 +53,28 @@ float Physics::calFinalKE(float mass, float speed) {
 	//TODO CHANGE LOGIC
 	
 		float finalKE;
-		finalKE = calKineticEnergy(mass, speed) /100 * 5;
+		finalKE = calKineticEnergy(mass, speed) /100 * 80;
 		
 		return finalKE;
 
 
 }
+
+float Physics::calFinalSpeed(float mass, float speed)
+{
+	float finalSpeed;
+	
+	finalSpeed = sqrt(calFinalKE(mass, speed) * 2 / mass);
+
+	return finalSpeed;
+}
+
+float Physics::calWeight(float mass)
+{
+	float weight;
+
+	weight = mass * gravity;
+
+	return weight;
+}
+
