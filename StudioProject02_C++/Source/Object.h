@@ -9,7 +9,7 @@ public:
 	Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, Vector3 speed, float mass, std::string name);
 	~Object();
 	void update(double dt);
-	void collisionDetector(bool isThereCollision);
+	void collisionDetector(bool isThereCollision, bool isThereImpulse);
 
 };
 

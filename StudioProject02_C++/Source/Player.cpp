@@ -24,6 +24,9 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	calAcceleration();
 	calDeceleration();
 	this->jumping = false;
+	this->collidingWithFloor = true;
+	this->falling = true;
+	
 }
 
 Player::Player() {
@@ -49,9 +52,10 @@ void Player::calDeceleration() {
 	deceleration.y = (c_Physics.calWeight(this->mass) / this->mass);
 }
 
-void Player::collisionDetector(bool isThereCollision)
+void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor)
 {
 	collided = isThereCollision;
+	this->collidingWithFloor = isItCollidingWithFloor;
 }
 
 void Player::update(double dt)
@@ -60,7 +64,7 @@ void Player::update(double dt)
 	if (name == "player01") {
 
 
-		if (collided == true) {
+		if (collided == true && collidingWithFloor == false) {
 
 			if (name == "player01") {
 
@@ -97,6 +101,25 @@ void Player::update(double dt)
 
 	}
 
+	if (collidingWithFloor == false && falling == false) {
+
+		falling = true;
+		speed.y = 0.0;
+
+	}
+
+	if (collidingWithFloor == true) {
+
+		falling = false;
+	}
+
+	if (falling == true) {
+
+		speed.y -= deceleration.y * dt;
+		position.y += speed.y;
+
+	}
+
 	if (impulseDone == true) {
 
 		if (Application::IsKeyPressed('Z'))
@@ -120,16 +143,15 @@ void Player::update(double dt)
 			movingObj = true;
 		}
 
-		if (Application::IsKeyPressed(VK_SPACE) && jumping == false)
+		if (Application::IsKeyPressed(VK_SPACE) && jumping == false && collidingWithFloor == true)
 		{
 			jumping = true;
 			direction.y = 1;
 			speed.y = 2.0;
-		}
+		}		
 		
 		
 		if (jumping == true) {
-
 
 			speed.y -= deceleration.y * dt;
 			position.y += speed.y;
@@ -139,8 +161,6 @@ void Player::update(double dt)
 				position.y = 0.0;
 				jumping = false;
 			}
-
-			
 
 		}
 

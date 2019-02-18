@@ -53,7 +53,7 @@ float Physics::calFinalKE(float mass, float speed) {
 	//TODO CHANGE LOGIC
 	
 		float finalKE;
-		finalKE = calKineticEnergy(mass, speed) /100 * 80;
+		finalKE = calKineticEnergy(mass, speed) /100 * 95;
 		
 		return finalKE;
 

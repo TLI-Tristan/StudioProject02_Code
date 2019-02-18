@@ -227,6 +227,7 @@ void SceneSP02::Init()
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
+
 	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));
 	
 	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
@@ -250,8 +251,8 @@ void SceneSP02::Init()
 
 	entityContainer.push_back(new Object(Vector3(0, 0, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "gong"));
 
-	meshList[GEO_PlATFORM] = MeshBuilder::GenerateOBJ("Platform", "Obj/Platform.obj");
-	entityContainer.push_back(new Object(Vector3(0, 0, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
+	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("Platform", "Obj/Platform.obj");
+	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 34, 1, 34, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
 
 	f_fps = 0;
 
@@ -341,8 +342,10 @@ void SceneSP02::Update(double dt)
 
 
 	for (size_t i = 0; i < entityContainer.size(); i++) {
-		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer));
+
+		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.getIsItCollidingWithFloor());
 		entityContainer.at(i)->update(dt);
+
 	}
 
 	collisionDetected = collisionChecker.collisionCheck(entityContainer);
@@ -739,7 +742,7 @@ void SceneSP02::Render()
 
 	RenderSkybox();
 	RenderPlayers();
-	RenderGameScene();
+	//RenderGameScene();
 
 	// for testing purposes
 	modelStack.PushMatrix();
@@ -749,12 +752,12 @@ void SceneSP02::Render()
 	RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
 
-	//modelStack.PushMatrix();
-	//modelStack.Translate(entityContainer.at(2)->getPosX(), entityContainer.at(2)->getPosY(), entityContainer.at(2)->getPosZ());
-	////modelStack.Rotate(-90, 0, 1, 0);
-	//modelStack.Scale(5, 5, 5);
-	//RenderMesh(meshList[G], true);
-	//modelStack.PopMatrix();
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(2)->getPosX(), entityContainer.at(2)->getPosY(), entityContainer.at(2)->getPosZ());
+	modelStack.Rotate(-90, 0, 1, 0);
+	modelStack.Scale(20, 20, 20);
+	RenderMesh(meshList[GEO_PLATFORM], true);
+	modelStack.PopMatrix();
 
 	if (collisionDetected == false) {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);

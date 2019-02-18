@@ -46,6 +46,6 @@ void Object::update(double dt)
 
 }
 
-void Object::collisionDetector(bool isThereCollision)
+void Object::collisionDetector(bool isThereCollision, bool isThereImpulse)
 {
 }

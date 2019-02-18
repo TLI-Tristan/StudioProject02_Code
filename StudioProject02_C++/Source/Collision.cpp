@@ -3,7 +3,7 @@
 
 Collision::Collision()
 {
-
+	isItCollidingWithFloor = true;
 }
 
 
@@ -11,14 +11,9 @@ Collision::~Collision()
 {
 }
 
-void Collision::collisionImpact(Entity& firstEntity, Entity& secondEntity) {
-
-	if (secondEntity.getName() != "player2") {
-
-		
-
-	}
-
+bool Collision::getIsItCollidingWithFloor()
+{
+	return isItCollidingWithFloor;
 }
 
 bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
@@ -88,7 +83,6 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 						(entityPtr.at(i)->getLowestZ() <= entityPtr.at(p)->getHeighestZ())))
 					{
 						
-					//	collisionImpact(*entityPtr.at(i), *entityPtr.at(p));
 						return true;
 					}
 
@@ -105,6 +99,7 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 
 bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entityPtr)
 {
+
 	if (firstEntity.getIsItPlayer() == true) {
 		for (size_t i = 0; i < entityPtr.size(); i++) {
 			if (entityPtr.at(i) != &firstEntity) {
@@ -119,8 +114,15 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 					(firstEntity.getLowestZ() <= entityPtr.at(i)->getHeighestZ())))
 				{
 
+					if (entityPtr.at(i)->getName() == "platform") {
+						isItCollidingWithFloor = true;
+					}
 					
 					return true;
+				}
+
+				else if (entityPtr.at(i)->getName() == "platform") {
+					isItCollidingWithFloor = false;
 				}
 
 			}
