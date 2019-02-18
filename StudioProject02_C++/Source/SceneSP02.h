@@ -99,12 +99,25 @@ class SceneSP02 : public Scene
 		GEO_OBSTACLEFALL,
 		GEO_OBSTACLEBLOCKS,
 		GEO_WORLDFLOOR,
+		GEO_WORLDFLOOR2,
+		GEO_WORLDFLOOR3,
+		GEO_WORLDFLOOR4,
 		GEO_TRAPS,
 		GEO_BRIDGE,
 		GEO_AXES,
 		GEO_BLOCKS,
 		GEO_WORLD2FLOOR,
 		GEO_MOVINGBLOCKS,
+		GEO_FALLENTRUNK,
+		GEO_GATE,
+		GEO_GIANTBLOCK,
+		GEO_LEFTCLAMP,
+		GEO_RIGHTCLAMP,
+		GEO_LEFTMOVINGBLOCK,
+		GEO_RIGHTMOVINGBLOCK,
+		GEO_SLOWPAD,
+		GEO_UPDOWNBLOCKS,
+		GEO_FLOATINGBLOCK,
 		NUM_GEOMETRY,
 	};
 
@@ -127,7 +140,7 @@ public:
 	float jumpheight;
 	float carjumptime;
 	bool stage2 = false;
-	int carrot = 0;
+	int carrot;
 	int rotatespeed = 5;
 
 private:

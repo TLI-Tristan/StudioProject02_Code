@@ -29,6 +29,7 @@ void SceneSP02::Init()
 	glEnable(GL_CULL_FACE);
 
 	/*camera.Init(Vector3(10, 10, 30), Vector3(0, 0, 0), Vector3(0, 1, 0));*/
+	carrot = 0;
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -227,19 +228,20 @@ void SceneSP02::Init()
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, -1), 5, 5, 6, true, 1000.0, "player01"));
-=======
->>>>>>> parent of 948e2fc... Objs movement
-=======
->>>>>>> parent of 948e2fc... Objs movement
+
 
 	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
 
 	meshList[GEO_OBSTACLEBLOCKS] = MeshBuilder::GenerateOBJ("Obstacle squares", "Obj/ObstacleBlocks.obj");
 
 	meshList[GEO_WORLDFLOOR] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/WorldFloor.obj");
+
+	meshList[GEO_WORLDFLOOR2] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/WorldFloorPart2.obj");
+	meshList[GEO_WORLDFLOOR3] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/WorldFloorPart3.obj");
+	meshList[GEO_WORLDFLOOR4] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/WorldFloorPart4.obj");
+
 
 	meshList[GEO_TRAPS] = MeshBuilder::GenerateOBJ("Trap", "Obj/Traps.obj");
 
@@ -249,13 +251,12 @@ void SceneSP02::Init()
 
 	meshList[GEO_MOVINGBLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("World2Floor", "Obj/World2_Floor.obj");
+	//////////////////////////////////////////////////////////////////////////////////////
 
 	meshList[GEO_FALLENTRUNK] = MeshBuilder::GenerateOBJ("FallenTrunk", "Obj/FallenTrunk.obj");
 
-	meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/gate.obj");
+	meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/Gate.obj");
 
 	meshList[GEO_GIANTBLOCK] = MeshBuilder::GenerateOBJ("GiantBlock", "Obj/GiantBlock.obj");
 
@@ -273,15 +274,11 @@ void SceneSP02::Init()
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
 
-=======
-	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
->>>>>>> parent of 948e2fc... Objs movement
-=======
-	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("Blockers", "Obj/World2_Floor.obj");
->>>>>>> parent of 948e2fc... Objs movement
+	
 
-	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
-	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
+
+	/*meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");*/
+	//meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 
 	entityContainer.push_back(new Object(Vector3(0, 0, -15), false, false, 3.5, 17, 12, true, 0.0, 5000.0, "gong"));
 
@@ -361,15 +358,23 @@ void SceneSP02::Update(double dt)
 	//camera.position.z = carposz +20;
 	//camera.position.x = carposx + 70;
 
-	//camera.target.y = carposy;
-	//camera.target.z = carposz;
-	//camera.target.x = carposx;
+	/*camera.target.y = carposy;
+	camera.target.z = carposz;
+	camera.target.x = carposx;*/
 
+	camera.position.y = entityContainer.at(0)->getPosY() + 20;
+	camera.position.z = entityContainer.at(0)->getPosZ() + 20;
+	camera.position.x = entityContainer.at(0)->getPosX() + 70;
 
+	camera.target.y = entityContainer.at(0)->getPosY();
+	camera.target.z = entityContainer.at(0)->getPosZ();
+	camera.target.x = entityContainer.at(0)->getPosX();
 
-	//carspeed = 1.f;
-	//jumpheight = 2;
-	//carjumptime = 2;
+	/*entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ()*/
+
+	carspeed = 1.f;
+	jumpheight = 2;
+	carjumptime = 2;
 
 
 	for (size_t i = 0; i < entityContainer.size(); i++) {
@@ -390,50 +395,50 @@ void SceneSP02::Update(double dt)
 	//	carposz += carspeed;
 	//}
 
-	//if ((Application::IsKeyPressed('W')) && stage2 == false)
-	//{
-	//	carposy += jumpheight;
-	///*
-	//	if (jumpheight + carposy >4)
-	//		carposy = -carposy;
-	//	jumpheight += (float)(carposy * 0.1 * dt);*/
-	//	if (jumpheight > 4)
-	//		carposy = -carposy;
+	if ((Application::IsKeyPressed('W')) && stage2 == false)
+	{
+		carposy += jumpheight;
+	/*
+		if (jumpheight + carposy >4)
+			carposy = -carposy;
+		jumpheight += (float)(carposy * 0.1 * dt);*/
+		if (jumpheight > 4)
+			carposy = -carposy;
 
-	//}
-	//if ((Application::IsKeyPressed('W')) && stage2 == true)
-	//{
-	//	carposx -= carspeed;
-	//}
-	//if ((Application::IsKeyPressed('D')) && stage2 == true)
-	//{
-	//	carposz -= carspeed;
-	//}
-	//if ((Application::IsKeyPressed('A')) && stage2 == true)
-	//{
-	//	carposz += carspeed;
-	//}
+	}
+	if ((Application::IsKeyPressed('W')) && stage2 == true)
+	{
+		carposx -= carspeed;
+	}
+	if ((Application::IsKeyPressed('D')) && stage2 == true)
+	{
+		carposz -= carspeed;
+	}
+	if ((Application::IsKeyPressed('A')) && stage2 == true)
+	{
+		carposz += carspeed;
+	}
 
 
-	//if (carposz < -640)
-	//{
-	//	/*carposx -= 10;
-	//	if (carposx < -25)
-	//		carposx = -25;*/
-	//	stage2 = true;
-	//	if (stage2 = true)
-	//	{
-	//		carrot += rotatespeed;
+	if (entityContainer.at(0)->getPosZ() < -640)
+	{
+		/*carposx -= 10;
+		if (carposx < -25)
+			carposx = -25;*/
+		stage2 = true;
+		if (stage2 = true)
+		{
+			carrot += (float)rotatespeed *dt* 100;
 
-	//		if (carrot > 90)
-	//		carrot = 90;
+			if (carrot >= 90)
+				carrot = 90;
 
-	//		camera.position.y = carposy + 40;
-	//		camera.position.z = carposz;
-	//		camera.position.x = carposx + 70;
+			camera.position.y = entityContainer.at(0)->getPosY() + 40;
+			camera.position.z = entityContainer.at(0)->getPosZ() ;
+			camera.position.x = entityContainer.at(0)->getPosX() +70;
 
-	//	}
-	//}
+		}
+	}
 
 
 
@@ -550,6 +555,26 @@ void SceneSP02::RenderGameScene()
 	RenderMesh(meshList[GEO_WORLDFLOOR], true);
 	modelStack.PopMatrix();
 
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_WORLDFLOOR2], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_WORLDFLOOR3], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_WORLDFLOOR4], true);
+	modelStack.PopMatrix();
+
+
+
 
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
@@ -581,6 +606,67 @@ void SceneSP02::RenderGameScene()
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_MOVINGBLOCKS], true);
 	modelStack.PopMatrix();
+	//////////////////////////////////////////
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_FALLENTRUNK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_GATE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_GIANTBLOCK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_LEFTCLAMP], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_RIGHTCLAMP], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_LEFTMOVINGBLOCK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_RIGHTMOVINGBLOCK], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_SLOWPAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_UPDOWNBLOCKS], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_FLOATINGBLOCK], true);
+	modelStack.PopMatrix();
+
 }
 
 void SceneSP02::RenderPlayers()
@@ -778,7 +864,7 @@ void SceneSP02::Render()
 	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
 	//modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Scale(5, 5, 5);
-	RenderMesh(meshList[GEO_GONG], true);
+	//RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
 
 
