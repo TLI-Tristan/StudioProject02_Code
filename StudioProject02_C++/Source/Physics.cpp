@@ -48,16 +48,10 @@ float Physics::calFriction(float mass) {
 
 float Physics::calFinalKE(float mass, float speed) {
 
-	//car and object collision - inelastic
-
-	//TODO CHANGE LOGIC
-	
 		float finalKE;
 		finalKE = calKineticEnergy(mass, speed) /100 * 95;
 		
 		return finalKE;
-
-
 }
 
 float Physics::calFinalSpeed(float mass, float speed)

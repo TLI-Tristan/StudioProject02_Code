@@ -7,6 +7,7 @@
 #include <vector>
 #include "Physics.h"
 
+
 class Collision
 {
 public:
@@ -15,9 +16,11 @@ public:
 	bool getIsItCollidingWithFloor();
 	bool collisionCheck(std::vector <Entity*> &entityPtr);
 	bool collisionCheck(Entity& firstEntity, std::vector <Entity*> &entityPtr);
+	std::string getCollidedItemName();
 
 private:
 	bool isItCollidingWithFloor;
+	std::string collidedItemName;
 	
 
 };

@@ -11,7 +11,7 @@ public:
 	Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, float mass, std::string name);
 	void calAcceleration();
 	void calDeceleration();
-	void collisionDetector(bool isThereCollision, bool isThereImpuse);
+	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem);
 	void update(double dt);
 
 private:
@@ -28,6 +28,8 @@ private:
 	bool jumping;
 	bool collidingWithFloor;
 	bool falling;
+	bool impulseON;
+	std::string collidedItemName;
 	// pointer to revive point
 
 

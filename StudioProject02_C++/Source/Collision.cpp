@@ -4,6 +4,7 @@
 Collision::Collision()
 {
 	isItCollidingWithFloor = true;
+	collidedItemName = "\0";
 }
 
 
@@ -115,13 +116,16 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 				{
 
 					if (entityPtr.at(i)->getName() == "platform") {
+
 						isItCollidingWithFloor = true;
+						
 					}
-					
+					collidedItemName = entityPtr.at(i)->getName();
 					return true;
 				}
 
 				else if (entityPtr.at(i)->getName() == "platform") {
+
 					isItCollidingWithFloor = false;
 				}
 
@@ -132,4 +136,9 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 	}
 
 	return false;
+}
+
+std::string Collision::getCollidedItemName()
+{
+	return collidedItemName;
 }
