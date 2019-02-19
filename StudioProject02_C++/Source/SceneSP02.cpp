@@ -197,6 +197,8 @@ void SceneSP02::Init()
 
 	glUniform1i(m_parameters[U_NUMLIGHTS], 3);
 
+	rightmovement = 0;
+
 	// Get a handle for our "textColor" uniform
 	m_parameters[U_TEXT_ENABLED] = glGetUniformLocation(m_programID,
 		"textEnabled");
@@ -227,10 +229,12 @@ void SceneSP02::Init()
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
-	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");  
 	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));
 
-	meshList[GEO_OBSTACLEFALL] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
+	meshList[GEO_BLOCK1] = MeshBuilder::GenerateOBJ("car", "Obj/Block1.obj");
+
+	meshList[GEO_OBSTACLEFALL1] = MeshBuilder::GenerateOBJ("falling obstacle", "Obj/ObstacleFall.obj");
 
 	meshList[GEO_OBSTACLEBLOCKS] = MeshBuilder::GenerateOBJ("Obstacle squares", "Obj/ObstacleBlocks.obj");
 
@@ -278,10 +282,17 @@ void SceneSP02::Init()
 	/*meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");*/
 	//meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 
-	entityContainer.push_back(new Object(Vector3(0, 0, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "gong"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -37), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -87), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block2"));
+	entityContainer.push_back(new Object(Vector3(0, 15, -60), false, false, 3.5, 4, 80, Vector3(0.0, 0.0, 0.0), 5000.0, "floatingblock1"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -142), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block3"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -165), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block4"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -177), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block5"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -189), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block6"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -201), false, false, 3.5, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block7"));
 
 	meshList[GEO_PlATFORM] = MeshBuilder::GenerateOBJ("Platform", "Obj/Platform.obj");
-	entityContainer.push_back(new Object(Vector3(0, 0, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
+	entityContainer.push_back(new Object(Vector3(0, 0, -45), false, false, 0, 0, 0, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
 
 	f_fps = 0;
 
@@ -346,6 +357,11 @@ void SceneSP02::Update(double dt)
 	y = std::to_string(camera.position.y);
 	z = std::to_string(camera.position.z);
 
+	static int traps = 1;
+	if (rightmovement * traps > 10)
+		traps = -traps;
+	rightmovement += (float)(traps * 10 * dt);
+
 	//if (torchLightOn == true) {	// torch direction and position change here
 
 	//	Vector3 view = (camera.target - camera.position).Normalized();
@@ -363,13 +379,16 @@ void SceneSP02::Update(double dt)
 	camera.target.z = carposz;
 	camera.target.x = carposx;*/
 
-	camera.position.y = entityContainer.at(0)->getPosY() + 20;
+	//////////////////////////////////////
+
+
+	/*camera.position.y = entityContainer.at(0)->getPosY() + 20;
 	camera.position.z = entityContainer.at(0)->getPosZ() + 20;
 	camera.position.x = entityContainer.at(0)->getPosX() + 70;
 
 	camera.target.y = entityContainer.at(0)->getPosY();
 	camera.target.z = entityContainer.at(0)->getPosZ();
-	camera.target.x = entityContainer.at(0)->getPosX();
+	camera.target.x = entityContainer.at(0)->getPosX();*/
 
 	/*entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ()*/
 
@@ -538,28 +557,44 @@ void SceneSP02::RenderSkybox() {
 
 void SceneSP02::RenderGameScene()
 {
+	//before spike 
 	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
+	modelStack.Translate(0, 0, -37);
 	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_OBSTACLEFALL], true);
+	RenderMesh(meshList[GEO_BLOCK1], true);
 	modelStack.PopMatrix();
 
+	//afterspike
 	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
+	modelStack.Translate(0, 0, -87);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_BLOCK1], true);
+	modelStack.PopMatrix();
+
+     //first block in air 
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 15, -60);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_OBSTACLEBLOCKS], true);
 	modelStack.PopMatrix();
 
+	//jumping obstacle
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_OBSTACLEFALL1], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, -60);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_WORLDFLOOR], true);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
+	modelStack.Translate(0, 0, -295);
 	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_WORLDFLOOR2], true);
+	RenderMesh(meshList[GEO_WORLDFLOOR], true);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
@@ -673,7 +708,6 @@ void SceneSP02::RenderGameScene()
 void SceneSP02::RenderPlayers()
 {
 	modelStack.PushMatrix();
-	//modelStack.Translate(carposx, carposy, carposz);
 	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
 	modelStack.Rotate(carrot, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
@@ -861,11 +895,9 @@ void SceneSP02::Render()
 	RenderGameScene();
 
 	// for testing purposes
-	modelStack.PushMatrix();
-	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
-	//modelStack.Rotate(-90, 0, 1, 0);
+	modelStack.PushMatrix(); 
+	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ()); // first render
 	modelStack.Scale(5, 5, 5);
-	//RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
 
 	//modelStack.PushMatrix();

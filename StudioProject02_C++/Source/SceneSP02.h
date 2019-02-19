@@ -96,7 +96,8 @@ class SceneSP02 : public Scene
 		GEO_TEXT,
 		GEO_CAR,
 		GEO_GONG,
-		GEO_OBSTACLEFALL,
+		GEO_BLOCK1,
+		GEO_OBSTACLEFALL1,
 		GEO_OBSTACLEBLOCKS,
 		GEO_WORLDFLOOR,
 		GEO_WORLDFLOOR2,
@@ -143,7 +144,7 @@ public:
 	bool stage2 = false;
 	int carrot;
 	int rotatespeed = 5;
-
+	int rightmovement;
 private:
 
 	std::vector<Entity*> entityContainer;
