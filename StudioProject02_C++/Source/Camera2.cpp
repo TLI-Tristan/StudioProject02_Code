@@ -12,7 +12,7 @@ Camera2::~Camera2()
 
 
 
-bool Camera2::collision(Vector3 pos) {
+bool Camera2::collision(Vector3 pos) { //camera boundary if needed
 
 	if (pos.x > 498 || pos.x < -498 ||
 		pos.y > 148 || pos.y < -148 ||
@@ -112,10 +112,10 @@ void Camera2::Update(double dt)
 	if (Application::IsKeyPressed('W')) {
 
 		Vector3 view = (target - position).Normalized();
-		if (collision(position + view * (float)(50.f * dt))) {
+		//if (collision(position + view * (float)(50.f * dt))) {
 			position = position + view * (float)(50.f * dt);
 			target = position + view * (float)(50.f * dt);
-		}
+		//}
 
 	}
 	if (Application::IsKeyPressed('A')) {
@@ -123,20 +123,20 @@ void Camera2::Update(double dt)
 		Vector3 view = (target - position).Normalized();
 		Vector3 right = view.Cross(up);
 
-		if (collision(position - right * (float)(50.f * dt))) {
+		//if (collision(position - right * (float)(50.f * dt))) {
 			position = position - right * (float)(50.f * dt);
 			target = position + view * (float)(50.f * dt);
-		}
+		//}
 	}
 	if (Application::IsKeyPressed('S')) {
 
 	    Vector3 view = (target - position).Normalized();
 		//Vector3 right = view.Cross(up);
 
-		if (collision(position - view * (float)(50.f * dt))) {
+		//if (collision(position - view * (float)(50.f * dt))) {
 			position = position - view * (float)(50.f * dt);
 			target = position + view * (float)(50.f * dt);
-		}
+		//}
 
 	}
 	if (Application::IsKeyPressed('D')) {
@@ -144,10 +144,10 @@ void Camera2::Update(double dt)
 		Vector3 view = (target - position).Normalized();
 		Vector3 right = view.Cross(up);
 
-		if (collision(position + right * (float)(50.f * dt))) {
+		//if (collision(position + right * (float)(50.f * dt))) {
 			position = position + right * (float)(50.f * dt);
 			target = position + view * (float)(50.f * dt);
-		}
+		//}
 
 	}
 

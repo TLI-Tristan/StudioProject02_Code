@@ -557,9 +557,8 @@ void SceneSP02::RenderGameScene()
 void SceneSP02::RenderPlayers()
 {
 	modelStack.PushMatrix();
-	//modelStack.Translate(carposx, carposy, carposz);
 	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
-	modelStack.Rotate(carrot, 0, 1, 0);
+	//modelStack.Rotate(carrot, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_CAR], true);
 	modelStack.PopMatrix();
@@ -765,30 +764,6 @@ void SceneSP02::Render()
 	else {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision DETECTED", Color(220, 20, 60), 2, 1, 20);
 	}
-
-	//RenderTextOnScreen(meshList[GEO_TEXT], "X0: ", Color(220, 20, 60), 2, 1, 10);
-	//std::string test = std::to_string(entityContainer.at(0)->getLowestX());
-	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 10);
-
-	//RenderTextOnScreen(meshList[GEO_TEXT], "Y0: ", Color(220, 20, 60), 2, 1, 9);
-	//test = std::to_string(entityContainer.at(0)->getLowestY());
-	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 9);
-
-	//RenderTextOnScreen(meshList[GEO_TEXT], "Z0: ", Color(220, 20, 60), 2, 1, 8);
-	//test = std::to_string(entityContainer.at(0)->getLowestZ());
-	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 8);
-
-	//RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 1, 7);
-	//test = std::to_string(entityContainer.at(1)->getLowestX());
-	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 7);
-
-	//RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 1, 6);
-	//test = std::to_string(entityContainer.at(1)->getLowestY());
-	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 6);
-
-	//RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 1, 5);
-	//test = std::to_string(entityContainer.at(1)->getLowestZ());
-	//RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 5);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "DT: ", Color(220, 20, 60), 2, 1, 11);
 	std::string delta = std::to_string(dt);
