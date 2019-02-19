@@ -143,7 +143,6 @@ private:
 	unsigned m_programID;
 	unsigned m_parameters[U_TOTAL];
 	void RenderSkybox();
-	void RenderGameScene();
 	void RenderGamePlatformPart01();
 	void RenderGamePlatformPart02();
 	void RenderPart01Objects();

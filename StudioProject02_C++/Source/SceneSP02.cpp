@@ -272,10 +272,10 @@ void SceneSP02::Init()
 
 
 
-	/*meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");*/
-	//meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
+	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
+	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 
-	entityContainer.push_back(new Object(Vector3(0, -20, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
+	entityContainer.push_back(new Object(Vector3(0, -20, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "gong"));
 
 	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("Platform", "Obj/Platform.obj");
 	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 34, 1, 34, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
@@ -450,15 +450,6 @@ void SceneSP02::RenderSkybox() {
 	RenderMesh(meshList[GEO_BACK], true);
 	modelStack.PopMatrix();
 
-
-}
-
-void SceneSP02::RenderGameScene()
-{
-
-	
-	//////////////////////////////////////////
-	
 
 }
 
@@ -803,18 +794,19 @@ void SceneSP02::Render()
 
 	//RenderSkybox();
 	RenderPlayers();
-	RenderGamePlatformPart01();
-	eRenderGamePlatformPart02();
-	RenderPart01Objects();
-	RenderPart02Objects();
-	RenderGameScene();
+	//RenderGamePlatformPart01();
+	//RenderGamePlatformPart02();
+	//RenderPart01Objects();
+	//RenderPart02Objects();
+	
+
+
 
 	// for testing purposes
 	modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
-	//modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Scale(5, 5, 5);
-	//RenderMesh(meshList[GEO_GONG], true);
+	RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();

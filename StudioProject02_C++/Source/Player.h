@@ -21,7 +21,8 @@ private:
 	Vector3 acceleration; // ms^-2 //need to decide myself
 	Vector3 deceleration;
 	Vector3 direction;
-	bool changeCamera;
+	bool part2CheckpointReached;
+	bool cameraChanged;
 	bool ghostMode;
 	bool collided;
 	bool impulseDone;
@@ -29,8 +30,8 @@ private:
 	bool collidingWithFloor;
 	bool falling;
 	bool impulseON;
+	bool jumpingDisabled;
 	std::string collidedItemName;
-	// pointer to revive point
 
 
 };

@@ -15,8 +15,7 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->jumpForce = 10000;
 	speed = (0.0, 0.0, 0.0);
 	acceleration = (0.0, 0.0, 0.0);
-	deceleration = (0.0, 0.0, 0.0);
-	changeCamera = false;
+	deceleration = (0.0, 0.0, 0.0);;
 	ghostMode = true;
 	isItPlayer = true;
 	this->name = name;
@@ -27,7 +26,9 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->collidingWithFloor = true;
 	this->falling = true;
 	this->impulseON = false;
-	
+	this->part2CheckpointReached = false;
+	this->cameraChanged = false;
+	this->jumpingDisabled = true;
 }
 
 Player::Player() {
@@ -53,16 +54,10 @@ void Player::calDeceleration() {
 	deceleration.y = (c_Physics.calWeight(this->mass) / this->mass);
 }
 
-//void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor)
-//{
-//	collided = isThereCollision;
-//	this->collidingWithFloor = isItCollidingWithFloor;
-//}
-
 void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem)
 {
 	collided = isThereCollision;
-	//this->collidingWithFloor = isItCollidingWithFloor;
+	this->collidingWithFloor = isItCollidingWithFloor;
 	this->collidingWithFloor = true;
 	this->collidedItemName = collidedItem;
 }
@@ -72,7 +67,8 @@ void Player::update(double dt)
 
 	if (name == "player01") {
 
-		if (impulseON == true) {
+		if (jumpingDisabled == true) {
+
 			if (collided == true && collidedItemName != "platform") {
 
 
@@ -156,7 +152,7 @@ void Player::update(double dt)
 				movingObj = true;
 			}
 
-			if (Application::IsKeyPressed(VK_SPACE) && jumping == false && collidingWithFloor == true)
+			if (Application::IsKeyPressed(VK_SPACE) && jumping == false && collidingWithFloor == true && jumpingDisabled == false)
 			{
 				jumping = true;
 				direction.y = 1;
