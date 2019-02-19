@@ -58,7 +58,6 @@ void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloo
 {
 	collided = isThereCollision;
 	this->collidingWithFloor = isItCollidingWithFloor;
-	this->collidingWithFloor = true;
 	this->collidedItemName = collidedItem;
 }
 
