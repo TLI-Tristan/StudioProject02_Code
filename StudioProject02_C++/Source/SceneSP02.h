@@ -144,6 +144,10 @@ private:
 	unsigned m_parameters[U_TOTAL];
 	void RenderSkybox();
 	void RenderGameScene();
+	void RenderGamePlatformPart01();
+	void RenderGamePlatformPart02();
+	void RenderPart01Objects();
+	void RenderPart02Objects();
 	void RenderPlayers();
 	void RenderText(Mesh* mesh, std::string text, Color color);
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);

@@ -455,28 +455,33 @@ void SceneSP02::RenderSkybox() {
 
 void SceneSP02::RenderGameScene()
 {
-	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_OBSTACLEFALL], true);
-	modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_OBSTACLEBLOCKS], true);
-	modelStack.PopMatrix();
+	
+	//////////////////////////////////////////
+	
 
+}
+
+void SceneSP02::RenderGamePlatformPart01() {
+
+	
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_WORLDFLOOR], true);
 	modelStack.PopMatrix();
 
+
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_WORLDFLOOR2], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_OBSTACLEFALL], true);
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
@@ -493,6 +498,30 @@ void SceneSP02::RenderGameScene()
 
 
 
+}
+
+void SceneSP02::RenderGamePlatformPart02() {
+
+
+
+	
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_WORLD2FLOOR], true);
+	modelStack.PopMatrix();
+	
+
+
+}
+
+void SceneSP02::RenderPart01Objects() {
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_OBSTACLEBLOCKS], true);
+	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
@@ -507,24 +536,24 @@ void SceneSP02::RenderGameScene()
 	RenderMesh(meshList[GEO_BRIDGE], true);
 	modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_BLOCKS], true);
-	modelStack.PopMatrix();
+	
+}
 
-	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_WORLD2FLOOR], true);
-	modelStack.PopMatrix();
+void SceneSP02::RenderPart02Objects() {
+
 
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_MOVINGBLOCKS], true);
 	modelStack.PopMatrix();
-	//////////////////////////////////////////
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0, 0, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_BLOCKS], true);
+	modelStack.PopMatrix();
+
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
@@ -584,8 +613,8 @@ void SceneSP02::RenderGameScene()
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_FLOATINGBLOCK], true);
 	modelStack.PopMatrix();
-
 }
+
 
 void SceneSP02::RenderPlayers()
 {
@@ -774,6 +803,10 @@ void SceneSP02::Render()
 
 	//RenderSkybox();
 	RenderPlayers();
+	RenderGamePlatformPart01();
+	eRenderGamePlatformPart02();
+	RenderPart01Objects();
+	RenderPart02Objects();
 	RenderGameScene();
 
 	// for testing purposes

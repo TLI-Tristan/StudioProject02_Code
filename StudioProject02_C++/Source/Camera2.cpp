@@ -6,7 +6,7 @@
 Camera2::Camera2()
 {
 
-	lockCamera = true;
+	lockCamera = false;
 	
 }
 
