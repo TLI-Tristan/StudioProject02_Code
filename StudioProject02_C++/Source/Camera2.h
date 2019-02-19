@@ -2,6 +2,9 @@
 #define CAMERA_2_H
 
 #include "Camera.h"
+#include "Entity.h"
+#include "Player.h"
+#include "Object.h"
 
 class Camera2 : public Camera
 {
@@ -17,9 +20,12 @@ public:
 	Camera2();
 	~Camera2();
 	virtual void Init(const Vector3& pos, const Vector3& target, const Vector3& up);
-	virtual void Update(double dt);
+	virtual void Update(double dt, Entity* player01);
 	virtual void Reset();
 	virtual bool collision(Vector3 pos);
+
+private:
+	bool lockCamera;
 };
 
 #endif

@@ -6,9 +6,6 @@
 #include "Application.h"
 #include "Utility.h"
 #include "LoadTGA.h"
-#include "Entity.h"
-#include "Object.h"
-#include "Player.h"
 #include "Collision.h"
 
 SceneSP02::SceneSP02()
@@ -29,7 +26,6 @@ void SceneSP02::Init()
 	glEnable(GL_CULL_FACE);
 
 	/*camera.Init(Vector3(10, 10, 30), Vector3(0, 0, 0), Vector3(0, 1, 0));*/
-	carrot = 0;
 
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
@@ -289,7 +285,6 @@ void SceneSP02::Init()
 	x = "/0";
 	y = "/0";
 	z = "/0";
-	translateX = 0.0;
 	collisionDetected = false;
 	delay = 0.0;
 }
@@ -356,29 +351,6 @@ void SceneSP02::Update(double dt)
 
 	//}
 
-	//camera.position.y = carposy + 20;
-	//camera.position.z = carposz +20;
-	//camera.position.x = carposx + 70;
-
-	/*camera.target.y = carposy;
-	camera.target.z = carposz;
-	camera.target.x = carposx;*/
-
-	camera.position.y = entityContainer.at(0)->getPosY() + 20;
-	camera.position.z = entityContainer.at(0)->getPosZ() + 20;
-	camera.position.x = entityContainer.at(0)->getPosX() + 70;
-
-	camera.target.y = entityContainer.at(0)->getPosY();
-	camera.target.z = entityContainer.at(0)->getPosZ();
-	camera.target.x = entityContainer.at(0)->getPosX();
-
-	/*entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ()*/
-
-	carspeed = 1.f;
-	jumpheight = 2;
-	carjumptime = 2;
-
-
 	for (size_t i = 0; i < entityContainer.size(); i++) {
 
 		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.getIsItCollidingWithFloor(), collisionChecker.getCollidedItemName());
@@ -388,65 +360,7 @@ void SceneSP02::Update(double dt)
 
 	collisionDetected = collisionChecker.collisionCheck(entityContainer);
 
-
-	//if ((Application::IsKeyPressed('Q')) && stage2 == false )
-	//{
-	//	carposz -= carspeed;
-	//}
-
-	//if ((Application::IsKeyPressed('E')) && stage2 == false)
-	//{
-	//	carposz += carspeed;
-	//}
-
-	if ((Application::IsKeyPressed('W')) && stage2 == false)
-	{
-		carposy += jumpheight;
-	/*
-		if (jumpheight + carposy >4)
-			carposy = -carposy;
-		jumpheight += (float)(carposy * 0.1 * dt);*/
-		if (jumpheight > 4)
-			carposy = -carposy;
-
-	}
-	if ((Application::IsKeyPressed('W')) && stage2 == true)
-	{
-		carposx -= carspeed;
-	}
-	if ((Application::IsKeyPressed('D')) && stage2 == true)
-	{
-		carposz -= carspeed;
-	}
-	if ((Application::IsKeyPressed('A')) && stage2 == true)
-	{
-		carposz += carspeed;
-	}
-
-
-	if (entityContainer.at(0)->getPosZ() < -640)
-	{
-		/*carposx -= 10;
-		if (carposx < -25)
-			carposx = -25;*/
-		stage2 = true;
-		if (stage2 = true)
-		{
-			carrot += (float)rotatespeed *dt* 100;
-
-			if (carrot >= 90)
-				carrot = 90;
-
-			camera.position.y = entityContainer.at(0)->getPosY() + 40;
-			camera.position.z = entityContainer.at(0)->getPosZ() ;
-			camera.position.x = entityContainer.at(0)->getPosX() +70;
-
-		}
-	}
-
-
-
-	camera.Update(dt);
+	camera.Update(dt, entityContainer.at(0));
 
 }
 
@@ -858,9 +772,9 @@ void SceneSP02::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
 
-	RenderSkybox();
+	//RenderSkybox();
 	RenderPlayers();
-	//RenderGameScene();
+	RenderGameScene();
 
 	// for testing purposes
 	modelStack.PushMatrix();

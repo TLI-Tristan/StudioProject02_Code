@@ -9,9 +9,11 @@
 #include "Light.h"
 #include <string>
 #include <vector>
-#include "Entity.h"
 #include <iostream>
 #include "Collision.h"
+#include "Entity.h"
+#include "Object.h"
+#include "Player.h"
 
 class SceneSP02 : public Scene
 {
@@ -132,17 +134,6 @@ public:
 	virtual void Update(double dt);
 	virtual void Render();
 	virtual void Exit();
-
-	float carspeed;
-	double carposz = 0;
-	double carposy = 0;
-	double carposx = 0;
-	float translateX;
-	float jumpheight;
-	float carjumptime;
-	bool stage2 = false;
-	int carrot;
-	int rotatespeed = 5;
 
 private:
 
