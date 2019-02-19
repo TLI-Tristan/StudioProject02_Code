@@ -269,9 +269,6 @@ void SceneSP02::Init()
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
 
-
-
-
 	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
 	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 
@@ -492,17 +489,12 @@ void SceneSP02::RenderGamePlatformPart01() {
 }
 
 void SceneSP02::RenderGamePlatformPart02() {
-
-
-
 	
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_WORLD2FLOOR], true);
 	modelStack.PopMatrix();
-	
-
 
 }
 
