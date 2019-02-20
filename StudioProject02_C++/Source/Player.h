@@ -26,11 +26,10 @@ private:
 	bool ghostMode;
 	bool collided;
 	bool impulseDone;
-	bool jumping;
 	bool collidingWithFloor;
 	bool falling;
 	bool impulseON;
-	bool jumpingDisabled;
+
 	std::string collidedItemName;
 
 
