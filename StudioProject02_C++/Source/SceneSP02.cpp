@@ -272,10 +272,10 @@ void SceneSP02::Init()
 	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
 	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 
-	entityContainer.push_back(new Object(Vector3(0, -20, -15), false, false, 3.5, 17, 12, Vector3(0.0, 0.0, 0.0), 5000.0, "gong"));
+	entityContainer.push_back(new Object(Vector3(0, -20, -15), true, true, 3.5, 17, 12, Vector3(100, 0.0, 0.0), 5000.0, Vector3(1, 0, 0), "gong_trap"));
 
 	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("Platform", "Obj/Platform.obj");
-	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 34, 1, 34, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));
+	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 34, 1, 34, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(1, 0, 0), "platform"));
 
 	f_fps = 0;
 

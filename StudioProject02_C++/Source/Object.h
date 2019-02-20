@@ -6,10 +6,13 @@ class Object : public Entity
 {
 public:
 	Object();
-	Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, Vector3 speed, float mass, std::string name);
+	Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, Vector3 speed, float mass, const Vector3& dir, std::string name);
 	~Object();
 	void update(double dt);
 	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem);
+
+private:
+	Vector3 direction;
 
 };
 

@@ -55,7 +55,7 @@ void Player::calDeceleration() {
 
 void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem)
 {
-	collided = isThereCollision;
+	collided = false;
 	this->collidingWithFloor = isItCollidingWithFloor;
 	this->collidedItemName = collidedItem;
 }

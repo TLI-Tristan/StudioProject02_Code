@@ -6,7 +6,7 @@ Object::Object()
 {
 }
 
-Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, Vector3 speed, float mass, std::string name)
+Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rangeX, float rangeY, float rangeZ, Vector3 speed, float mass, const Vector3& dir, std::string name)
 {
 	this->position = pos;
 	this->movingObj = isItMoving;
@@ -18,6 +18,7 @@ Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rang
 	this->mass = mass;
 	isItPlayer = false;
 	this->name = name;
+	this->direction = dir;
 }
 
 
@@ -28,19 +29,31 @@ Object::~Object()
 
 void Object::update(double dt)
 {
-	if (name == "gong") {
+	if (name == "gong_trap") {
 
-		if (Application::IsKeyPressed('Q'))
+		/*if (position.x <= -60)
 		{
-			position.x -= 100.0 * dt;
+			direction.x = 1;
 		}
 
-		if (Application::IsKeyPressed('E'))
+		if (position.x >= 60)
 		{
-			position.x += 100.0 * dt;
+			direction.x = -1;
+		}
+
+		position.x += speed.x * dt* direction.x;*/
+		if (Application::IsKeyPressed('Q')) {
+			position.x -= 100 * dt;
+		}
+		if (Application::IsKeyPressed('E')) {
+			position.x += 100 * dt;
 		}
 
 	}
+
+
+
+
 
 	
 
