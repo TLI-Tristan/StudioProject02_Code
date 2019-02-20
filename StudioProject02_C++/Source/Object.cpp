@@ -31,7 +31,7 @@ void Object::update(double dt)
 {
 	if (name == "gong_trap") {
 
-		/*if (position.x <= -60)
+		if (position.x <= -60)
 		{
 			direction.x = 1;
 		}
@@ -41,7 +41,8 @@ void Object::update(double dt)
 			direction.x = -1;
 		}
 
-		position.x += speed.x * dt* direction.x;*/
+		position.x += speed.x * dt* direction.x;
+
 		if (Application::IsKeyPressed('Q')) {
 			position.x -= 100 * dt;
 		}
@@ -59,6 +60,6 @@ void Object::update(double dt)
 
 }
 
-void Object::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem, Entity* collidiedItem2)
+void Object::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidiedItem)
 {
 }

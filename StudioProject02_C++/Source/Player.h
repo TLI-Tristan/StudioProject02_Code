@@ -11,7 +11,7 @@ public:
 	Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, float mass, std::string name);
 	void calAcceleration();
 	void calDeceleration();
-	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem, Entity* collidiedItem2);
+	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidiedItem);
 	void update(double dt);
 
 private:
@@ -20,7 +20,6 @@ private:
 	float jumpForce;
 	Vector3 acceleration; // ms^-2 //need to decide myself
 	Vector3 deceleration;
-	Vector3 direction;
 	bool part2CheckpointReached;
 	bool cameraChanged;
 	bool ghostMode;
@@ -29,8 +28,7 @@ private:
 	bool collidingWithFloor;
 	bool falling;
 
-	std::string collidedItemName;
-	Entity* collidiedItem2;
+	Entity* collidiedItem;
 
 
 };
