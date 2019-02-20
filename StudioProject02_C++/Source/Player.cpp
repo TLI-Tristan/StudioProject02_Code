@@ -24,9 +24,9 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	calDeceleration();
 	this->collidingWithFloor = true;
 	this->falling = true;
-	this->impulseON = false;
 	this->part2CheckpointReached = false;
 	this->cameraChanged = false;
+	this->collidiedItem2 = nullptr;
 
 }
 
@@ -53,11 +53,12 @@ void Player::calDeceleration() {
 	deceleration.y = (c_Physics.calWeight(this->mass) / this->mass);
 }
 
-void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem)
+void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem, Entity* collidedItem2)
 {
-	collided = false;
+	collided = isThereCollision;
 	this->collidingWithFloor = isItCollidingWithFloor;
 	this->collidedItemName = collidedItem;
+	this->collidiedItem2 = collidedItem2;
 }
 
 void Player::update(double dt)
@@ -66,12 +67,19 @@ void Player::update(double dt)
 	if (name == "player01") {
 
 
-			if (collided == true && collidedItemName != "platform") {
+			if (collided == true && collidiedItem2 != nullptr) {
 
+				if (collidiedItem2->getName() != "platform") {
 
-				speed.z = c_Physics.calFinalSpeed(mass, speed.z);
-				impulseDone = false;
+					if (collidiedItem2->getAbletoMove() == true) {
 
+						speed.z = c_Physics.calFinalSpeed(mass, speed.z);
+						//direction.z *= -1;
+						//speed.z *= direction.z;
+						impulseDone = false;
+					}
+
+				}
 
 			}
 
@@ -87,10 +95,11 @@ void Player::update(double dt)
 				if (speed.z > 0.0) {
 
 					speed.z -= deceleration.z * dt;
+
 				}
 				else if (speed.z < 0.0) {
 
-					speed.z += deceleration.z * dt;
+					speed.z += deceleration.z * dt;  
 				}
 
 				position.z += speed.z;

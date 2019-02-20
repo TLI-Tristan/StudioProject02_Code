@@ -17,10 +17,13 @@ public:
 	bool collisionCheck(std::vector <Entity*> &entityPtr);
 	bool collisionCheck(Entity& firstEntity, std::vector <Entity*> &entityPtr);
 	std::string getCollidedItemName();
+	Entity* getCollidiedItem();
+
 
 private:
 	bool isItCollidingWithFloor;
 	std::string collidedItemName;
+	Entity* collidiedItem;
 	
 
 };

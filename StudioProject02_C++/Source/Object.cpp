@@ -59,6 +59,6 @@ void Object::update(double dt)
 
 }
 
-void Object::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem)
+void Object::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, std::string collidedItem, Entity* collidiedItem2)
 {
 }

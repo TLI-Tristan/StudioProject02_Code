@@ -350,7 +350,7 @@ void SceneSP02::Update(double dt)
 
 	for (size_t i = 0; i < entityContainer.size(); i++) {
 
-		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.getIsItCollidingWithFloor(), collisionChecker.getCollidedItemName());
+		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.getIsItCollidingWithFloor(), collisionChecker.getCollidedItemName(), collisionChecker.getCollidiedItem());
 		entityContainer.at(i)->update(dt);
 
 	}

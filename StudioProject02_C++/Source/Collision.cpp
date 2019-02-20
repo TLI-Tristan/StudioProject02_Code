@@ -5,6 +5,7 @@ Collision::Collision()
 {
 	isItCollidingWithFloor = true;
 	collidedItemName = "\0";
+	collidiedItem = nullptr;
 }
 
 
@@ -83,8 +84,14 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 						((entityPtr.at(i)->getHeighestZ() >= entityPtr.at(p)->getLowestZ()) &&
 						(entityPtr.at(i)->getLowestZ() <= entityPtr.at(p)->getHeighestZ())))
 					{
-						
-						return true;
+						if (entityPtr.at(p)->getName() == "platform") {
+
+							return false;
+						}
+						else {
+							return true;
+
+						}
 					}
 
 
@@ -121,6 +128,10 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 						
 					}
 					collidedItemName = entityPtr.at(i)->getName();
+					collidiedItem = new Object();
+
+					collidiedItem = entityPtr.at(i);
+
 					return true;
 				}
 
@@ -142,3 +153,9 @@ std::string Collision::getCollidedItemName()
 {
 	return collidedItemName;
 }
+
+Entity* Collision::getCollidiedItem() {
+
+	return collidiedItem;
+}
+

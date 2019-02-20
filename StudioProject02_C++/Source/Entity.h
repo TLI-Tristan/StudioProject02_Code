@@ -38,7 +38,7 @@ public:
 	float getLowestZ();
 
 	virtual void update(double dt) = 0;
-	virtual void collisionDetector(bool isThereCollision, bool isItCollidingWithTheFloor, std::string collidedItem) = 0;
+	virtual void collisionDetector(bool isThereCollision, bool isItCollidingWithTheFloor, std::string collidedItem, Entity* collidiedItem2) = 0;
 	bool getIsItPlayer();
 	std::string getName();
 	Physics c_Physics;
