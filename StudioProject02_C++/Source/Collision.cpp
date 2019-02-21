@@ -84,13 +84,9 @@ bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 						((entityPtr.at(i)->getHeighestZ() >= entityPtr.at(p)->getLowestZ()) &&
 						(entityPtr.at(i)->getLowestZ() <= entityPtr.at(p)->getHeighestZ())))
 					{
-						if (entityPtr.at(p)->getName() == "platform") {
+						if (entityPtr.at(p)->getName() != "platform") {
 
-							return false;
-						}
-						else {
 							return true;
-
 						}
 					}
 

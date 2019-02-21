@@ -272,10 +272,16 @@ void SceneSP02::Init()
 	meshList[GEO_GONG] = MeshBuilder::GenerateOBJ("Gong", "Obj/gong.obj");
 	meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga",false);
 
-	entityContainer.push_back(new Object(Vector3(0, -20, -15), true, false, 3.5, 17, 12, Vector3(100, 0.0, 0.0), 5.0, Vector3(1, 0, 0), "gong_trap"));
+	entityContainer.push_back(new Object(Vector3(0, -20, 30), true, false, 3.5, 17, 12, Vector3(100, 0.0, 0.0), 5.0, Vector3(1, 0, 0), "gong_trap"));
+
+	//entityContainer.push_back(new Object(Vector3(0, -20, -15), true, false, 3.5, 17, 12, Vector3(0.0, 0.0, 50), 5.0, Vector3(0, 0, 1), "gong_trap2"));
 
 	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("Platform", "Obj/Platform.obj");
 	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 34, 1, 34, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(1, 0, 0), "platform"));
+	
+	meshList[GEO_CUBE] = MeshBuilder::GenerateOBJ("Cube", "Obj/cube.obj");
+	entityContainer.push_back(new Object(Vector3(0,  0, 10), false, false, 10, 10, 10, Vector3(0.0, 0.0, 0.0), 5.0, Vector3(0, 0, 0), "cube"));
+
 
 	f_fps = 0;
 
@@ -801,11 +807,22 @@ void SceneSP02::Render()
 	RenderMesh(meshList[GEO_GONG], true);
 	modelStack.PopMatrix();
 
+	//modelStack.PushMatrix();
+	//modelStack.Translate(entityContainer.at(2)->getPosX(), entityContainer.at(2)->getPosY(), entityContainer.at(2)->getPosZ());
+	//modelStack.Scale(5, 5, 5);
+	//RenderMesh(meshList[GEO_GONG], true);
+	//modelStack.PopMatrix();
+
 	modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(2)->getPosX(), entityContainer.at(2)->getPosY(), entityContainer.at(2)->getPosZ());
-	modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Scale(20, 20, 20);
 	RenderMesh(meshList[GEO_PLATFORM], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(3)->getPosX(), entityContainer.at(3)->getPosY(), entityContainer.at(3)->getPosZ());
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_CUBE], true);
 	modelStack.PopMatrix();
 
 	if (collisionDetected == false) {
@@ -832,15 +849,15 @@ void SceneSP02::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 8);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 1, 7);
-	test = std::to_string(entityContainer.at(1)->getHeighestX());
+	test = std::to_string(entityContainer.at(3)->getHeighestX());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 7);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 1, 6);
-	test = std::to_string(entityContainer.at(1)->getHeighestY());
+	test = std::to_string(entityContainer.at(3)->getHeighestY());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 6);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 1, 5);
-	test = std::to_string(entityContainer.at(1)->getHeighestZ());
+	test = std::to_string(entityContainer.at(3)->getHeighestZ());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 5);
 	//////////////////////////////////////
 
@@ -857,15 +874,15 @@ void SceneSP02::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 8);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 16, 7);
-	test = std::to_string(entityContainer.at(1)->getLowestX());
+	test = std::to_string(entityContainer.at(3)->getLowestX());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 7);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 16, 6);
-	test = std::to_string(entityContainer.at(1)->getLowestY());
+	test = std::to_string(entityContainer.at(3)->getLowestY());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 6);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 16, 5);
-	test = std::to_string(entityContainer.at(1)->getLowestZ());
+	test = std::to_string(entityContainer.at(3)->getLowestZ());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 5);
 
 

@@ -228,8 +228,9 @@ void Player::update(double dt)
 				movingObj = true;
 			}
 
-			if (!Application::IsKeyPressed('Z') &&
-				!Application::IsKeyPressed('X')) {
+			if ((!Application::IsKeyPressed('Z') &&
+				!Application::IsKeyPressed('X')) ||
+				(speed.z < -0.8) || (speed.z > 0.8)) {
 
 				direction = (0, 0, 0);
 				if (speed.z > -0.05 && speed.z < 0.05) {

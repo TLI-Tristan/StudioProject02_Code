@@ -43,14 +43,58 @@ void Object::update(double dt)
 
 		position.x += speed.x * dt* direction.x;
 
-		if (Application::IsKeyPressed('Q')) {
-			position.x -= 100 * dt;
+		
+
+	}
+
+	if (name == "cube") {
+
+		/*if (position.z <= -60)
+		{
+			direction.z = 1;
 		}
-		if (Application::IsKeyPressed('E')) {
-			position.x += 100 * dt;
+
+		if (position.z >= -20)
+		{
+			direction.z = -1;
+		}
+
+		position.z += speed.z * dt* direction.z;*/
+
+
+		if (Application::IsKeyPressed('U')) {
+
+			position.y += 50 * dt;
+
+		}
+		if (Application::IsKeyPressed('J')) {
+
+			position.y -= 50 * dt;
+
+		}
+		if (Application::IsKeyPressed('T')) {
+
+			position.x += 50 * dt;
+
+		}
+		if (Application::IsKeyPressed('G')) {
+
+			position.x -= 50 * dt;
+
+		}
+		if (Application::IsKeyPressed('H')) {
+
+			position.z += 50 * dt;
+
+		}
+		if (Application::IsKeyPressed('F')) {
+
+			position.z -= 50 * dt;
+
 		}
 
 	}
+
 
 
 
