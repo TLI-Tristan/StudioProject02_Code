@@ -227,10 +227,10 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Player(Vector3(0, 0, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));//0
 
 
-	
+
 	//entityContainer.push_back(new Object(Vector3(0, 0, -37), false, false, 3.5, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block")); //1
 	//entityContainer.push_back(new Object(Vector3(0, 0, -87), false, false, 3.5, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block")); //2
-	
+
 
 	meshList[GEO_OBSTACLEBLOCKS] = MeshBuilder::GenerateOBJ("Obstacle squares", "Obj/ObstacleBlocks.obj");
 	//entityContainer.push_back(new Object(Vector3(0, 15, -62), false, false, 3.5, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "block")); //3
@@ -243,9 +243,9 @@ void SceneSP02::Init()
 
 	meshList[GEO_TRAPS] = MeshBuilder::GenerateOBJ("Trap", "Obj/Traps.obj");
 
-	
+
 ///////////////////////////////////////////////////////////////////////////////////////
-	
+
 	meshList[GEO_NEW2DWORLD] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/new2dworld.obj");
 	entityContainer.push_back(new Object(Vector3(0, -4.2, -265), false, false, 3.5, 3, 390, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));//1
 
@@ -299,7 +299,7 @@ void SceneSP02::Init()
 	meshList[GEO_LEFTMOVINGBLOCK]->textureID = LoadTGA("Image//car.tga");
 	entityContainer.push_back(new Object(Vector3(-280, 0, -650), false, false, 4,5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//31
 	entityContainer.push_back(new Object(Vector3(-280, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//32
-	entityContainer.push_back(new Object(Vector3(-280, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//33	
+	entityContainer.push_back(new Object(Vector3(-280, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//33
 	entityContainer.push_back(new Object(Vector3(-280, 0, -860), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//34
 	entityContainer.push_back(new Object(Vector3(-280, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//35
 
@@ -311,7 +311,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-320, 0, -860), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//39
 	entityContainer.push_back(new Object(Vector3(-320, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//40
 
-	
+
 
 	/*meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/Gate.obj");*/
 
@@ -320,7 +320,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-495, -3, -766), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//42
 	entityContainer.push_back(new Object(Vector3(-495, -3, -849), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//43
 	entityContainer.push_back(new Object(Vector3(-495, -3, -933), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//44
-	
+
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
 	entityContainer.push_back(new Object(Vector3(-555, -3, -889), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));//45
@@ -331,16 +331,16 @@ void SceneSP02::Init()
     entityContainer.push_back(new Object(Vector3(-1000, -4.2, -805), false, false, 500, 3, 150, Vector3(0.0, 0.0, 0.0), 5000.0, "platform"));//48
 
 	//meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
-	
+
 	entityContainer.push_back(new Object(Vector3(-650, 0, -650), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//49
 	entityContainer.push_back(new Object(Vector3(-650, 0, -720), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//50
-	entityContainer.push_back(new Object(Vector3(-650, 0, -790), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//51	
+	entityContainer.push_back(new Object(Vector3(-650, 0, -790), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//51
 	entityContainer.push_back(new Object(Vector3(-650, 0, -860), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//52
 	entityContainer.push_back(new Object(Vector3(-650, 0, -930), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//53
 	//right
 	entityContainer.push_back(new Object(Vector3(-690, 0, -660), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//54
 	entityContainer.push_back(new Object(Vector3(-690, 0, -730), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//55
-	entityContainer.push_back(new Object(Vector3(-690, 0, -800), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//56	
+	entityContainer.push_back(new Object(Vector3(-690, 0, -800), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//56
 	entityContainer.push_back(new Object(Vector3(-690, 0, -870), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//57
 	entityContainer.push_back(new Object(Vector3(-690, 0, -940), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, "block"));//58
 
@@ -366,7 +366,7 @@ void SceneSP02::Init()
 
 	meshList[GEO_SLOWPAD] = MeshBuilder::GenerateOBJ("SlowPad", "Obj/SlowPad.obj");
 
-	
+
 
 
 	f_fps = 0;
@@ -442,7 +442,7 @@ void SceneSP02::Update(double dt)
 
 	for (size_t i = 0; i < entityContainer.size(); i++) {
 
-		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.getIsItCollidingWithFloor(), collisionChecker.getCollidedItemName());
+		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.getIsItCollidingWithFloor(), collisionChecker.getCollidiedItem());
 		entityContainer.at(i)->update(dt);
 
 	}
@@ -544,7 +544,7 @@ void SceneSP02::RenderSkybox() {
 
 void SceneSP02::RenderGamePlatformPart01() {
 
-	
+
 	modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
 	modelStack.Scale(10, 10, 10);
@@ -588,8 +588,6 @@ void SceneSP02::RenderGamePlatformPart02() {
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_WORLD2FLOOR], true);
 	modelStack.PopMatrix();
-	
-
 
 }
 
@@ -737,7 +735,7 @@ void SceneSP02::RenderPart01Objects() {
 	//modelStack.PopMatrix();
 
 
-	
+
 }
 
 void SceneSP02::RenderPart02Objects() {
@@ -1012,7 +1010,7 @@ void SceneSP02::RenderPart02Objects() {
 	//RenderMesh(meshList[GEO_GATE], true);
 	//modelStack.PopMatrix();
 
-	
+
 
 	modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(59)->getPosX(), entityContainer.at(59)->getPosY(), entityContainer.at(59)->getPosZ());
@@ -1084,7 +1082,7 @@ void SceneSP02::RenderPart02Objects() {
 	RenderMesh(meshList[GEO_FALLENTRUNK], true);
 	modelStack.PopMatrix();
 
-	
+
 
 	/*modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
@@ -1098,9 +1096,9 @@ void SceneSP02::RenderPart02Objects() {
 	RenderMesh(meshList[GEO_SLOWPAD], true);
 	modelStack.PopMatrix();
 
-	
 
-	
+
+
 }
 
 
@@ -1295,7 +1293,7 @@ void SceneSP02::Render()
     RenderGamePlatformPart02();
 	RenderPart01Objects();
 	RenderPart02Objects();
-	
+
 
 
 
@@ -1308,10 +1306,15 @@ void SceneSP02::Render()
 */
 	/*modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(2)->getPosX(), entityContainer.at(2)->getPosY(), entityContainer.at(2)->getPosZ());
-	modelStack.Rotate(-90, 0, 1, 0);
 	modelStack.Scale(20, 20, 20);
 	RenderMesh(meshList[GEO_PLATFORM], true);
 	modelStack.PopMatrix();*/
+
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(3)->getPosX(), entityContainer.at(3)->getPosY(), entityContainer.at(3)->getPosZ());
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_CUBE], true);
+	modelStack.PopMatrix();
 
 	if (collisionDetected == false) {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);
@@ -1337,15 +1340,15 @@ void SceneSP02::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 8);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 1, 7);
-	test = std::to_string(entityContainer.at(1)->getHeighestX());
+	test = std::to_string(entityContainer.at(3)->getHeighestX());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 7);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 1, 6);
-	test = std::to_string(entityContainer.at(1)->getHeighestY());
+	test = std::to_string(entityContainer.at(3)->getHeighestY());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 6);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 1, 5);
-	test = std::to_string(entityContainer.at(1)->getHeighestZ());
+	test = std::to_string(entityContainer.at(3)->getHeighestZ());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 5, 5);
 	//////////////////////////////////////
 
@@ -1362,15 +1365,15 @@ void SceneSP02::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 8);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "X1: ", Color(220, 20, 60), 2, 16, 7);
-	test = std::to_string(entityContainer.at(1)->getLowestX());
+	test = std::to_string(entityContainer.at(3)->getLowestX());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 7);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Y1: ", Color(220, 20, 60), 2, 16, 6);
-	test = std::to_string(entityContainer.at(1)->getLowestY());
+	test = std::to_string(entityContainer.at(3)->getLowestY());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 6);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "Z1: ", Color(220, 20, 60), 2, 16, 5);
-	test = std::to_string(entityContainer.at(1)->getLowestZ());
+	test = std::to_string(entityContainer.at(3)->getLowestZ());
 	RenderTextOnScreen(meshList[GEO_TEXT], test, Color(220, 20, 60), 2, 19, 5);
 
 

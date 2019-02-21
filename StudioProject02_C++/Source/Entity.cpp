@@ -68,6 +68,11 @@ float Entity::getLowestZ()
 	return (position.z - sizeZ);
 }
 
+Vector3 Entity::getDirection()
+{
+	return direction;
+}
+
 bool Entity::getIsItPlayer()
 {
 	return isItPlayer;
@@ -92,4 +97,9 @@ void Entity::updateSpeedStatus() {
 bool Entity::getAbletoMove() {
 	
 	return movableObj;
+}
+
+bool Entity::getIsItMoving() {
+
+	return movingObj;
 }

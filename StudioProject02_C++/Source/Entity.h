@@ -22,6 +22,7 @@ public:
 	Entity();
 	~Entity();
 	void updateSpeedStatus();
+	bool getIsItMoving();
 	bool getAbletoMove();
 	float getMass();
 	Vector3 getSpeed();
@@ -37,14 +38,17 @@ public:
 	float getLowestY();
 	float getLowestZ();
 
+	Vector3 getDirection();
+
 	virtual void update(double dt) = 0;
-	virtual void collisionDetector(bool isThereCollision, bool isItCollidingWithTheFloor, std::string collidedItem) = 0;
+	virtual void collisionDetector(bool isThereCollision, bool isItCollidingWithTheFloor, Entity* collidiedItem) = 0;
 	bool getIsItPlayer();
 	std::string getName();
 	Physics c_Physics;
 
 protected:
 	std::string name;
+	Vector3 direction;
 	Vector3 position;
 	bool movingObj; // see if the obj is moving.
 	Vector3 speed; // ms^-1
@@ -61,8 +65,6 @@ protected:
 	bool movableObj; // see if the obj is able to move upon collison
 	bool isItPlayer;
 	double dt;
-
-	
 
 
 };
