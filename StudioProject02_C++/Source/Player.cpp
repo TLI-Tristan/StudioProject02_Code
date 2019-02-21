@@ -56,7 +56,7 @@ void Player::calDeceleration() {
 void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidedItem)
 {
 	collided = isThereCollision;
-	this->collidingWithFloor = true;
+	this->collidingWithFloor = isItCollidingWithFloor;
 	this->collidiedItem = collidedItem;
 }
 
@@ -85,13 +85,14 @@ void Player::update(double dt)
 							if (collidiedItem->getDirection().x == direction.x || direction.x == 0) {
 
 								//speed.x += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
-								speed.x = 5;
+								speed.x = 3;
 								speed.x *= collidiedItem->getDirection().x;
 								impulseDone = false;
 
 							}
 							else {
-								speed.x -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
+								//speed.x -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
+								speed.x = 3;
 								direction.x *= -1;
 								speed.x *= direction.x;
 								impulseDone = false;
@@ -102,14 +103,16 @@ void Player::update(double dt)
 
 							if (collidiedItem->getDirection().y == direction.y || direction.y == 0) {
 
-								speed.y += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
+								//speed.y += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
+								speed.y = 3;
 								speed.y *= collidiedItem->getDirection().y;
 								impulseDone = false;
 
 							}
 							else {
 
-								speed.y -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
+								//speed.y -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
+								speed.y = 3;
 								direction.y *= -1;
 								speed.y *= direction.y;
 								impulseDone = false;
@@ -121,7 +124,8 @@ void Player::update(double dt)
 
 							if (collidiedItem->getDirection().z == direction.z || direction.z == 0) {
 
-								speed.z += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
+								//speed.z += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
+								speed.z = 3;
 								speed.z *= collidiedItem->getDirection().z;
 								impulseDone = false;
 
@@ -129,6 +133,7 @@ void Player::update(double dt)
 							else {
 
 								speed.z -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
+								speed.z = 3;
 								direction.z *= -1;
 								speed.z *= direction.z;
 								impulseDone = false;
