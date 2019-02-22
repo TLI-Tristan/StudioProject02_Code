@@ -50,7 +50,7 @@ void Camera2::Update(double dt, Entity* player01)
 {
 
 
-	if (name == "player01") {
+	if (lockCamera == true) {
 
 		this->target = player01->getPosition();
 
@@ -60,8 +60,9 @@ void Camera2::Update(double dt, Entity* player01)
 
 
 	}
+	else{
 
-	if(name == "player02") {
+	//if(name == "player02") {
 
 		static const float CAMERA_SPEED = 150.f;
 		if (Application::IsKeyPressed(VK_LEFT))
