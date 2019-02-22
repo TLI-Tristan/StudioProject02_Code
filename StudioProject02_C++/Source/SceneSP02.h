@@ -106,6 +106,7 @@ class SceneSP02 : public Scene
 		GEO_BRIDGE,
 		GEO_PLATFORM,
 
+		GEO_GONG,
 
 		GEO_BLOCKS,
 		GEO_AXES,

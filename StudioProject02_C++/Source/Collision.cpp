@@ -3,7 +3,6 @@
 
 Collision::Collision()
 {
-	isItCollidingWithFloor = true;
 	collidedItemName = "\0";
 	collidiedItem = nullptr;
 }
@@ -13,10 +12,6 @@ Collision::~Collision()
 {
 }
 
-bool Collision::getIsItCollidingWithFloor()
-{
-	return isItCollidingWithFloor;
-}
 
 bool Collision::collisionCheck(std::vector <Entity*> &entityPtr)
 {
@@ -118,23 +113,51 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 					(firstEntity.getLowestZ() <= entityPtr.at(i)->getHeighestZ())))
 				{
 
+					if (entityPtr.at(i)->getName() != "platform") {
+
+						collidiedItem = new Object();
+						collidiedItem = entityPtr.at(i);
+						return true;
+					}
+
+					
+				}
+
+
+			}
+
+		}
+
+	}
+	
+
+	return false;
+}
+
+bool Collision::checkCollisionWithTheFloor(Entity& firstEntity, std::vector <Entity*> &entityPtr)
+{
+	if (firstEntity.getIsItPlayer() == true) {
+		for (size_t i = 0; i < entityPtr.size(); i++) {
+			if (entityPtr.at(i) != &firstEntity) {
+
+				if (((firstEntity.getHeighestX() >= entityPtr.at(i)->getLowestX()) &&
+					(firstEntity.getLowestX() <= entityPtr.at(i)->getHeighestX()))
+					&&
+					((firstEntity.getHeighestY() >= entityPtr.at(i)->getLowestY()) &&
+					(firstEntity.getLowestY() <= entityPtr.at(i)->getHeighestY()))
+					&&
+					((firstEntity.getHeighestZ() >= entityPtr.at(i)->getLowestZ()) &&
+					(firstEntity.getLowestZ() <= entityPtr.at(i)->getHeighestZ())))
+				{
+
 					if (entityPtr.at(i)->getName() == "platform") {
 
-						isItCollidingWithFloor = true;
-						
+						return true;
 					}
-					collidedItemName = entityPtr.at(i)->getName();
-					collidiedItem = new Object();
 
-					collidiedItem = entityPtr.at(i);
 
-					return true;
 				}
 
-				else if (entityPtr.at(i)->getName() == "platform") {
-
-					isItCollidingWithFloor = false;
-				}
 
 			}
 
@@ -145,10 +168,6 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 	return false;
 }
 
-std::string Collision::getCollidedItemName()
-{
-	return collidedItemName;
-}
 
 Entity* Collision::getCollidiedItem() {
 

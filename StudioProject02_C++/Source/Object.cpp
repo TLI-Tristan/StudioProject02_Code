@@ -96,7 +96,20 @@ void Object::update(double dt)
 	}
 
 
+	if (name == "part1MoivngBlock") {
 
+
+		if (position.x <= -50) {
+
+			direction.x = 1;
+		}
+		if (position.x >= 50) {
+
+			direction.x = -1;
+		}
+
+		position.x += speed.x * direction.x * dt;
+	}
 
 
 

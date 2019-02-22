@@ -72,6 +72,12 @@ void Player::update(double dt)
 
 					if (collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == false) {
 
+						//if (speed.z > 0) { // need to fix the direction error
+						//	direction.z = 1;
+						//}
+						//else {
+						//	direction.z = -1;
+						//}
 						speed.z = c_Physics.calFinalSpeed(mass, speed.z);
 						direction.z *= -1;
 						speed.z *= direction.z;
@@ -204,6 +210,8 @@ void Player::update(double dt)
 			falling = true;
 		}
 
+		
+
 
 		if (impulseDone == true) {
 
@@ -232,9 +240,9 @@ void Player::update(double dt)
 				!Application::IsKeyPressed('X')) ||
 				(speed.z < -0.8) || (speed.z > 0.8)) {
 
-				direction = (0, 0, 0);
+				
 				if (speed.z > -0.05 && speed.z < 0.05) {
-
+					direction = (0, 0, 0);
 					speed.z = 0.0;
 				}
 

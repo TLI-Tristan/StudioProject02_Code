@@ -13,15 +13,14 @@ class Collision
 public:
 	Collision();
 	~Collision();
-	bool getIsItCollidingWithFloor();
 	bool collisionCheck(std::vector <Entity*> &entityPtr);
 	bool collisionCheck(Entity& firstEntity, std::vector <Entity*> &entityPtr);
-	std::string getCollidedItemName();
+	bool checkCollisionWithTheFloor(Entity& firstEntity, std::vector <Entity*> &entityPtr);
+
 	Entity* getCollidiedItem();
 
 
 private:
-	bool isItCollidingWithFloor;
 	std::string collidedItemName;
 	Entity* collidiedItem;
 	
