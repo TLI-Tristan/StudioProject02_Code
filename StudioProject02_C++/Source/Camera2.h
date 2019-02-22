@@ -19,13 +19,14 @@ public:
 
 	Camera2();
 	~Camera2();
-	virtual void Init(const Vector3& pos, const Vector3& target, const Vector3& up);
+	virtual void Init(const Vector3& pos, const Vector3& target, const Vector3& up, std::string name);
 	virtual void Update(double dt, Entity* player01);
 	virtual void Reset();
 	virtual bool collision(Vector3 pos);
 
 private:
 	bool lockCamera;
+	std::string name;
 };
 
 #endif

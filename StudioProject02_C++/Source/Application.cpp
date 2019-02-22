@@ -9,7 +9,6 @@
 #include <stdlib.h>
 
 #include "Application.h"
-
 #include "SceneSP02.h"
 
 GLFWwindow* m_window;
@@ -71,7 +70,7 @@ void Application::Init()
 
 
 	//Create a window and create its OpenGL context
-	m_window = glfwCreateWindow(800, 600, "Test Window", NULL, NULL);
+	m_window = glfwCreateWindow(1920, 1000, "Test Window", NULL, NULL);
 
 	//If the window couldn't be created
 	if (!m_window)
@@ -109,7 +108,19 @@ void Application::Run()
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
 		scene->Update(m_timer.getElapsedTime());
-		scene->Render();
+		//scene->Render();
+		
+		glScissor(0, 400, 2000, 700);
+		scene->Render(1);
+
+		glScissor(0, 0, 2000, 400);
+		scene->Render(2);
+
+		glScissor(0, 250, 500, 500);
+		scene->Render(3);
+
+
+
 		//Swap buffers
 		glfwSwapBuffers(m_window);
 		//Get and organize events, like keyboard and mouse input, window resizing, etc...

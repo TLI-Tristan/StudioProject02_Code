@@ -3,6 +3,10 @@
 
 #include "Entity.h"
 
+// splitscreen
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 class Player : public Entity 
 {
 public:

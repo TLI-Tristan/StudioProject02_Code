@@ -28,6 +28,7 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->cameraChanged = false;
 	this->collidiedItem = nullptr;
 
+
 }
 
 Player::Player() {
@@ -43,6 +44,9 @@ void Player::calAcceleration() {
 	acceleration.z = (horsePower - c_Physics.calFriction(this->mass) ) / this->mass;
 	acceleration.x = 0;
 	acceleration.y = (jumpForce - c_Physics.calWeight(this->mass)) / this->mass;
+
+
+	
 
 }
 
@@ -210,59 +214,121 @@ void Player::update(double dt)
 			falling = true;
 		}
 
-		
+		int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
 
 
-		if (impulseDone == true) {
+		//if (1 == present)
+		//{
 
-			if (Application::IsKeyPressed('Z'))
-			{
-				direction.z = 1;
-				if (speed.z < 0.8) {
-					speed.z += acceleration.z * dt * direction.z;
-				}
-				position.z += speed.z;
-				movingObj = true;
-			}
 
-			if (Application::IsKeyPressed('X'))
-			{
-				direction.z = -1;
-				if (speed.z > -0.8) {
-					speed.z += acceleration.z * dt * direction.z;
+			if (impulseDone == true) {
+
+
+			/*	int buttonCount;
+				const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
+
+
+				if (GLFW_PRESS == buttons[0])
+				{
+					std::cout << "can press " << std::endl;
+
+					direction.z = 1;
+					if (speed.z < 0.8) {
+						speed.z += acceleration.z * dt * direction.z;
+					}
+					position.z += speed.z;
 					movingObj = true;
 				}
-				position.z += speed.z;
-				movingObj = true;
+				if (GLFW_PRESS == buttons[1])
+				{
+					std::cout << "not can press " << std::endl;
+					direction.z = -1;
+					if (speed.z > -0.8) {
+						speed.z += acceleration.z * dt * direction.z;
+						movingObj = true;
+					}
+					position.z += speed.z;
+					movingObj = true;
+
+				}*/
+
+
+
+				if (Application::IsKeyPressed('Z'))
+				{
+					direction.z = 1;
+					if (speed.z < 0.8) {
+						speed.z += acceleration.z * dt * direction.z;
+					}
+					position.z += speed.z;
+					movingObj = true;
+				}
+
+				if (Application::IsKeyPressed('X'))
+				{
+					direction.z = -1;
+					if (speed.z > -0.8) {
+						speed.z += acceleration.z * dt * direction.z;
+						movingObj = true;
+					}
+					position.z += speed.z;
+					movingObj = true;
+				}
+
+				if ((!Application::IsKeyPressed('Z') &&
+					!Application::IsKeyPressed('X')) ||
+					(speed.z < -0.8) || (speed.z > 0.8)) {
+
+
+					if (speed.z > -0.05 && speed.z < 0.05) {
+						direction = (0, 0, 0);
+						speed.z = 0.0;
+					}
+
+					if (speed.z > 0.0) {
+
+						speed.z -= deceleration.z * dt;
+					}
+					else if (speed.z < 0.0) {
+
+						speed.z += deceleration.z * dt;
+
+					}
+
+					position.z += speed.z;
+				}
+
 			}
-
-			if ((!Application::IsKeyPressed('Z') &&
-				!Application::IsKeyPressed('X')) ||
-				(speed.z < -0.8) || (speed.z > 0.8)) {
-
-				
-				if (speed.z > -0.05 && speed.z < 0.05) {
-					direction = (0, 0, 0);
-					speed.z = 0.0;
-				}
-
-				if (speed.z > 0.0) {
-
-					speed.z -= deceleration.z * dt;
-				}
-				else if (speed.z < 0.0) {
-
-					speed.z += deceleration.z * dt;
-
-				}
-
-				position.z += speed.z;
-			}
-
-		}
+		//}
 
 	}
 }
+
+//void scenesp02::ps4controller()
+//{
+//
+//	/*
+//		ps4 controller code
+//		button[0] = "sqaure"
+//		button [1] = x
+//		button [2] = o
+//		button [3] = triangle
+//
+//		button [4] = "l1"
+//		button [5] = "r1"
+//
+//		button[6] = "l2"
+//		button[7] = "r2"
+//
+//		button[8] = "share button"
+//		button[9] = "options button"
+//	*/
+//
+//
+//
+//
+//}
+
 
 
 

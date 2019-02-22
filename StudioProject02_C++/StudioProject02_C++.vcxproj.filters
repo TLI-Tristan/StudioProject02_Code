@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Others">
       <UniqueIdentifier>{6c4abef6-4de9-44ac-bb02-f4fa38367cd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{3a622dc0-1a18-47d6-9d1b-fc140788a3d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{4da008c8-fd56-41dd-bea4-9322bbd22396}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -98,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="Source\Utility.cpp">
       <Filter>Source Files\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source Files\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="Source\Light.h">
       <Filter>Header Files\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header Files\Audio</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

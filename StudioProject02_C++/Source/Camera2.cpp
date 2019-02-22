@@ -33,7 +33,7 @@ bool Camera2::collision(Vector3 pos) { //camera boundary if needed
 
 }
 
-void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
+void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up, std::string name)
 {
 	this->position = defaultPosition = pos;
 	this->target = defaultTarget = target;
@@ -42,33 +42,27 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 	right.y = 0;
 	right.Normalize();
 	this->up = defaultUp = right.Cross(view).Normalized();
+	this->name = name;
 }
 
 
 void Camera2::Update(double dt, Entity* player01)
 {
 
-	if (Application::IsKeyPressed('P')) {
 
-		lockCamera = false;
-	}
-
-	if (Application::IsKeyPressed('L')) {
-
-		lockCamera = true;
-	}
-
-	if (lockCamera == true) {
+	if (name == "player01") {
 
 		this->target = player01->getPosition();
 
-		this->position.x = player01->getPosX() + 50;
-		this->position.y = player01->getPosY() + 30;
-		this->position.z = player01->getPosZ();
+		this->position.x = player01->getPosX();
+		this->position.y = player01->getPosY() + 80;
+		this->position.z = player01->getPosZ() + 100;
 
 
 	}
-	else {
+
+	if(name == "player02") {
+
 		static const float CAMERA_SPEED = 150.f;
 		if (Application::IsKeyPressed(VK_LEFT))
 		{

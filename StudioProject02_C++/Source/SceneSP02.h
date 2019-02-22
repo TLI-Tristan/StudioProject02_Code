@@ -14,6 +14,13 @@
 #include "Entity.h"
 #include "Object.h"
 #include "Player.h"
+#include "../Audio.h"
+
+// splitscreen
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+// audio
+
 
 class SceneSP02 : public Scene
 {
@@ -133,11 +140,13 @@ public:
 	SceneSP02();
 	~SceneSP02();
 
+	void ALLCamera(int angle);
+
 	Collision collisionChecker;
 
 	virtual void Init();
 	virtual void Update(double dt);
-	virtual void Render();
+	virtual void Render(int);
 	virtual void Exit();
 
 private:
@@ -156,12 +165,12 @@ private:
 	void RenderText(Mesh* mesh, std::string text, Color color);
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
 	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
-	//void RenderLight();
+	void RenderLight();
 
-
-	Camera2 camera;
+	Camera2 camera, camera2, camera3;
 	MS modelStack, viewStack, projectionStack;
-	Light light[3];
+	Light light[4];
+	Audio audio;
 
 	void RenderMesh(Mesh *mesh, bool enableLight);
 
@@ -175,6 +184,7 @@ private:
 	double delay;
 	double dt;
 	bool collisionDetected;
+
 };
 
 #endif
