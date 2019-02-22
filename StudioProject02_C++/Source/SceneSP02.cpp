@@ -16,25 +16,25 @@ SceneSP02::~SceneSP02()
 {
 }
 
-void SceneSP02::ALLCamera(int angle) {
-	if (angle == 1)
-	{
-		viewStack.LoadIdentity();
-		viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
-		modelStack.LoadIdentity();
-	}
-	else if (angle == 2) {
-		viewStack.LoadIdentity();
-		viewStack.LookAt(camera2.position.x, camera2.position.y, camera2.position.z, camera2.target.x, camera2.target.y, camera2.target.z, camera2.up.x, camera2.up.y, camera2.up.z);
-		modelStack.LoadIdentity();
-	}
-	else if (angle == 3)
-	{
-		viewStack.LoadIdentity();
-		viewStack.LookAt(camera3.position.x, camera3.position.y, camera3.position.z, camera3.target.x, camera3.target.y, camera3.target.z, camera3.up.x, camera3.up.y, camera3.up.z);
-		modelStack.LoadIdentity();
-	}
-}
+//void SceneSP02::ALLCamera(int angle) {
+//	if (angle == 1)
+//	{
+//		viewStack.LoadIdentity();
+//		viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+//		modelStack.LoadIdentity();
+//	}
+//	else if (angle == 2) {
+//		viewStack.LoadIdentity();
+//		viewStack.LookAt(camera2.position.x, camera2.position.y, camera2.position.z, camera2.target.x, camera2.target.y, camera2.target.z, camera2.up.x, camera2.up.y, camera2.up.z);
+//		modelStack.LoadIdentity();
+//	}
+//	else if (angle == 3)
+//	{
+//		viewStack.LoadIdentity();
+//		viewStack.LookAt(camera3.position.x, camera3.position.y, camera3.position.z, camera3.target.x, camera3.target.y, camera3.target.z, camera3.up.x, camera3.up.y, camera3.up.z);
+//		modelStack.LoadIdentity();
+//	}
+//}
 
 
 void SceneSP02::Init()
@@ -144,7 +144,7 @@ void SceneSP02::Init()
 	light[0].type = Light::LIGHT_SPOT; // position changes for car 1
 	light[0].position.Set(0, 0, 0);
 	light[0].color.Set(255, 255, 255);
-	light[0].power = 0.05;
+	light[0].power = 0.01;
 	light[0].kC = 1.f;
 	light[0].kL = 0.01f;
 	light[0].kQ = 0.001f;
@@ -156,7 +156,7 @@ void SceneSP02::Init()
 	light[1].type = Light::LIGHT_SPOT; // position changes
 	light[1].position.Set(0, 0, 0);
 	light[1].color.Set(255, 255, 255);
-	light[1].power = 0.05;
+	light[1].power = 0.01;
 	light[1].kC = 1.f;
 	light[1].kL = 0.01f;
 	light[1].kQ = 0.001f;
@@ -1234,12 +1234,16 @@ void SceneSP02::RenderLight() {
 
 }
 
-void SceneSP02::Render(int angle)
+void SceneSP02::Render()
 {
 	//Clear color & depth buffer every frame
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	ALLCamera(angle);
+	//ALLCamera(1);
+
+	viewStack.LoadIdentity();
+			viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+			modelStack.LoadIdentity();
 	
 
 	modelStack.LoadIdentity();

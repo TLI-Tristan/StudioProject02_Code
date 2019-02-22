@@ -10,6 +10,7 @@
 
 #include "Application.h"
 #include "SceneSP02.h"
+#include "GameMenu.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -108,17 +109,17 @@ void Application::Run()
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
 		scene->Update(m_timer.getElapsedTime());
-		//scene->Render();
+		scene->Render();
 		
-		glScissor(0, 400, 2000, 700);
-		scene->Render(1);
+		//glScissor(0, 400, 2000, 700);
+		//scene->Render();
 
-		glScissor(0, 0, 2000, 400);
+		/*glScissor(0, 0, 2000, 400);
 		scene->Render(2);
 
 		glScissor(0, 250, 500, 500);
 		scene->Render(3);
-
+*/
 
 
 		//Swap buffers

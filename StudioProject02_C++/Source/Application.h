@@ -16,6 +16,18 @@ public:
 
 private:
 
+	enum e_MENU {
+
+		STARTMENU,
+		CUSTOMIZATION,
+		FREEMODE,
+		NORMALMODE,
+		PAUSEMENU,
+		VICTORY,
+		GAMEOVER,
+
+	};
+
 	//Declare a window object
 	StopWatch m_timer;
 };

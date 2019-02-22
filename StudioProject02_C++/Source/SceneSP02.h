@@ -14,7 +14,7 @@
 #include "Entity.h"
 #include "Object.h"
 #include "Player.h"
-#include "../Audio.h"
+#include "Audio.h"
 
 // splitscreen
 #include <GL/glew.h>
@@ -146,7 +146,7 @@ public:
 
 	virtual void Init();
 	virtual void Update(double dt);
-	virtual void Render(int);
+	virtual void Render();
 	virtual void Exit();
 
 private:

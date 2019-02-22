@@ -39,6 +39,7 @@ public:
 	float getLowestZ();
 
 	Vector3 getDirection();
+	bool respawn;
 
 	virtual void update(double dt) = 0;
 	virtual void collisionDetector(bool isThereCollision, bool isItCollidingWithTheFloor, Entity* collidiedItem) = 0;
@@ -50,6 +51,7 @@ protected:
 	std::string name;
 	Vector3 direction;
 	Vector3 position;
+	Vector3 startposition;
 	bool movingObj; // see if the obj is moving.
 	Vector3 speed; // ms^-1
 	float sizeX;
@@ -65,6 +67,8 @@ protected:
 	bool movableObj; // see if the obj is able to move upon collison
 	bool isItPlayer;
 	double dt;
+	int health;
+	
 
 
 };

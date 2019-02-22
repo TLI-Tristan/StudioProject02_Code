@@ -15,7 +15,9 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->jumpForce = 10000;
 	speed = (0.0, 0.0, 0.0);
 	acceleration = (0.0, 0.0, 0.0);
-	deceleration = (0.0, 0.0, 0.0);;
+	deceleration = (0.0, 0.0, 0.0);
+	startposition = pos;
+	health = 3;
 	ghostMode = false;
 	isItPlayer = true;
 	this->name = name;
@@ -68,7 +70,14 @@ void Player::update(double dt)
 {
 
 	if (name == "player01") {
-
+		if (position.y < 1000 && health > 0)
+		{
+			health--;
+			position = startposition;
+			falling = false;
+			collidingWithFloor = true;
+			respawn = true;
+		}
 
 			if (collided == true && collidiedItem != nullptr && impulseDone == true) {
 
