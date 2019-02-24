@@ -53,6 +53,12 @@ void Camera2::Update(double dt, Entity* player01)
 
 		this->target = player01->getPosition();
 
+		Vector3 view = (target - position).Normalized();
+		Vector3 right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+		up = right.Cross(view).Normalized();
+
 		this->position.x = player01->getPosX();
 		this->position.y = player01->getPosY() + 80;
 		this->position.z = player01->getPosZ() + 100;
@@ -61,11 +67,19 @@ void Camera2::Update(double dt, Entity* player01)
 	}
 	else if (stage2Camera == true && lockCamera == true) {
 
+
 		this->target = player01->getPosition();
+
+		Vector3 view = (target - position).Normalized();
+		Vector3 right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+		up = right.Cross(view).Normalized();
 
 		this->position.x = player01->getPosX() + 100;
 		this->position.y = player01->getPosY() + 80;
 		this->position.z = player01->getPosZ();
+
 	}
 	else{
 
