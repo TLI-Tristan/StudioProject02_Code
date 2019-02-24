@@ -13,20 +13,23 @@ public:
 	void Run();
 	void Exit();
 	static bool IsKeyPressed(unsigned short key);
+	static int SceneChoice;
+	static bool changeScene;
 
+	enum e_Scene {
+
+			STARTMENU,
+			CUSTOMIZATION,
+			FREEMODE,
+			NORMALMODE,
+			PAUSEMENU,
+			VICTORY,
+			GAMEOVER,
+
+		};
 private:
 
-	enum e_MENU {
-
-		STARTMENU,
-		CUSTOMIZATION,
-		FREEMODE,
-		NORMALMODE,
-		PAUSEMENU,
-		VICTORY,
-		GAMEOVER,
-
-	};
+	
 
 	//Declare a window object
 	StopWatch m_timer;

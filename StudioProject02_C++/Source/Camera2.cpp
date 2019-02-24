@@ -6,8 +6,8 @@
 Camera2::Camera2()
 {
 
-	lockCamera = false;
-	
+	lockCamera = true;
+	stage2Camera = false;
 }
 
 Camera2::~Camera2()
@@ -49,8 +49,7 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up,
 void Camera2::Update(double dt, Entity* player01)
 {
 
-
-	if (lockCamera == true) {
+	if (lockCamera == true && stage2Camera == false) {
 
 		this->target = player01->getPosition();
 
@@ -59,6 +58,14 @@ void Camera2::Update(double dt, Entity* player01)
 		this->position.z = player01->getPosZ() + 100;
 
 
+	}
+	else if (stage2Camera == true && lockCamera == true) {
+
+		this->target = player01->getPosition();
+
+		this->position.x = player01->getPosX() + 100;
+		this->position.y = player01->getPosY() + 80;
+		this->position.z = player01->getPosZ();
 	}
 	else{
 

@@ -44,7 +44,7 @@ Player::~Player()
 void Player::calAcceleration() {
 
 	acceleration.z = (horsePower - c_Physics.calFriction(this->mass) ) / this->mass;
-	acceleration.x = 0;
+	acceleration.x = (horsePower - c_Physics.calFriction(this->mass)) / this->mass;
 	acceleration.y = (jumpForce - c_Physics.calWeight(this->mass)) / this->mass;
 
 
@@ -70,6 +70,9 @@ void Player::update(double dt)
 {
 
 	if (name == "player01") {
+
+		
+
 		if (position.y < 1000 && health > 0)
 		{
 			health--;
@@ -230,7 +233,7 @@ void Player::update(double dt)
 		//{
 
 
-			if (impulseDone == true) {
+		if (impulseDone == true) {
 
 
 			/*	int buttonCount;
@@ -262,55 +265,116 @@ void Player::update(double dt)
 				}*/
 
 
+			if (Application::IsKeyPressed('I'))
+			{
+				direction.z = 1;
+				if (speed.z < 0.8) {
+					speed.z += acceleration.z * dt * direction.z;
+				}
+				position.z += speed.z;
+				movingObj = true;
+			}
 
-				if (Application::IsKeyPressed('Z'))
-				{
-					direction.z = 1;
-					if (speed.z < 0.8) {
-						speed.z += acceleration.z * dt * direction.z;
-					}
-					position.z += speed.z;
+			if (Application::IsKeyPressed('K'))
+			{
+				direction.z = -1;
+				if (speed.z > -0.8) {
+					speed.z += acceleration.z * dt * direction.z;
 					movingObj = true;
 				}
+				position.z += speed.z;
+				movingObj = true;
+			}
 
-				if (Application::IsKeyPressed('X'))
+			if ((!Application::IsKeyPressed('I') &&
+				!Application::IsKeyPressed('K')) ||
+				(speed.z < -0.8) || (speed.z > 0.8)) {
+
+
+				if (speed.z > -0.05 && speed.z < 0.05) {
+					direction.y = 0.0;
+					speed.z = 0.0;
+				}
+
+				if (speed.z > 0.0) {
+
+					speed.z -= deceleration.z * dt;
+				}
+				else if (speed.z < 0.0) {
+
+					speed.z += deceleration.z * dt;
+
+				}
+
+				position.z += speed.z;
+			}
+
+			if (part2CheckpointReached == true) {
+
+				if (Application::IsKeyPressed('I'))
 				{
-					direction.z = -1;
-					if (speed.z > -0.8) {
-						speed.z += acceleration.z * dt * direction.z;
+					direction.x = -1;
+					if (speed.x > -0.8) {
+						speed.x += acceleration.x * dt * direction.x;
 						movingObj = true;
 					}
-					position.z += speed.z;
+					position.x += speed.x;
 					movingObj = true;
 				}
 
-				if ((!Application::IsKeyPressed('Z') &&
-					!Application::IsKeyPressed('X')) ||
-					(speed.z < -0.8) || (speed.z > 0.8)) {
+				if (Application::IsKeyPressed('K'))
+				{
+					direction.x = 1;
+					if (speed.x < 0.8) {
+						speed.x += acceleration.x * dt * direction.x;
+						movingObj = true;
+					}
+					position.x += speed.x;
+					movingObj = true;
+				}
+
+				if ((!Application::IsKeyPressed('I') &&
+					!Application::IsKeyPressed('K')) ||
+					(speed.x < -0.8) || (speed.x > 0.8)) {
 
 
-					if (speed.z > -0.05 && speed.z < 0.05) {
-						direction = (0, 0, 0);
-						speed.z = 0.0;
+					if (speed.x > -0.05 && speed.x < 0.05) {
+						direction.x = 0.0;
+						speed.x = 0.0;
 					}
 
-					if (speed.z > 0.0) {
+					if (speed.x > 0.0) {
 
-						speed.z -= deceleration.z * dt;
+						speed.x -= deceleration.x * dt;
 					}
-					else if (speed.z < 0.0) {
+					else if (speed.x < 0.0) {
 
-						speed.z += deceleration.z * dt;
+						speed.x += deceleration.x * dt;
 
 					}
 
-					position.z += speed.z;
+					position.x += speed.x;
 				}
 
 			}
-		//}
+
+
+
+		}
 
 	}
+}
+
+void Player::checkPoint2()
+{
+
+	part2CheckpointReached = true;
+	speed.z = 0;
+	position.z = -800;
+	position.y = 20;
+	falling = true;
+	collidingWithFloor = false;
+
 }
 
 //void scenesp02::ps4controller()

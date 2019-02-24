@@ -1,4 +1,4 @@
-#include "FreeGameMode.h"
+#include "InstructionMenu.h"
 #include "GL\glew.h"
 
 #include "shader.hpp"
@@ -7,11 +7,11 @@
 #include "Utility.h"
 #include "LoadTGA.h"
 
-SceneFreeGameMode::SceneFreeGameMode()
+SceneInstuctionMenu::SceneInstuctionMenu()
 {
 }
 
-SceneFreeGameMode::~SceneFreeGameMode()
+SceneInstuctionMenu::~SceneInstuctionMenu()
 {
 }
 
@@ -36,7 +36,7 @@ SceneFreeGameMode::~SceneFreeGameMode()
 //}
 
 
-void SceneFreeGameMode::Init()
+void SceneInstuctionMenu::Init()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
@@ -193,9 +193,10 @@ void SceneFreeGameMode::Init()
 
 	choice = 0;
 	arrowY = 18;
+
 }
 
-void SceneFreeGameMode::Update(double dt)
+void SceneInstuctionMenu::Update(double dt)
 {
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
@@ -235,7 +236,6 @@ void SceneFreeGameMode::Update(double dt)
 
 	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
 
-
 		if (choice == 0) {
 
 
@@ -249,6 +249,8 @@ void SceneFreeGameMode::Update(double dt)
 
 	}
 
+
+
 	f_fps = 1.0f / dt;
 
 	delay += dt;
@@ -259,7 +261,7 @@ void SceneFreeGameMode::Update(double dt)
 	z = std::to_string(camera.position.z);
 }
 
-void SceneFreeGameMode::RenderMesh(Mesh* mesh, bool enableLight)
+void SceneInstuctionMenu::RenderMesh(Mesh* mesh, bool enableLight)
 {
 	Mtx44 MVP, modelView, modelView_inverse_transpose;
 
@@ -310,7 +312,7 @@ void SceneFreeGameMode::RenderMesh(Mesh* mesh, bool enableLight)
 
 
 
-void SceneFreeGameMode::RenderSkybox() {
+void SceneInstuctionMenu::RenderSkybox() {
 
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 148, 0);
@@ -351,7 +353,7 @@ void SceneFreeGameMode::RenderSkybox() {
 }
 
 
-void SceneFreeGameMode::RenderText(Mesh* mesh, std::string text, Color color)
+void SceneInstuctionMenu::RenderText(Mesh* mesh, std::string text, Color color)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
 		return;
@@ -378,7 +380,7 @@ void SceneFreeGameMode::RenderText(Mesh* mesh, std::string text, Color color)
 	glEnable(GL_DEPTH_TEST);
 }
 
-void SceneFreeGameMode::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
+void SceneInstuctionMenu::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
 		return;
@@ -473,7 +475,7 @@ void SceneFreeGameMode::RenderTextOnScreen(Mesh* mesh, std::string text, Color c
 //
 //}
 
-void SceneFreeGameMode::RenderLight() {
+void SceneInstuctionMenu::RenderLight() {
 
 
 	if (light[0].type == Light::LIGHT_SPOT)
@@ -495,7 +497,7 @@ void SceneFreeGameMode::RenderLight() {
 
 }
 
-void SceneFreeGameMode::Render()
+void SceneInstuctionMenu::Render()
 {
 	//Clear color & depth buffer every frame
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -523,7 +525,7 @@ void SceneFreeGameMode::Render()
 
 	//RenderSkybox();
 
-	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
+	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS CUSTOMIZATION MENU", Color(0, 255, 0), 2, 12, 25);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
@@ -535,7 +537,7 @@ void SceneFreeGameMode::Render()
 
 }
 
-void SceneFreeGameMode::Exit()
+void SceneInstuctionMenu::Exit()
 {
 	// Cleanup VBO here
 	glDeleteProgram(m_programID);

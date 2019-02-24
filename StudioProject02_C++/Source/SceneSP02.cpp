@@ -408,53 +408,210 @@ void SceneSP02::Init()
 	z = "/0";
 	collisionDetected = false;
 	delay = 0.0;
-
-
+	gameFinished = false;
+	choice = 0;
+	arrowY = 18;
+	paused = false;
+	checkpoint2 = false;
+	showStage2 = false;
+	rotateAngle = 0.0;
+	shown = false;
+	time = 0.0;
 }
 
 void SceneSP02::Update(double dt)
 {
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
+	time += dt;
 
-	//if (Application::IsKeyPressed('1'))
-	//{
-	//	glEnable(GL_CULL_FACE);
-	//}
-	//if (Application::IsKeyPressed('2'))
-	//{
-	//	glDisable(GL_CULL_FACE);
-	//}
-	//if (Application::IsKeyPressed('3'))
-	//{
-	//	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	//}
-	//if (Application::IsKeyPressed('4'))
-	//{
-	//	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	//}
+	if (gameFinished == false && paused == false) {
 
-	if (Application::IsKeyPressed('I') && delay >= 0.2) {	//interacts
+		//if (Application::IsKeyPressed('1'))
+		//{
+		//	glEnable(GL_CULL_FACE);
+		//}
+		//if (Application::IsKeyPressed('2'))
+		//{
+		//	glDisable(GL_CULL_FACE);
+		//}
+		//if (Application::IsKeyPressed('3'))
+		//{
+		//	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		//}
+		//if (Application::IsKeyPressed('4'))
+		//{
+		//	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		//}
 
-		delay = 0;
+		//if (Application::IsKeyPressed('Q')) {	//turn on torch
+
+		//	light[3].power = 0.2;
+		//	glUniform1f(m_parameters[U_LIGHT3_POWER], light[3].power);
+
+		//	torchLightOn = true;
+		//}
+
+		//if (Application::IsKeyPressed('E')) {	//turn off torch
+
+		//	light[3].power = 0;
+		//	glUniform1f(m_parameters[U_LIGHT3_POWER], light[3].power);
+
+		//	torchLightOn = false;
+		//}
+
+
+
+		//if (torchLightOn == true) {	// torch direction and position change here
+
+		//	Vector3 view = (camera.target - camera.position).Normalized();
+
+		//	light[3].position.Set(camera.position.x, camera.position.y, camera.position.z);	//position changes
+		//	light[3].spotDirection.Set(-view.x, -view.y, -view.z);
+
+		//}
+		if (showStage2 == true && shown == false) {
+
+			time += dt;
+
+			if (time >= 20.0) {
+				shown = true;
+			}
+
+		}
+
+		if (entityContainer.at(0)->getPosZ() <= -660 && checkpoint2 == false) {
+
+			checkpoint2 = true;
+			entityContainer.at(0)->checkPoint2();
+			camera.stage2Camera = true;
+			showStage2 = true;
+			rotateAngle = 90;
+			light[0].spotDirection.Set(2.f, 0.f, 0.f);
+			light[1].spotDirection.Set(2.f, 0.f, 0.f);
+		}
+		
+		
+
+		//update light
+		if (checkpoint2 == true) {
+
+			
+			light[0].position.Set(entityContainer.at(0)->getPosX() - 8, entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ() + 3);
+
+			light[1].position.Set(entityContainer.at(0)->getPosX() - 8, entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ() - 3);
+
+		}
+		else {
+
+			light[0].position.Set(entityContainer.at(0)->getPosX() + 3, entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ() - 8);
+
+			light[1].position.Set(entityContainer.at(0)->getPosX() - 3, entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ() - 8);
+
+		}
+
+		
+		
+
+		for (size_t i = 0; i < entityContainer.size(); i++) {
+
+			entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.checkCollisionWithTheFloor(*entityContainer.at(i), entityContainer), collisionChecker.getCollidiedItem());
+			entityContainer.at(i)->update(dt);
+
+		}
+
+		
+
+		collisionDetected = collisionChecker.collisionCheck(entityContainer);
+
+		camera.Update(dt, entityContainer.at(0));
+		camera2.Update(dt, entityContainer.at(0));
+		camera3.Update(dt, entityContainer.at(0));
 
 	}
+	else {
+		if (Application::IsKeyPressed(VK_UP) && delay >= 0.2 && gameFinished == true) {
 
-	//if (Application::IsKeyPressed('Q')) {	//turn on torch
+			if (choice == 0) {
 
-	//	light[3].power = 0.2;
-	//	glUniform1f(m_parameters[U_LIGHT3_POWER], light[3].power);
+				choice = 1;
+				arrowY = 16;
 
-	//	torchLightOn = true;
-	//}
+			}
+			else {
+				choice -= 1;
+				arrowY += 2;
+			}
 
-	//if (Application::IsKeyPressed('E')) {	//turn off torch
+			delay = 0.0;
 
-	//	light[3].power = 0;
-	//	glUniform1f(m_parameters[U_LIGHT3_POWER], light[3].power);
+		}
+		if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2 && gameFinished == true) {
 
-	//	torchLightOn = false;
-	//}
+			if (choice == 1) {
+
+				choice = 0;
+				arrowY = 18;
+			}
+			else {
+				choice += 1;
+				arrowY -= 2;
+			}
+
+			delay = 0.0;
+
+		}
+	}
+
+	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2 && gameFinished == true) {
+
+		if (choice == 0) {
+
+			Application::changeScene = true;
+			Application::SceneChoice = Application::NORMALMODE;
+
+		}
+		else if (choice == 1) {
+
+			Application::changeScene = true;
+			Application::SceneChoice = Application::STARTMENU;
+		}
+
+
+	}
+	if (Application::IsKeyPressed('O') && delay >= 0.2) {
+
+		gameFinished = true;
+
+		delay = 0.0;
+	}
+
+	if (Application::IsKeyPressed('P') && delay >= 0.2) {
+
+		if (paused == false && gameFinished == false) {
+
+			paused = true;
+		}
+		else {
+			paused = false;
+		}
+
+		delay = 0.0;
+	}
+
+	if (Application::IsKeyPressed('B') && delay >= 0.2) {
+
+		camera.lockCamera = true;
+
+		delay = 0.0;
+	}
+
+	if (Application::IsKeyPressed('V') && delay >= 0.2) {
+
+		camera.lockCamera = false;
+
+		delay = 0.0;
+	}
 
 	f_fps = 1.0f / dt;
 
@@ -464,36 +621,6 @@ void SceneSP02::Update(double dt)
 	x = std::to_string(camera.position.x);
 	y = std::to_string(camera.position.y);
 	z = std::to_string(camera.position.z);
-
-	//if (torchLightOn == true) {	// torch direction and position change here
-
-	//	Vector3 view = (camera.target - camera.position).Normalized();
-
-	//	light[3].position.Set(camera.position.x, camera.position.y, camera.position.z);	//position changes
-	//	light[3].spotDirection.Set(-view.x, -view.y, -view.z);
-
-	//}
-
-	//update light
-	light[0].position.Set(entityContainer.at(0)->getPosX() +3, entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ()-8);
-
-	light[1].position.Set(entityContainer.at(0)->getPosX() -3, entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ()-8);
-
-	for (size_t i = 0; i < entityContainer.size(); i++) {
-
-		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.checkCollisionWithTheFloor(*entityContainer.at(i), entityContainer), collisionChecker.getCollidiedItem());
-		entityContainer.at(i)->update(dt);
-
-	}
-
-	collisionDetected = collisionChecker.collisionCheck(entityContainer);
-
-	camera.Update(dt, entityContainer.at(0));
-	camera2.Update(dt, entityContainer.at(0));
-	camera3.Update(dt, entityContainer.at(0));
-	
-
-
 }
 
 void SceneSP02::RenderMesh(Mesh* mesh, bool enableLight)
@@ -544,8 +671,6 @@ void SceneSP02::RenderMesh(Mesh* mesh, bool enableLight)
 	}
 
 }
-
-
 
 void SceneSP02::RenderSkybox() {
 
@@ -1062,12 +1187,11 @@ void SceneSP02::RenderPart02Objects() {
 
 }
 
-
 void SceneSP02::RenderPlayers()
 {
 	modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
-	//modelStack.Rotate(carrot, 0, 1, 0);
+	modelStack.Rotate(rotateAngle, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_CAR], true);
 	modelStack.PopMatrix();
@@ -1260,8 +1384,6 @@ void SceneSP02::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();*/
 
-
-
 	//RenderSkybox();
 	RenderPlayers();
 	RenderGamePlatformPart01();
@@ -1269,6 +1391,18 @@ void SceneSP02::Render()
     RenderGamePlatformPart02();	
 	RenderPart02Objects();
 
+	if (gameFinished == false && paused == true) {
+
+		RenderTextOnScreen(meshList[GEO_TEXT], "GAME IS PAUSEDDDD", Color(0, 255, 0), 2, 12, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Press 'P' to resume", Color(0, 255, 0), 2, 14, arrowY);
+		}
+	if (gameFinished == true) {
+
+		RenderTextOnScreen(meshList[GEO_TEXT], "GAME IS OVER", Color(0, 255, 0), 2, 12, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Play Again", Color(0, 255, 0), 2, 16, 18);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Return to Menu", Color(0, 255, 0), 2, 16, 16);
+	}
 
 	if (collisionDetected == false) {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);
@@ -1276,6 +1410,35 @@ void SceneSP02::Render()
 	else {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision DETECTED", Color(220, 20, 60), 2, 1, 20);
 	}
+
+	if (showStage2 == true && shown == false) {
+
+		RenderTextOnScreen(meshList[GEO_TEXT], "STAGE 2", Color(220, 20, 60), 2, 15, 25);
+		
+	
+	}
+
+	string txt;
+	txt = std::to_string(entityContainer.at(0)->getPosZ());
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 3);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Z: ", Color(0, 255, 0), 2, 1, 3);
+
+	txt = std::to_string(entityContainer.at(0)->getPosY());
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 14, 3);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Y: ", Color(0, 255, 0), 2, 10, 3);
+
+	txt = std::to_string(camera.position.x);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);
+	RenderTextOnScreen(meshList[GEO_TEXT], "XC: ", Color(0, 255, 0), 2, 1, 5);
+
+	txt = std::to_string(camera.position.y);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 7);
+	RenderTextOnScreen(meshList[GEO_TEXT], "YC: ", Color(0, 255, 0), 2, 1, 7);
+
+	txt = std::to_string(camera.position.z);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 9);
+	RenderTextOnScreen(meshList[GEO_TEXT], "ZC: ", Color(0, 255, 0), 2, 1, 9);
+
 
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);

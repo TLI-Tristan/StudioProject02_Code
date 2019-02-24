@@ -10,7 +10,7 @@ public:
 	~Object();
 	void update(double dt);
 	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidiedItem);
-
+	void checkPoint2();
 private:
 
 };

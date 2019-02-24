@@ -96,20 +96,20 @@ void Object::update(double dt)
 	}
 
 
-	if (name == "part1MoivngBlock") {
+	//if (name == "part1MoivngBlock") {
 
 
-		if (position.x <= -50) {
+	//	if (position.x <= -50) {
 
-			direction.x = 1;
-		}
-		if (position.x >= 50) {
+	//		direction.x = 1;
+	//	}
+	//	if (position.x >= 50) {
 
-			direction.x = -1;
-		}
+	//		direction.x = -1;
+	//	}
 
-		position.x += speed.x * direction.x * dt;
-	}
+	//	position.x += speed.x * direction.x * dt;
+	//}
 
 
 
@@ -118,5 +118,9 @@ void Object::update(double dt)
 }
 
 void Object::collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidiedItem)
+{
+}
+
+void Object::checkPoint2()
 {
 }

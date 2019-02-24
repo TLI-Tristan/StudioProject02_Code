@@ -156,6 +156,7 @@
     <ClCompile Include="Source\Entity.cpp" />
     <ClCompile Include="Source\FreeGameMode.cpp" />
     <ClCompile Include="Source\GameMenu.cpp" />
+    <ClCompile Include="Source\InstructionMenu.cpp" />
     <ClCompile Include="Source\LoadOBJ.cpp" />
     <ClCompile Include="Source\LoadTGA.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="Source\FreeGameMode.h" />
     <ClInclude Include="Source\GameMenu.h" />
+    <ClInclude Include="Source\InstructionMenu.h" />
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\LoadOBJ.h" />
     <ClInclude Include="Source\LoadTGA.h" />

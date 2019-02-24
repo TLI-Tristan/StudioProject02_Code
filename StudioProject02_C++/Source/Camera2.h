@@ -23,9 +23,11 @@ public:
 	virtual void Update(double dt, Entity* player01);
 	virtual void Reset();
 	virtual bool collision(Vector3 pos);
+	bool stage2Camera;
+	bool lockCamera;
 
 private:
-	bool lockCamera;
+	
 	std::string name;
 };
 

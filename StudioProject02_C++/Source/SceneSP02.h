@@ -184,7 +184,18 @@ private:
 	double delay;
 	double dt;
 	bool collisionDetected;
+	bool gameFinished;
+	bool paused;
 
+	bool checkpoint2;
+
+	float rotateAngle;
+	int choice;
+	int arrowY;
+	bool showStage2;
+	bool shown;
+	float time;
+	
 };
 
 #endif

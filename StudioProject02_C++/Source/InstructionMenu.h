@@ -1,5 +1,5 @@
-#ifndef SCENE_CUSTOMIZATIONMENU_H
-#define SCENE_CUSTOMIZATIONMENU_H
+#ifndef SCENE_INSTRUCTIONMENU_H
+#define SCENE_INSTRUCTIONMENU_H
 
 #include "Scene.h"
 #include "Camera2.h"
@@ -15,7 +15,7 @@
 // audio
 
 
-class SceneCustomizationMenu : public Scene
+class SceneInstuctionMenu : public Scene
 {
 	enum UNIFORM_TYPE
 	{
@@ -76,8 +76,8 @@ class SceneCustomizationMenu : public Scene
 	};
 
 public:
-	SceneCustomizationMenu();
-	~SceneCustomizationMenu();
+	SceneInstuctionMenu();
+	~SceneInstuctionMenu();
 
 	virtual void Init();
 	virtual void Update(double dt);

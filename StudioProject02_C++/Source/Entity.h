@@ -44,6 +44,7 @@ public:
 	virtual void update(double dt) = 0;
 	virtual void collisionDetector(bool isThereCollision, bool isItCollidingWithTheFloor, Entity* collidiedItem) = 0;
 	bool getIsItPlayer();
+	virtual void checkPoint2() = 0;
 	std::string getName();
 	Physics c_Physics;
 

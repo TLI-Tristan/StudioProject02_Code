@@ -17,6 +17,7 @@ public:
 	void calDeceleration();
 	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidiedItem);
 	void update(double dt);
+	void checkPoint2();
 
 private:
 
