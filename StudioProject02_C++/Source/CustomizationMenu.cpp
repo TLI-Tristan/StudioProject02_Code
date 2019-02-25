@@ -208,11 +208,9 @@ void SceneCustomizationMenu::Init()
 
 void SceneCustomizationMenu::Update(double dt)
 {
-	this->dt = dt;
-	static const float LSPEED = 10.0f;
-
-
-
+	//this->dt = dt;
+	//static const float LSPEED = 10.0f;
+	
 	Rotatecar += 55 * dt;
 
 

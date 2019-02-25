@@ -238,7 +238,6 @@ void SceneInstructionMenu::Update(double dt)
 
 		delay = 0.0;
 
-
 		if (choice == 0) {
 
 

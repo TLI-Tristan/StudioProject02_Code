@@ -221,6 +221,12 @@ private:
 
 
 	
+	Player * Playercar;
+	bool outofmap = false;
+
+	float elaspedtime;
+	float bouncetime;
+	int flicker = 0;
 };
 
 #endif
