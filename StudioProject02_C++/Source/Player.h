@@ -34,6 +34,7 @@ private:
 	bool falling;
 
 	Entity* collidiedItem;
+	
 
 
 };
