@@ -13,6 +13,7 @@
 #include "GameMenu.h"
 #include "FreeGameMode.h"
 #include "CustomizationMenu.h"
+#include "InstructionMenu.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -182,9 +183,12 @@ void Application::Run()
 	Scene *MainGame = new SceneSP02();
 	MainGame->Init();
 
+	Scene *InstructionMenu = new SceneInstructionMenu();
+	InstructionMenu->Init();
+
 	//Scene *scene = GameMenu;
 
-	Scene *scene = MainGame;
+	Scene *scene = CustomizationMenu;
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
@@ -209,16 +213,22 @@ void Application::Run()
 				scene->Init();
 				Application::changeScene = false;
 			}
-				break;
+						   break;
 
-			case NORMALMODE:
+			case NORMALMODE: {
 				delete MainGame;
 				Scene *MainGame = new SceneSP02();
 				scene = MainGame;
 				scene->Init();
 				Application::changeScene = false;
+			}
 				break;
-
+			
+			case INSTRUCTION: {
+				scene = InstructionMenu;
+				Application::changeScene = false;
+			}
+				break;
 			}
 
 		}

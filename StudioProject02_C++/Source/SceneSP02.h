@@ -19,7 +19,13 @@
 // splitscreen
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-// audio
+
+
+#include <fstream>
+#include <vector>
+#include <algorithm>
+
+
 
 
 class SceneSP02 : public Scene
@@ -140,6 +146,11 @@ public:
 	SceneSP02();
 	~SceneSP02();
 
+	void getLeaderboard();
+	void saveLeader();
+
+
+
 	void ALLCamera(int angle);
 
 	Collision collisionChecker;
@@ -195,6 +206,20 @@ private:
 	bool showStage2;
 	bool shown;
 	float time;
+
+	vector<int> allTime;
+	bool showBoard = false;
+	int totalLength;
+	// timer code
+	private:
+		int i_milisecs;
+		int i_secs;
+		int i_mins;
+		std::string s_milisecs;
+		std::string s_secs;
+		std::string s_mins;
+
+
 	
 	Player * Playercar;
 	bool outofmap = false;

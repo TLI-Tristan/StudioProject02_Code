@@ -22,9 +22,7 @@ public:
 			CUSTOMIZATION,
 			FREEMODE,
 			NORMALMODE,
-			PAUSEMENU,
-			VICTORY,
-			GAMEOVER,
+			INSTRUCTION,
 
 		};
 private:

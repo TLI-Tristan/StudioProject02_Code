@@ -19,8 +19,9 @@ public:
 
 	Camera2();
 	~Camera2();
-	virtual void Init(const Vector3& pos, const Vector3& target, const Vector3& up, std::string name);
+	virtual void Init(const Vector3& pos, const Vector3& target, const Vector3& up, std::string name, bool lockCamera);
 	virtual void Update(double dt, Entity* player01);
+	virtual void Update(double dt);
 	virtual void Reset();
 	virtual bool collision(Vector3 pos);
 	bool stage2Camera;

@@ -30,7 +30,7 @@ void SceneFreeGameMode::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(-100, -81, -439), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01");
+	camera.Init(Vector3(-100, -81, -439), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
 
 	//audio.SetAudio("1.wav");
 
@@ -174,7 +174,7 @@ void SceneFreeGameMode::Init()
 	meshList[GEO_TURNRIGHT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight2.obj");
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
-	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//cartexture.tga");
 	//audio.PlayAudio();
 
 
@@ -194,55 +194,55 @@ void SceneFreeGameMode::Update(double dt)
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
 
-	if (Application::IsKeyPressed(VK_UP) && delay >= 0.2) {
+	//if (Application::IsKeyPressed(VK_UP) && delay >= 0.2) {
 
-		if (choice == 0) {
+	//	if (choice == 0) {
 
-			choice = 1;
-			arrowY = 16;
+	//		choice = 1;
+	//		arrowY = 16;
 
-		}
-		else {
-			choice -= 1;
-			arrowY += 2;
-		}
+	//	}
+	//	else {
+	//		choice -= 1;
+	//		arrowY += 2;
+	//	}
 
-		delay = 0.0;
-
-
-	}
-	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2) {
-
-		if (choice == 1) {
-
-			choice = 0;
-			arrowY = 18;
-		}
-		else {
-			choice += 1;
-			arrowY -= 2;
-		}
-
-		delay = 0.0;
-
-	}
-
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
-
-		delay = 0.0;
-
-		if (choice == 0) {
+	//	delay = 0.0;
 
 
-		}
-		else if (choice == 1) {
+	//}
+	//if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2) {
 
-			Application::changeScene = true;
-			Application::SceneChoice = Application::STARTMENU;
-		}
+	//	if (choice == 1) {
+
+	//		choice = 0;
+	//		arrowY = 18;
+	//	}
+	//	else {
+	//		choice += 1;
+	//		arrowY -= 2;
+	//	}
+
+	//	delay = 0.0;
+
+	//}
+
+	//if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
+
+	//	delay = 0.0;
+
+	//	if (choice == 0) {
 
 
-	}
+	//	}
+	//	else if (choice == 1) {
+
+	//		Application::changeScene = true;
+	//		Application::SceneChoice = Application::STARTMENU;
+	//	}
+
+
+	//}
 
 	f_fps = 1.0f / dt;
 
@@ -254,7 +254,7 @@ void SceneFreeGameMode::Update(double dt)
 	z = std::to_string(camera.position.z);
 	ChoseMapParts();
 
-
+	camera.Update(dt);
 
 
 }
@@ -485,11 +485,11 @@ void SceneFreeGameMode::Render()
 
 	RenderSkybox();
 
-	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
+	/*RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);*/
 
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
