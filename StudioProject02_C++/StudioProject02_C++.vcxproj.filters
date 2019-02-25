@@ -123,11 +123,11 @@
     <ClCompile Include="Source\CustomizationMenu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Source\InstructionMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\TrackMaker.cpp">
       <Filter>Source Files\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InstructionMenu.cpp">
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,11 +215,11 @@
     <ClInclude Include="Source\CustomizationMenu.h">
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Source\InstructionMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\TrackMaker.h">
       <Filter>Header Files\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InstructionMenu.h">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

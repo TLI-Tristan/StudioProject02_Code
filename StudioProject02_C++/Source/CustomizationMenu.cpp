@@ -181,6 +181,10 @@ void SceneCustomizationMenu::Init()
 
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
+
+	meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("box", "Obj/SP_CarObj.obj");
+	meshList[GEO_PLAYER]->textureID = LoadTGA("Image/cartexture.tga");
+
 	//audio.PlayAudio();
 
 
@@ -192,7 +196,7 @@ void SceneCustomizationMenu::Init()
 	delay = 0.0;
 
 	choice = 0;
-	arrowY = 18;
+	arrowY = 30;
 
 }
 
@@ -520,7 +524,12 @@ void SceneCustomizationMenu::Render()
 
 	RenderMesh(meshList[GEO_AXES], false); //To be removed
 
+	modelStack.PushMatrix();
+	modelStack.Rotate(0, 0, 1, 0);
+	modelStack.Scale(10, 10, 10);
 
+	RenderMesh(meshList[GEO_PLAYER], true);
+	modelStack.PopMatrix();
 
 	/*viewStack.LoadIdentity();
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);

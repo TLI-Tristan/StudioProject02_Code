@@ -72,7 +72,16 @@ class SceneCustomizationMenu : public Scene
 		GEO_BACK,
 		GEO_TEXT,
 		GEO_AXES,
+		GEO_PLAYER,
 		NUM_GEOMETRY,
+	};
+
+	enum carParts
+	{
+		TEXTURE,
+		CHASSIS,
+		WHEEL,
+		ENGINE,
 	};
 
 public:
@@ -102,6 +111,7 @@ private:
 	Audio audio;
 
 	void RenderMesh(Mesh *mesh, bool enableLight);
+	int customization[4];
 
 	float f_fps;
 	std::string s_fps;
@@ -115,6 +125,7 @@ private:
 
 	int choice;
 	int arrowY;
+	int arrowX;
 
 };
 

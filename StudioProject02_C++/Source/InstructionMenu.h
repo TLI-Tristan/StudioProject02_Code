@@ -15,7 +15,7 @@
 // audio
 
 
-class SceneInstuctionMenu : public Scene
+class SceneInstructionMenu : public Scene
 {
 	enum UNIFORM_TYPE
 	{
@@ -76,8 +76,8 @@ class SceneInstuctionMenu : public Scene
 	};
 
 public:
-	SceneInstuctionMenu();
-	~SceneInstuctionMenu();
+	SceneInstructionMenu();
+	~SceneInstructionMenu();
 
 	virtual void Init();
 	virtual void Update(double dt);

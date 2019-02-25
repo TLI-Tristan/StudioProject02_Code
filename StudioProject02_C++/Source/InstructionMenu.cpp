@@ -7,11 +7,11 @@
 #include "Utility.h"
 #include "LoadTGA.h"
 
-SceneInstuctionMenu::SceneInstuctionMenu()
+SceneInstructionMenu::SceneInstructionMenu()
 {
 }
 
-SceneInstuctionMenu::~SceneInstuctionMenu()
+SceneInstructionMenu::~SceneInstructionMenu()
 {
 }
 
@@ -36,7 +36,7 @@ SceneInstuctionMenu::~SceneInstuctionMenu()
 //}
 
 
-void SceneInstuctionMenu::Init()
+void SceneInstructionMenu::Init()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
@@ -196,7 +196,7 @@ void SceneInstuctionMenu::Init()
 
 }
 
-void SceneInstuctionMenu::Update(double dt)
+void SceneInstructionMenu::Update(double dt)
 {
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
@@ -264,7 +264,7 @@ void SceneInstuctionMenu::Update(double dt)
 	z = std::to_string(camera.position.z);
 }
 
-void SceneInstuctionMenu::RenderMesh(Mesh* mesh, bool enableLight)
+void SceneInstructionMenu::RenderMesh(Mesh* mesh, bool enableLight)
 {
 	Mtx44 MVP, modelView, modelView_inverse_transpose;
 
@@ -315,7 +315,7 @@ void SceneInstuctionMenu::RenderMesh(Mesh* mesh, bool enableLight)
 
 
 
-void SceneInstuctionMenu::RenderSkybox() {
+void SceneInstructionMenu::RenderSkybox() {
 
 	modelStack.PushMatrix();
 	modelStack.Translate(0, 148, 0);
@@ -356,7 +356,7 @@ void SceneInstuctionMenu::RenderSkybox() {
 }
 
 
-void SceneInstuctionMenu::RenderText(Mesh* mesh, std::string text, Color color)
+void SceneInstructionMenu::RenderText(Mesh* mesh, std::string text, Color color)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
 		return;
@@ -383,7 +383,7 @@ void SceneInstuctionMenu::RenderText(Mesh* mesh, std::string text, Color color)
 	glEnable(GL_DEPTH_TEST);
 }
 
-void SceneInstuctionMenu::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
+void SceneInstructionMenu::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
 		return;
@@ -478,7 +478,7 @@ void SceneInstuctionMenu::RenderTextOnScreen(Mesh* mesh, std::string text, Color
 //
 //}
 
-void SceneInstuctionMenu::RenderLight() {
+void SceneInstructionMenu::RenderLight() {
 
 
 	if (light[0].type == Light::LIGHT_SPOT)
@@ -500,7 +500,7 @@ void SceneInstuctionMenu::RenderLight() {
 
 }
 
-void SceneInstuctionMenu::Render()
+void SceneInstructionMenu::Render()
 {
 	//Clear color & depth buffer every frame
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -528,7 +528,7 @@ void SceneInstuctionMenu::Render()
 
 	//RenderSkybox();
 
-	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS CUSTOMIZATION MENU", Color(0, 255, 0), 2, 12, 25);
+	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS INSTRUCTION MENU", Color(0, 255, 0), 2, 12, 25);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
@@ -540,7 +540,7 @@ void SceneInstuctionMenu::Render()
 
 }
 
-void SceneInstuctionMenu::Exit()
+void SceneInstructionMenu::Exit()
 {
 	// Cleanup VBO here
 	glDeleteProgram(m_programID);

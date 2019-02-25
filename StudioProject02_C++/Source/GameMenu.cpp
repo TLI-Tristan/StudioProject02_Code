@@ -206,8 +206,8 @@ void SceneGameMenu::Update(double dt)
 
 		if (choice == 0) {
 
-			choice = 3;
-			arrowY = 12;
+			choice = 4;
+			arrowY = 10;
 			
 		}
 		else {
@@ -221,7 +221,7 @@ void SceneGameMenu::Update(double dt)
 	}
 	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3) {
 
-		if (choice == 3) {
+		if (choice == 4) {
 
 			choice = 0;
 			arrowY = 18;
@@ -256,6 +256,12 @@ void SceneGameMenu::Update(double dt)
 			Application::SceneChoice = Application::FREEMODE;
 		}
 		else if (choice == 3) {
+
+			Application::changeScene = true;
+			Application::SceneChoice = Application::INSTRUCTION;
+
+		}
+		else if (choice == 4) {
 
 			exit(0);
 
@@ -547,7 +553,8 @@ void SceneGameMenu::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], "Start Game", Color(0, 255, 0), 2, 16, 18);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Customization", Color(0, 255, 0), 2, 16, 16);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Free Game Mode", Color(0, 255, 0), 2, 16, 14);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Exit Game", Color(0, 255, 0), 2, 16, 12);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Instructions", Color(0, 255, 0), 2, 16, 12);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Exit Game", Color(0, 255, 0), 2, 16, 10);
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
 
