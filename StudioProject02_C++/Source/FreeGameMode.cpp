@@ -30,7 +30,7 @@ void SceneFreeGameMode::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(-100, -81, -439), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
+	camera.Init(Vector3(0, 80, 30), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01", false);
 
 	//audio.SetAudio("1.wav");
 
@@ -146,6 +146,14 @@ void SceneFreeGameMode::Init()
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 
+	meshList[GEO_CART] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
+	meshList[GEO_CART]->textureID = LoadTGA("Image//cartexture.tga");
+	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));
+
+	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("Blockers", "Obj/platform.obj");
+	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 18, 1, 18, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//1
+
+
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(255, 255, 255), 1000.f, 600.f, true);
 	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//grass.tga", true);
 
@@ -187,6 +195,7 @@ void SceneFreeGameMode::Init()
 
 	choice = 0;
 	arrowY = 18;
+	collisionDetected = false; 
 }
 
 void SceneFreeGameMode::Update(double dt)
@@ -243,6 +252,17 @@ void SceneFreeGameMode::Update(double dt)
 
 
 	//}
+
+	for (size_t i = 0; i < entityContainer.size(); i++) {
+
+		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.checkCollisionWithTheFloor(*entityContainer.at(i), entityContainer), collisionChecker.getCollidiedItem());
+		entityContainer.at(i)->update(dt);
+
+	}
+
+
+
+	collisionDetected = collisionChecker.collisionCheck(entityContainer);
 
 	f_fps = 1.0f / dt;
 
@@ -473,6 +493,8 @@ void SceneFreeGameMode::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
 
+
+
 	modelStack.LoadIdentity();
 	/*modelStack.PushMatrix();
 	RenderLight();
@@ -483,6 +505,18 @@ void SceneFreeGameMode::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();*/
 
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
+	modelStack.Scale(5, 5, 5);
+	RenderMesh(meshList[GEO_CART], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_PLATFORM], true);
+	modelStack.PopMatrix();
+
 	RenderSkybox();
 
 	/*RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
@@ -490,6 +524,19 @@ void SceneFreeGameMode::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);*/
+	string txt;
+
+	txt = std::to_string(camera.position.x);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);
+	RenderTextOnScreen(meshList[GEO_TEXT], "XC: ", Color(0, 255, 0), 2, 1, 5);
+
+	txt = std::to_string(camera.position.y);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 7);
+	RenderTextOnScreen(meshList[GEO_TEXT], "YC: ", Color(0, 255, 0), 2, 1, 7);
+
+	txt = std::to_string(camera.position.z);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 9);
+	RenderTextOnScreen(meshList[GEO_TEXT], "ZC: ", Color(0, 255, 0), 2, 1, 9);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);

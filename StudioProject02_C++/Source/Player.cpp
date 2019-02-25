@@ -70,7 +70,7 @@ void Player::update(double dt)
 
 
 
-		if (position.y < -1000 && health > 0)
+		if (position.y < 1000 && health > 0)
 		{
 			health--;
 			position = startposition;
@@ -229,7 +229,6 @@ void Player::update(double dt)
 		//if (1 == present)
 		//{
 
-		if (impulseDone == true) {
 
 		if (impulseDone == true) {
 
@@ -400,8 +399,8 @@ void Player::update(double dt)
 
 		}
 
-		}
 	}
+}
 
 
 void Player::checkPoint2()

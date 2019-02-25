@@ -211,13 +211,14 @@ private:
 	bool showBoard = false;
 	int totalLength;
 	// timer code
-	private:
-		int i_milisecs;
-		int i_secs;
-		int i_mins;
-		std::string s_milisecs;
-		std::string s_secs;
-		std::string s_mins;
+
+private:
+	int i_milisecs;
+	int i_secs;
+	int i_mins;
+	std::string s_milisecs;
+	std::string s_secs;
+	std::string s_mins;
 
 
 	

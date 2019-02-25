@@ -557,6 +557,12 @@ void SceneSP02::Update(double dt)
 		//	light[3].spotDirection.Set(-view.x, -view.y, -view.z);
 
 		//}
+
+		if (entityContainer.at(0)->getPosX() <= -1270 && gameFinished == false) {
+
+			gameFinished = true;
+		}
+
 		if (showStage2 == true && shown == false) {
 
 			time += dt;
