@@ -82,6 +82,8 @@ class SceneCustomizationMenu : public Scene
 		CHASSIS,
 		WHEEL,
 		ENGINE,
+		SAVE,
+		RETURN
 	};
 
 public:
@@ -126,6 +128,12 @@ private:
 	int choice;
 	int arrowY;
 	int arrowX;
+	float Rotatecar;
+	bool changeTexture;
+	bool changeModel;
+	bool changeTyre;
+	bool changeEngine;
+
 
 };
 

@@ -10,11 +10,62 @@
 
 SceneSP02::SceneSP02()
 {
+
+
+	i_milisecs = 0;
+	i_secs = 0;
+	i_mins = 0;
 }
 
 SceneSP02::~SceneSP02()
 {
 }
+
+
+
+void SceneSP02::getLeaderboard()
+{
+
+	string line;
+	ifstream file("LeaderBoard.txt");
+	allTime.clear();
+
+	if (file.is_open())
+	{
+		while (getline(file, line))
+		{
+			int x = stoi(line);
+			allTime.push_back(x);
+		}
+		file.close();
+	}
+
+	sort(allTime.begin(), allTime.end());
+	totalLength = allTime.size() + 0;
+	showBoard = true;
+	for (int i = 0; i < 3; i++)
+	{
+
+		cout << allTime[totalLength - 1 - i] << endl;
+
+	}
+
+
+
+
+
+}
+
+void SceneSP02::saveLeader()
+{
+	ofstream ofs;
+	ofs.open("LeaderBoard.txt", ofstream::out | ofstream::app);
+	ofs << i_mins << i_secs << i_milisecs << endl;
+	ofs.close();
+
+}
+
+
 
 //void SceneSP02::ALLCamera(int angle) {
 //	if (angle == 1)
@@ -50,9 +101,9 @@ void SceneSP02::Init()
 	// SS
 	glEnable(GL_SCISSOR_TEST);
 	
-	camera.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01");
-	camera2.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player02");
-	camera3.Init(Vector3(0, 200, 20), Vector3(0, -100, 0), Vector3(0, 1, 0), "minimap");
+	camera.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01", true);
+	camera2.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player02", false);
+	camera3.Init(Vector3(0, 200, 20), Vector3(0, -100, 0), Vector3(0, 1, 0), "minimap", false);
 
 	//audio.SetAudio("1.wav");
 
@@ -252,7 +303,7 @@ void SceneSP02::Init()
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car","Obj/SP_CarObj.obj");
-	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Player(Vector3(0, 0, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));//0
 
 
@@ -296,11 +347,11 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-40, 0, -600), true, false, 3.5, 3, 4, Vector3(40.0, 0.0, 0.0), 5000.0, Vector3(-1.0, 0.0, 0.0), "part1MoivngBlock")); //15
 
 	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("World2Floor", "Obj/World2_Floor.obj");
-	meshList[GEO_WORLD2FLOOR]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_WORLD2FLOOR]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-250, -4.2, -805), false, false, 300, 3, 150, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//16
 
 	meshList[GEO_MOVINGBLOCKS1] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
-	meshList[GEO_MOVINGBLOCKS1]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_MOVINGBLOCKS1]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-170, 0, -650), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//17
 	entityContainer.push_back(new Object(Vector3(-170, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//18
 	entityContainer.push_back(new Object(Vector3(-170, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//19
@@ -308,13 +359,13 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-170, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//21
 
 	meshList[GEO_BRIDGE] = MeshBuilder::GenerateOBJ("Bridge", "Obj/Bridge.obj");
-	meshList[GEO_BRIDGE]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_BRIDGE]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-240, 0, -802), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//22
 	meshList[GEO_BRIDGELEFT] = MeshBuilder::GenerateOBJ("Bridge", "Obj/BridgeLeft.obj");
-	meshList[GEO_BRIDGELEFT]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_BRIDGELEFT]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-240, 0, -673), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//23
 	meshList[GEO_BRIDGERIGHT] = MeshBuilder::GenerateOBJ("Bridge", "Obj/BridgeRight.obj");
-	meshList[GEO_BRIDGERIGHT]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_BRIDGERIGHT]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-240, 0, -942), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//24
 
 	meshList[GEO_UPDOWNBLOCKS] = MeshBuilder::GenerateOBJ("UpDownBlock", "Obj/UPDownBlocks.obj");
@@ -326,7 +377,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-233, 0, -910), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//30
 
 	meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
-	meshList[GEO_LEFTMOVINGBLOCK]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_LEFTMOVINGBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-280, 0, -650), false, false, 4,5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//31
 	entityContainer.push_back(new Object(Vector3(-280, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//32
 	entityContainer.push_back(new Object(Vector3(-280, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//33
@@ -334,7 +385,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-280, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//35
 
 	meshList[GEO_RIGHTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
-	meshList[GEO_RIGHTMOVINGBLOCK]->textureID = LoadTGA("Image//car.tga");
+	meshList[GEO_RIGHTMOVINGBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-320, 0, -650), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//36
 	entityContainer.push_back(new Object(Vector3(-320, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//37
 	entityContainer.push_back(new Object(Vector3(-320, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//38
@@ -421,6 +472,39 @@ void SceneSP02::Init()
 
 void SceneSP02::Update(double dt)
 {
+
+
+	i_milisecs++;
+	if (i_milisecs > 59)
+	{
+		i_secs++;
+		i_milisecs = 0;
+	}
+	if (i_secs > 59)
+	{
+		i_mins++;
+		i_secs = 0;
+	}
+	s_milisecs = std::to_string(i_milisecs);
+	s_secs = std::to_string(i_secs);
+	s_mins = std::to_string(i_mins);
+
+
+	if (Application::IsKeyPressed('1'))
+	{
+
+
+		saveLeader();
+
+	}
+	if (Application::IsKeyPressed('2'))
+	{
+
+		getLeaderboard();
+	}
+
+
+
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
 	time += dt;
@@ -1418,6 +1502,13 @@ void SceneSP02::Render()
 	
 	}
 
+	if (showBoard == true)
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 0]), Color(0, 255, 0), 2, 12, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 1]), Color(0, 255, 0), 2, 12, 23);
+		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 2]), Color(0, 255, 0), 2, 12, 21);
+	}
+
 	string txt;
 	txt = std::to_string(entityContainer.at(0)->getPosZ());
 	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 3);
@@ -1442,6 +1533,45 @@ void SceneSP02::Render()
 
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+
+
+
+	if (i_milisecs < 10)
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_milisecs, Color(250, 255, 250), 2, 25, 27);
+		RenderTextOnScreen(meshList[GEO_TEXT], "0", Color(250, 255, 250), 2, 24, 27);
+	}
+	else
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_milisecs, Color(250, 255, 250), 2, 24, 27);
+	}
+
+	RenderTextOnScreen(meshList[GEO_TEXT], ":", Color(250, 255, 250), 2, 23, 27);
+
+	if (i_secs < 10)
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_secs, Color(250, 255, 250), 2, 22, 27);
+		RenderTextOnScreen(meshList[GEO_TEXT], "0", Color(250, 255, 250), 2, 21, 27);
+	}
+	else
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_secs, Color(250, 255, 250), 2, 21, 27);
+	}
+
+	RenderTextOnScreen(meshList[GEO_TEXT], ":", Color(250, 255, 250), 2, 20, 27);
+
+	if (i_mins < 10)
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_mins, Color(250, 255, 250), 2, 19, 27);
+		RenderTextOnScreen(meshList[GEO_TEXT], "0", Color(250, 255, 250), 2, 18, 27);
+	}
+	else
+	{
+		RenderTextOnScreen(meshList[GEO_TEXT], s_mins, Color(250, 255, 250), 2, 19, 27);
+	}
+
+
+
 
 
 }

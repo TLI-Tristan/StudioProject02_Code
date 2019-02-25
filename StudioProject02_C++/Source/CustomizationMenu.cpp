@@ -45,7 +45,7 @@ void SceneCustomizationMenu::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01");
+	camera.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01", true);
 
 	//audio.SetAudio("1.wav");
 
@@ -198,6 +198,12 @@ void SceneCustomizationMenu::Init()
 	choice = 0;
 	arrowY = 30;
 
+	Rotatecar = 0.0;
+	changeTexture = false;
+	changeEngine = false;
+	changeModel = false;
+	changeTyre = false;
+
 }
 
 void SceneCustomizationMenu::Update(double dt)
@@ -205,58 +211,192 @@ void SceneCustomizationMenu::Update(double dt)
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
 
-	if (Application::IsKeyPressed(VK_UP) && delay >= 0.3) {
 
-		if (choice == 0) {
 
-			choice = 1;
-			arrowY = 16;
+	Rotatecar += 55 * dt;
 
+
+
+	if (Application::IsKeyPressed(VK_UP) && delay >= 0.3)
+	{
+		if (choice == TEXTURE) {
+
+			choice = RETURN;
 		}
 		else {
 			choice -= 1;
-			arrowY += 2;
 		}
 
 		delay = 0.0;
 
-
 	}
-	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3) {
+	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3)
+	{
 
-		if (choice == 1) {
+		if (choice == RETURN) {
 
-			choice = 0;
-			arrowY = 18;
+			choice = TEXTURE;
+
 		}
 		else {
 			choice += 1;
-			arrowY -= 2;
 		}
+
 
 		delay = 0.0;
 
 	}
 
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.3) {
+	if (Application::IsKeyPressed(VK_RIGHT) && delay >= 0.3)
+	{
+
+		if (choice != 4 && choice != 5) {
+
+			if (customization[choice] == 3) {
+
+				customization[choice] = 0;
+			}
+			else {
+				customization[choice] += 1;
+			}
+			changeTexture = true;
+		}
+
+
+		delay = 0.0;
+	}
+
+
+	if (Application::IsKeyPressed(VK_LEFT) && delay >= 0.3)
+	{
+
+		if (choice != 4 && choice != 5) {
+
+			if (customization[choice] == 0) {
+
+				customization[choice] = 3;
+			}
+			else {
+				customization[choice] -= 1;
+			}
+			changeTexture = true;
+		}
+
 
 		delay = 0.0;
 
-		if (choice == 0) {
+	}
 
-			
+	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.3)
+	{
+
+		if (choice == 4) {
+
+	
 		}
-		else if (choice == 1) {
+
+		if (choice == 5) {
 
 			Application::changeScene = true;
 			Application::SceneChoice = Application::STARTMENU;
-		}
-	
 
+		}
+
+		delay = 0.0;
 
 	}
 
 
+
+	switch (choice) {
+
+	case TEXTURE: arrowY = 30;
+		arrowX = 44.5;
+		break;
+	case CHASSIS: arrowY = 28;
+		arrowX = 44.5;
+		break;
+	case WHEEL: arrowY = 26;
+		arrowX = 42.5;
+		break;
+	case ENGINE: arrowY = 24;
+		arrowX = 43.5;
+		break;
+	case SAVE: arrowY = 22;
+		arrowX = 43.5;
+		break;
+	case RETURN: arrowY = 20;
+		arrowX = 43.5;
+		break;
+	}
+
+	//chassis
+	if (changeTexture == true) {
+
+		if (customization[1] == 0) {
+			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
+
+		}
+		else if (customization[1] == 1) {
+			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car2", "Obj/Car2.obj");
+
+		}
+		else if (customization[1] == 2) {
+			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car3", "Obj/car3.obj");
+		}
+		else if (customization[1] == 3) {
+
+			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("cyl", "Obj/car4.obj");
+		}
+
+		changeModel = false;
+	}
+	if (changeTyre == true) {
+
+		if (customization[2] == 0) {
+		}
+		else if (customization[2] == 1) {
+		}
+		else if (customization[2] == 2) {
+		}
+		else if (customization[2] == 3) {
+		}
+
+		changeTyre = false;
+	}
+
+	if (changeEngine == true) {
+
+		if (customization[3] == 0) {
+		}
+		else if (customization[3] == 1) {
+		}
+		else if (customization[3] == 2) {
+		}
+		else if (customization[3] == 3) {
+		}
+
+		changeEngine = false;
+	}
+	//textures
+	if (changeTexture == true) {
+
+		if (customization[0] == 0) {
+
+			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//cartexture.tga");
+		}
+		else if (customization[0] == 1) {
+			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car2texture.tga");
+		}
+		else if (customization[0] == 2) {
+			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car3texture.tga");
+		}
+		else if (customization[0] == 3) {
+			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car4texture.tga");
+		}
+
+		changeTexture = false;
+	}
 
 	f_fps = 1.0f / dt;
 
@@ -525,9 +665,8 @@ void SceneCustomizationMenu::Render()
 	RenderMesh(meshList[GEO_AXES], false); //To be removed
 
 	modelStack.PushMatrix();
-	modelStack.Rotate(0, 0, 1, 0);
+	modelStack.Rotate(Rotatecar, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
-
 	RenderMesh(meshList[GEO_PLAYER], true);
 	modelStack.PopMatrix();
 
@@ -537,11 +676,22 @@ void SceneCustomizationMenu::Render()
 
 	//RenderSkybox();
 
-	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS CUSTOMIZATION MENU", Color(0, 255, 0), 2, 12, 25);
+	RenderTextOnScreen(meshList[GEO_TEXT], "CUSTOMIZATION MENU", Color(0, 255, 0), 2, 12, 25);
 
-	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
-	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);
+	RenderTextOnScreen(meshList[GEO_TEXT], "SPEED", Color(255, 255, 0), 1.7, 0.8, 10);
+	RenderTextOnScreen(meshList[GEO_TEXT], "ACCELERATION", Color(255, 255, 0), 1.7, 0.8, 8);
+	RenderTextOnScreen(meshList[GEO_TEXT], "HANDLING", Color(255, 255, 0), 1.7, 0.8, 6);
+	RenderTextOnScreen(meshList[GEO_TEXT], "TRACTION", Color(255, 255, 0), 1.7, 0.8, 4);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "TEXTURE", Color(255, 0, 0), 1.7, 37.8, 30);
+	RenderTextOnScreen(meshList[GEO_TEXT], "CHASSIS", Color(255, 0, 0), 1.7, 37.8, 28);
+	RenderTextOnScreen(meshList[GEO_TEXT], "TIRES", Color(255, 0, 0), 1.7, 37.8, 26);
+	RenderTextOnScreen(meshList[GEO_TEXT], "ENGINE", Color(255, 0, 0), 1.7, 37.8, 24);
+	RenderTextOnScreen(meshList[GEO_TEXT], "SAVE", Color(255, 0, 0), 1.7, 37.8, 22);
+	RenderTextOnScreen(meshList[GEO_TEXT], "RETURN", Color(255, 0, 0), 1.7, 37.8, 20);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "<", Color(255, 0, 0), 1.7, 37, arrowY);
+	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(255, 0, 0), 1.7, arrowX, arrowY);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
