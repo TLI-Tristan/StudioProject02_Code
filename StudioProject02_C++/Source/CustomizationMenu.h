@@ -80,8 +80,6 @@ class SceneCustomizationMenu : public Scene
 	{
 		TEXTURE,
 		CHASSIS,
-		WHEEL,
-		ENGINE,
 		SAVE,
 		RETURN
 	};
@@ -134,6 +132,9 @@ private:
 	bool changeTyre;
 	bool changeEngine;
 
+	float speed;
+	float acceleration;
+	float handling;
 
 };
 

@@ -200,9 +200,10 @@ void SceneCustomizationMenu::Init()
 
 	Rotatecar = 0.0;
 	changeTexture = false;
-	changeEngine = false;
 	changeModel = false;
-	changeTyre = false;
+	speed = 5;
+	acceleration = 5;
+	handling = 5;
 
 }
 
@@ -248,7 +249,7 @@ void SceneCustomizationMenu::Update(double dt)
 	if (Application::IsKeyPressed(VK_RIGHT) && delay >= 0.3)
 	{
 
-		if (choice != 4 && choice != 5) {
+		if (choice != 2 && choice != 3) {
 
 			if (customization[choice] == 3) {
 
@@ -268,7 +269,7 @@ void SceneCustomizationMenu::Update(double dt)
 	if (Application::IsKeyPressed(VK_LEFT) && delay >= 0.3)
 	{
 
-		if (choice != 4 && choice != 5) {
+		if (choice != 2 && choice != 3) {
 
 			if (customization[choice] == 0) {
 
@@ -288,12 +289,12 @@ void SceneCustomizationMenu::Update(double dt)
 	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.3)
 	{
 
-		if (choice == 4) {
+		if (choice == 2) {
 
 	
 		}
 
-		if (choice == 5) {
+		if (choice == 3) {
 
 			Application::changeScene = true;
 			Application::SceneChoice = Application::STARTMENU;
@@ -309,22 +310,16 @@ void SceneCustomizationMenu::Update(double dt)
 	switch (choice) {
 
 	case TEXTURE: arrowY = 30;
-		arrowX = 44.5;
+		arrowX = 45;
 		break;
 	case CHASSIS: arrowY = 28;
-		arrowX = 44.5;
+		arrowX = 45;
 		break;
-	case WHEEL: arrowY = 26;
-		arrowX = 42.5;
+	case SAVE: arrowY = 26;
+		arrowX = 42;
 		break;
-	case ENGINE: arrowY = 24;
-		arrowX = 43.5;
-		break;
-	case SAVE: arrowY = 22;
-		arrowX = 43.5;
-		break;
-	case RETURN: arrowY = 20;
-		arrowX = 43.5;
+	case RETURN: arrowY = 24;
+		arrowX = 44;
 		break;
 	}
 
@@ -334,48 +329,38 @@ void SceneCustomizationMenu::Update(double dt)
 		if (customization[1] == 0) {
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 
+			speed = 5;
+			acceleration = 5;
+			handling = 5;
+
 		}
 		else if (customization[1] == 1) {
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car2", "Obj/Car2.obj");
 
+			speed = 6;
+			acceleration = 4;
+			handling = 4;
+
 		}
 		else if (customization[1] == 2) {
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car3", "Obj/car3.obj");
+
+			speed = 9;
+			acceleration = 2;
+			handling = 1;
 		}
 		else if (customization[1] == 3) {
 
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("cyl", "Obj/car4.obj");
+
+			speed = 5;
+			acceleration = 2;
+			handling = 8;
 		}
 
 		changeModel = false;
 	}
-	if (changeTyre == true) {
 
-		if (customization[2] == 0) {
-		}
-		else if (customization[2] == 1) {
-		}
-		else if (customization[2] == 2) {
-		}
-		else if (customization[2] == 3) {
-		}
-
-		changeTyre = false;
-	}
-
-	if (changeEngine == true) {
-
-		if (customization[3] == 0) {
-		}
-		else if (customization[3] == 1) {
-		}
-		else if (customization[3] == 2) {
-		}
-		else if (customization[3] == 3) {
-		}
-
-		changeEngine = false;
-	}
 	//textures
 	if (changeTexture == true) {
 
@@ -676,17 +661,25 @@ void SceneCustomizationMenu::Render()
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "CUSTOMIZATION MENU", Color(0, 255, 0), 2, 12, 25);
 
+	string txt;
+	txt = std::to_string(speed);
+
 	RenderTextOnScreen(meshList[GEO_TEXT], "SPEED", Color(255, 255, 0), 1.7, 0.8, 10);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 12, 9);
+
+	txt = std::to_string(acceleration);
 	RenderTextOnScreen(meshList[GEO_TEXT], "ACCELERATION", Color(255, 255, 0), 1.7, 0.8, 8);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 12, 7);
+
+	txt = std::to_string(handling);
 	RenderTextOnScreen(meshList[GEO_TEXT], "HANDLING", Color(255, 255, 0), 1.7, 0.8, 6);
-	RenderTextOnScreen(meshList[GEO_TEXT], "TRACTION", Color(255, 255, 0), 1.7, 0.8, 4);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 12, 5);
+
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "TEXTURE", Color(255, 0, 0), 1.7, 37.8, 30);
 	RenderTextOnScreen(meshList[GEO_TEXT], "CHASSIS", Color(255, 0, 0), 1.7, 37.8, 28);
-	RenderTextOnScreen(meshList[GEO_TEXT], "TIRES", Color(255, 0, 0), 1.7, 37.8, 26);
-	RenderTextOnScreen(meshList[GEO_TEXT], "ENGINE", Color(255, 0, 0), 1.7, 37.8, 24);
-	RenderTextOnScreen(meshList[GEO_TEXT], "SAVE", Color(255, 0, 0), 1.7, 37.8, 22);
-	RenderTextOnScreen(meshList[GEO_TEXT], "RETURN", Color(255, 0, 0), 1.7, 37.8, 20);
+	RenderTextOnScreen(meshList[GEO_TEXT], "SAVE", Color(255, 0, 0), 1.7, 37.8, 26);
+	RenderTextOnScreen(meshList[GEO_TEXT], "RETURN", Color(255, 0, 0), 1.7, 37.8, 24);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "<", Color(255, 0, 0), 1.7, 37, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(255, 0, 0), 1.7, arrowX, arrowY);
