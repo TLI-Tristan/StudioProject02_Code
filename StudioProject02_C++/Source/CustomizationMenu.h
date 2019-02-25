@@ -72,6 +72,7 @@ class SceneCustomizationMenu : public Scene
 		GEO_BACK,
 		GEO_TEXT,
 		GEO_AXES,
+		GEO_PLAYER,
 		NUM_GEOMETRY,
 	};
 

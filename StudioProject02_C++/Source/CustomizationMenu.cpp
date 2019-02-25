@@ -198,70 +198,173 @@ void SceneCustomizationMenu::Init()
 
 void SceneCustomizationMenu::Update(double dt)
 {
-	this->dt = dt;
-	static const float LSPEED = 10.0f;
+	//this->dt = dt;
+	//static const float LSPEED = 10.0f;
 
-	if (Application::IsKeyPressed(VK_UP) && delay >= 0.3) {
-
-		if (choice == 0) {
-
-			choice = 1;
-			arrowY = 16;
-
-		}
-		else {
-			choice -= 1;
-			arrowY += 2;
-		}
-
-		delay = 0.0;
+	//if (Application::IsKeyPressed('Z'))
+	//{
+	//	Rotatecar -= 55 * dt;
+	//}
+	//if (Application::IsKeyPressed('X'))
+	//{
+	//	Rotatecar += 55 * dt;
+	//}
 
 
-	}
-	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3) {
+	//if (Application::IsKeyPressed(VK_UP) && delay >= 0.3)
+	//{
+	//	if (choice == TEXTURE) {
 
-		if (choice == 1) {
+	//		choice = ENGINE;
+	//	}
+	//	else {
+	//		choice -= 1;
+	//	}
 
-			choice = 0;
-			arrowY = 18;
-		}
-		else {
-			choice += 1;
-			arrowY -= 2;
-		}
+	//	delay = 0.0;
 
-		delay = 0.0;
+	//}
+	//if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3)
+	//{
 
-	}
+	//	if (choice == ENGINE) {
 
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.3) {
+	//		choice = TEXTURE;
 
-		delay = 0.0;
-
-		if (choice == 0) {
-
-			
-		}
-		else if (choice == 1) {
-
-			Application::changeScene = true;
-			Application::SceneChoice = Application::STARTMENU;
-		}
-	
+	//	}
+	//	else {
+	//		choice += 1;
+	//	}
 
 
-	}
+	//	delay = 0.0;
+
+	//}
+
+	//if (Application::IsKeyPressed(VK_RIGHT) && delay >= 0.3)
+	//{
+
+	//	if (customization[choice] == 3) {
+
+	//		customization[choice] = 0;
+	//	}
+	//	else {
+	//		customization[choice] += 1;
+	//	}
+
+
+	//	delay = 0.0;
+	//}
+
+
+	//if (Application::IsKeyPressed(VK_LEFT) && delay >= 0.3)
+	//{
+
+	//	if (customization[choice] == 0) {
+
+	//		customization[choice] = 3;
+	//	}
+	//	else {
+	//		customization[choice] -= 1;
+	//	}
 
 
 
-	f_fps = 1.0f / dt;
+	//	delay = 0.0;
 
-	delay += dt;
+	//}
 
-	s_fps = std::to_string(f_fps);
-	x = std::to_string(camera.position.x);
-	y = std::to_string(camera.position.y);
-	z = std::to_string(camera.position.z);
+
+
+
+	//switch (choice) {
+
+	//case TEXTURE: ArrowMoveY = 30;
+	//	ArrowMoveX = 44.5;
+	//	break;
+	//case CHASSIS: ArrowMoveY = 28;
+	//	ArrowMoveX = 44.5;
+	//	break;
+	//case WHEEL: ArrowMoveY = 26;
+	//	ArrowMoveX = 42.5;
+	//	break;
+	//case ENGINE: ArrowMoveY = 24;
+	//	ArrowMoveX = 43.5;
+	//	break;
+	//}
+	////chassis
+	//if (customization[1] == 0) {
+	//	meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
+	//	boxtext = 20;
+	//}
+	//else
+	//{
+	//	boxtext = 100;
+	//}
+	//if (customization[1] == 1) {
+	//	meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car2", "Obj/Car2.obj");
+	//	balltext = 20;
+	//}
+	//else
+	//{
+	//	balltext = 100;
+	//}
+	//if (customization[1] == 2) {
+	//	meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car3", "Obj/car3.obj");
+	//	conetext = 20;
+	//}
+	//else
+	//{
+	//	conetext = 100;
+	//}
+	//if (customization[1] == 3) {
+	//	meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("cyl", "Obj/car4.obj");
+	//	cyltext = 20;
+	//}
+	//else
+	//{
+	//	cyltext = 100;
+	//}
+	////tires
+	//if (customization[2] == 0) {
+	//}
+	//else if (customization[2] == 1) {
+	//}
+	//else if (customization[2] == 2) {
+	//}
+	//else if (customization[2] == 3) {
+	//}
+	//if (customization[3] == 0) {
+	//}
+	//else if (customization[3] == 1) {
+	//}
+	//else if (customization[3] == 2) {
+	//}
+	//else if (customization[3] == 3) {
+	//}
+	////textures
+	//if (customization[0] == 0) {
+	//	meshList[GEO_PLAYER]->textureID = LoadTGA("Image//cartexture.tga");
+	//}
+	//else if (customization[0] == 1) {
+	//	meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car2texture.tga");
+	//}
+	//else if (customization[0] == 2) {
+	//	meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car3texture.tga");
+	//}
+	//else if (customization[0] == 3) {
+	//	meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car4texture.tga");
+	//}
+
+
+	//delay += dt;
+
+	//f_fps = 1.0f / dt;
+
+	//s_fps = std::to_string(f_fps);
+	//x = std::to_string(camera.position.x);
+	//y = std::to_string(camera.position.y);
+	//z = std::to_string(camera.position.z);
 }
 
 void SceneCustomizationMenu::RenderMesh(Mesh* mesh, bool enableLight)

@@ -123,11 +123,11 @@
     <ClCompile Include="Source\CustomizationMenu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Source\InstructionMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\TrackMaker.cpp">
       <Filter>Source Files\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InstructionMenu.cpp">
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

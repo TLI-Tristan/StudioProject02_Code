@@ -71,9 +71,9 @@ void Player::update(double dt)
 
 	if (name == "player01") {
 
-		
 
-		if (position.y < 1000 && health > 0)
+
+		if (position.y < -1000 && health > 0)
 		{
 			health--;
 			position = startposition;
@@ -82,134 +82,134 @@ void Player::update(double dt)
 			respawn = true;
 		}
 
-			if (collided == true && collidiedItem != nullptr && impulseDone == true) {
+		if (collided == true && collidiedItem != nullptr && impulseDone == true) {
 
-				if (collidiedItem->getName() != "platform") {
+			if (collidiedItem->getName() != "platform") {
 
-					if (collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == false) {
+				if (collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == false) {
 
-						
-						speed.z = c_Physics.calFinalSpeed(mass, speed.z)*1.5;
-						direction.z *= -1;
-						speed.z *= direction.z;
 
-						speed.x = c_Physics.calFinalSpeed(mass, speed.x)*1.5;
-						direction.x *= -1;
-						speed.x *= direction.x;
+					speed.z = c_Physics.calFinalSpeed(mass, speed.z)*1.5;
+					direction.z *= -1;
+					speed.z *= direction.z;
 
-						impulseDone = false;
-					
-					}
-					else if(collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == true) {
+					speed.x = c_Physics.calFinalSpeed(mass, speed.x)*1.5;
+					direction.x *= -1;
+					speed.x *= direction.x;
 
-						if(collidiedItem->getDirection().x != 0){
+					impulseDone = false;
 
-							if (collidiedItem->getDirection().x == direction.x || direction.x == 0) {
+				}
+				else if (collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == true) {
 
-								//speed.x += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
-								speed.x = 3;
-								speed.x *= collidiedItem->getDirection().x;
-								impulseDone = false;
+					if (collidiedItem->getDirection().x != 0) {
 
-							}
-							else {
-								//speed.x -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
-								speed.x = 3;
-								direction.x *= -1;
-								speed.x *= direction.x;
-								impulseDone = false;
-							}
+						if (collidiedItem->getDirection().x == direction.x || direction.x == 0) {
+
+							//speed.x += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
+							speed.x = 3;
+							speed.x *= collidiedItem->getDirection().x;
+							impulseDone = false;
 
 						}
-						else if (collidiedItem->getDirection().y != 0) {
-
-							if (collidiedItem->getDirection().y == direction.y || direction.y == 0) {
-
-								//speed.y += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
-								speed.y = 3;
-								speed.y *= collidiedItem->getDirection().y;
-								impulseDone = false;
-
-							}
-							else {
-
-								//speed.y -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
-								speed.y = 3;
-								direction.y *= -1;
-								speed.y *= direction.y;
-								impulseDone = false;
-
-							}
-
+						else {
+							//speed.x -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
+							speed.x = 3;
+							direction.x *= -1;
+							speed.x *= direction.x;
+							impulseDone = false;
 						}
-						else if (collidiedItem->getDirection().z != 0) {
-
-							if (collidiedItem->getDirection().z == direction.z || direction.z == 0) {
-
-								//speed.z += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
-								speed.z = 3;
-								speed.z *= collidiedItem->getDirection().z;
-								impulseDone = false;
-
-							}
-							else {
-
-								speed.z -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
-								speed.z = 3;
-								direction.z *= -1;
-								speed.z *= direction.z;
-								impulseDone = false;
-
-							}
-
-						}
-
 
 					}
+					else if (collidiedItem->getDirection().y != 0) {
+
+						if (collidiedItem->getDirection().y == direction.y || direction.y == 0) {
+
+							//speed.y += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
+							speed.y = 3;
+							speed.y *= collidiedItem->getDirection().y;
+							impulseDone = false;
+
+						}
+						else {
+
+							//speed.y -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
+							speed.y = 3;
+							direction.y *= -1;
+							speed.y *= direction.y;
+							impulseDone = false;
+
+						}
+
+					}
+					else if (collidiedItem->getDirection().z != 0) {
+
+						if (collidiedItem->getDirection().z == direction.z || direction.z == 0) {
+
+							//speed.z += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
+							speed.z = 3;
+							speed.z *= collidiedItem->getDirection().z;
+							impulseDone = false;
+
+						}
+						else {
+
+							speed.z -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
+							speed.z = 3;
+							direction.z *= -1;
+							speed.z *= direction.z;
+							impulseDone = false;
+
+						}
+
+					}
+
 
 				}
 
 			}
 
-			if (impulseDone == false) {
+		}
 
-				if (speed.x > -0.05 && speed.x < 0.05 && 
-					speed.y > -0.05 && speed.y < 0.05 &&
-					speed.z > -0.05 && speed.z < 0.05) {
+		if (impulseDone == false) {
 
-					speed.x = 0.0;
-					speed.y = 0.0;
-					speed.z = 0.0;
-					impulseDone = true;
-					collided = false;
-				}
+			if (speed.x > -0.05 && speed.x < 0.05 &&
+				speed.y > -0.05 && speed.y < 0.05 &&
+				speed.z > -0.05 && speed.z < 0.05) {
 
-				if (speed.z > 0.0) {
+				speed.x = 0.0;
+				speed.y = 0.0;
+				speed.z = 0.0;
+				impulseDone = true;
+				collided = false;
+			}
 
-					speed.z -= deceleration.z * dt;
+			if (speed.z > 0.0) {
 
-				}
-				else if (speed.z < 0.0) {
-
-					speed.z += deceleration.z * dt;  
-				}
-
-				if (speed.x > 0.0) {
-
-					speed.x -= deceleration.x * dt;
-
-				}
-				else if (speed.x < 0.0) {
-
-					speed.x += deceleration.x * dt;
-				}
-
-				position.z += speed.z;
-				position.x += speed.x;
+				speed.z -= deceleration.z * dt;
 
 			}
-		
-		
+			else if (speed.z < 0.0) {
+
+				speed.z += deceleration.z * dt;
+			}
+
+			if (speed.x > 0.0) {
+
+				speed.x -= deceleration.x * dt;
+
+			}
+			else if (speed.x < 0.0) {
+
+				speed.x += deceleration.x * dt;
+			}
+
+			position.z += speed.z;
+			position.x += speed.x;
+
+		}
+
+
 
 		if (falling == true) {
 
@@ -226,65 +226,52 @@ void Player::update(double dt)
 			falling = true;
 		}
 
-		int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
+	
+
+		if (impulseDone == true) {
 
 
-		if (1 == present)
-		{
+		
 
+			if (Application::IsKeyPressed('K'))
+			{
+				std::cout << "can press " << std::endl;
 
-			if (impulseDone == true) {
+				direction.z = 1;
+				if (speed.z < 0.8) {
+					speed.z += acceleration.z * dt * direction.z;
+				}
+				position.z += speed.z;
+				movingObj = true;
+			}
+			if (Application::IsKeyPressed('I'))
+			{
+				std::cout << "not can press " << std::endl;
+				direction.z = -1;
+				if (speed.z > -0.8) {
+					speed.z += acceleration.z * dt * direction.z;
+					movingObj = true;
+				}
+				position.z += speed.z;
+				movingObj = true;
 
+			}
 
-					int buttonCount;
-					const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
-					int axesCount;
-					const float *axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);
+			if (part2CheckpointReached == true) {
 
-					if (axes[1] == 1 )
-					{
-						std::cout << "can press " << std::endl;
-
-						direction.z = 1;
-						if (speed.z < 0.8) {
-							speed.z += acceleration.z * dt * direction.z;
-						}
-						position.z += speed.z;
+				if (Application::IsKeyPressed('I'))
+				{
+					direction.x = -1;
+					if (speed.x > -0.8) {
+						speed.x += acceleration.x * dt * direction.x;
 						movingObj = true;
 					}
-					if (axes[1] <= -1 )
-					{
-						std::cout << "not can press " << std::endl;
-						direction.z = -1;
-						if (speed.z > -0.8) {
-							speed.z += acceleration.z * dt * direction.z;
-							movingObj = true;
-						}
-						position.z += speed.z;
-						movingObj = true;
+					position.x += speed.x;
+					movingObj = true;
+				}
 
-					}
 
-				if (part2CheckpointReached == true) {
-
-					/*if (Application::IsKeyPressed('I'))
-					{*/
-
-					if (axes[1] <= -1)
-					{
-						direction.x = -1;
-						if (speed.x > -0.8) {
-							speed.x += acceleration.x * dt * direction.x;
-							movingObj = true;
-						}
-						position.x += speed.x;
-						movingObj = true;
-					}
-
-					/*if (Application::IsKeyPressed('K'))
-					{*/
-
-					if (axes[1] == 1)
+					if (Application::IsKeyPressed('K'))
 					{
 						direction.x = 1;
 						if (speed.x < 0.8) {
@@ -295,8 +282,12 @@ void Player::update(double dt)
 						movingObj = true;
 					}
 
-					if ((!axes[1] <= -1 &&
-						!axes[1] == 1) ||
+					/*	if ((!axes[1] <= -1 &&
+							!axes[1] == 1) ||
+							(speed.x < -0.8) || (speed.x > 0.8)) {*/
+
+					if ((!Application::IsKeyPressed('I') &&
+						!Application::IsKeyPressed('K')) ||
 						(speed.x < -0.8) || (speed.x > 0.8)) {
 
 
@@ -318,7 +309,8 @@ void Player::update(double dt)
 						position.x += speed.x;
 					}
 
-					if (axes[2] <= -1)
+					//if (axes[2] <= -1)
+					if (Application::IsKeyPressed('J'))
 					{
 						direction.z = 1;
 						if (speed.z < 0.8) {
@@ -328,7 +320,8 @@ void Player::update(double dt)
 						movingObj = true;
 					}
 
-					if (axes[2] == 1)
+					//if (axes[2] == 1)
+					if (Application::IsKeyPressed('L'))
 					{
 						direction.z = -1;
 						if (speed.z > -0.8) {
@@ -411,10 +404,11 @@ void Player::update(double dt)
 
 			}
 
-		}
+			//}
 
+		}
 	}
-}
+
 
 void Player::checkPoint2()
 {

@@ -46,6 +46,8 @@ void SceneSP02::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
+	bouncetime = 0;
+	elaspedtime = 0;
 
 	// SS
 	glEnable(GL_SCISSOR_TEST);
@@ -253,7 +255,8 @@ void SceneSP02::Init()
 
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car","Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Player(Vector3(0, 0, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));//0
+	Playercar = new Player(Vector3(0, 0, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01");
+	entityContainer.push_back(Playercar);//0
 
 
 
@@ -301,21 +304,21 @@ void SceneSP02::Init()
 
 	meshList[GEO_MOVINGBLOCKS1] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 	meshList[GEO_MOVINGBLOCKS1]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Object(Vector3(-170, 0, -650), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//17
-	entityContainer.push_back(new Object(Vector3(-170, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//18
-	entityContainer.push_back(new Object(Vector3(-170, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//19
-	entityContainer.push_back(new Object(Vector3(-170, 0, -860), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//20
-	entityContainer.push_back(new Object(Vector3(-170, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//21
+	entityContainer.push_back(new Object(Vector3(-170, 0, -650), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//17
+	entityContainer.push_back(new Object(Vector3(-170, 0, -720), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//18
+	entityContainer.push_back(new Object(Vector3(-170, 0, -790), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//19
+	entityContainer.push_back(new Object(Vector3(-170, 0, -860), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//20
+	entityContainer.push_back(new Object(Vector3(-170, 0, -930), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//21
 
 	meshList[GEO_BRIDGE] = MeshBuilder::GenerateOBJ("Bridge", "Obj/Bridge.obj");
 	meshList[GEO_BRIDGE]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Object(Vector3(-240, 0, -802), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//22
+	entityContainer.push_back(new Object(Vector3(-236.6, 26.9, -806.9), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//22
 	meshList[GEO_BRIDGELEFT] = MeshBuilder::GenerateOBJ("Bridge", "Obj/BridgeLeft.obj");
 	meshList[GEO_BRIDGELEFT]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Object(Vector3(-240, 0, -673), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//23
+	entityContainer.push_back(new Object(Vector3(-240, 0, -673), false, false, 4, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//23
 	meshList[GEO_BRIDGERIGHT] = MeshBuilder::GenerateOBJ("Bridge", "Obj/BridgeRight.obj");
 	meshList[GEO_BRIDGERIGHT]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Object(Vector3(-240, 0, -942), false, false, 4, 4, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//24
+	entityContainer.push_back(new Object(Vector3(-240, 0, -942), false, false, 4, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//24
 
 	meshList[GEO_UPDOWNBLOCKS] = MeshBuilder::GenerateOBJ("UpDownBlock", "Obj/UPDownBlocks.obj");
 	entityContainer.push_back(new Object(Vector3(-233, 0, -710), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//25
@@ -327,29 +330,29 @@ void SceneSP02::Init()
 
 	meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 	meshList[GEO_LEFTMOVINGBLOCK]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Object(Vector3(-280, 0, -650), false, false, 4,5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//31
-	entityContainer.push_back(new Object(Vector3(-280, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//32
-	entityContainer.push_back(new Object(Vector3(-280, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//33
-	entityContainer.push_back(new Object(Vector3(-280, 0, -860), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//34
-	entityContainer.push_back(new Object(Vector3(-280, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//35
+	entityContainer.push_back(new Object(Vector3(-280, 0, -650), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//31
+	entityContainer.push_back(new Object(Vector3(-280, 0, -720), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//32
+	entityContainer.push_back(new Object(Vector3(-280, 0, -790), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//33
+	entityContainer.push_back(new Object(Vector3(-280, 0, -860), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//34
+	entityContainer.push_back(new Object(Vector3(-280, 0, -930), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//35
 
 	meshList[GEO_RIGHTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 	meshList[GEO_RIGHTMOVINGBLOCK]->textureID = LoadTGA("Image//car.tga");
-	entityContainer.push_back(new Object(Vector3(-320, 0, -650), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//36
-	entityContainer.push_back(new Object(Vector3(-320, 0, -720), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//37
-	entityContainer.push_back(new Object(Vector3(-320, 0, -790), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//38
-	entityContainer.push_back(new Object(Vector3(-320, 0, -860), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//39
-	entityContainer.push_back(new Object(Vector3(-320, 0, -930), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//40
+	entityContainer.push_back(new Object(Vector3(-320, 0, -650), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//36
+	entityContainer.push_back(new Object(Vector3(-320, 0, -720), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//37
+	entityContainer.push_back(new Object(Vector3(-320, 0, -790), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//38
+	entityContainer.push_back(new Object(Vector3(-320, 0, -860), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//39
+	entityContainer.push_back(new Object(Vector3(-320, 0, -930), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//40
 
 
 
 	/*meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/Gate.obj");*/
 
 	meshList[GEO_GIANTBLOCK] = MeshBuilder::GenerateOBJ("GiantBlock", "Obj/GiantBlock.obj");
-	entityContainer.push_back(new Object(Vector3(-495, -3, -683), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//41
-	entityContainer.push_back(new Object(Vector3(-495, -3, -766), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//42
-	entityContainer.push_back(new Object(Vector3(-495, -3, -849), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//43
-	entityContainer.push_back(new Object(Vector3(-495, -3, -933), false, false, 13, 10, 13, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//44
+	entityContainer.push_back(new Object(Vector3(-495, -3, -683), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//41
+	entityContainer.push_back(new Object(Vector3(-495, -3, -766), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//42
+	entityContainer.push_back(new Object(Vector3(-495, -3, -849), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//43
+	entityContainer.push_back(new Object(Vector3(-495, -3, -933), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//44
 
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
@@ -362,22 +365,22 @@ void SceneSP02::Init()
 
 	//meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 
-	entityContainer.push_back(new Object(Vector3(-650, 0, -650), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//49
-	entityContainer.push_back(new Object(Vector3(-650, 0, -720), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//50
-	entityContainer.push_back(new Object(Vector3(-650, 0, -790), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//51
-	entityContainer.push_back(new Object(Vector3(-650, 0, -860), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//52
-	entityContainer.push_back(new Object(Vector3(-650, 0, -930), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//53
+	entityContainer.push_back(new Object(Vector3(-650, 0, -650), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//49
+	entityContainer.push_back(new Object(Vector3(-650, 0, -720), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//50
+	entityContainer.push_back(new Object(Vector3(-650, 0, -790), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//51
+	entityContainer.push_back(new Object(Vector3(-650, 0, -860), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//52
+	entityContainer.push_back(new Object(Vector3(-650, 0, -930), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//53
 	//right
-	entityContainer.push_back(new Object(Vector3(-690, 0, -660), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//54
-	entityContainer.push_back(new Object(Vector3(-690, 0, -730), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//55
-	entityContainer.push_back(new Object(Vector3(-690, 0, -800), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//56
-	entityContainer.push_back(new Object(Vector3(-690, 0, -870), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//57
-	entityContainer.push_back(new Object(Vector3(-690, 0, -940), false, false, 4, 5, 5, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//58
+	entityContainer.push_back(new Object(Vector3(-690, 0, -660), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//54
+	entityContainer.push_back(new Object(Vector3(-690, 0, -730), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//55
+	entityContainer.push_back(new Object(Vector3(-690, 0, -800), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//56
+	entityContainer.push_back(new Object(Vector3(-690, 0, -870), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//57
+	entityContainer.push_back(new Object(Vector3(-690, 0, -940), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//58
 
 	meshList[GEO_LEFTCLAMP] = MeshBuilder::GenerateOBJ("LeftClamp", "Obj/LeftClamp.obj");
-	entityContainer.push_back(new Object(Vector3(-1200, 30, -650), false, false, 5, 25, 7, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "movingspike"));//59
+	entityContainer.push_back(new Object(Vector3(-1200, 30, -650), false, false, 60, 40, 7, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "movingspike"));//59
 	meshList[GEO_RIGHTCLAMP] = MeshBuilder::GenerateOBJ("RightClamp", "Obj/RightClamp.obj");
-	entityContainer.push_back(new Object(Vector3(-1200, 30, -960), false, false, 5, 25, 7, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "movingspike"));//60
+	entityContainer.push_back(new Object(Vector3(-1200, 30, -960), false, false, 60, 40, 7, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "movingspike"));//60
 
 	meshList[GEO_FALLENTRUNK] = MeshBuilder::GenerateOBJ("FallenTrunk", "Obj/FallenTrunk.obj");
 	//meshList[GEO_FALLENTRUNK]->textureID = LoadTGA("Image//car.tga");
@@ -621,6 +624,17 @@ void SceneSP02::Update(double dt)
 	x = std::to_string(camera.position.x);
 	y = std::to_string(camera.position.y);
 	z = std::to_string(camera.position.z);
+
+
+	if (Playercar->getPosY() < -1000)
+	{
+		outofmap = true;
+	 }
+	elaspedtime += dt;
+	if (bouncetime <= 4.0f)
+	{
+		bouncetime += (float)(5.f * dt);
+	}
 }
 
 void SceneSP02::RenderMesh(Mesh* mesh, bool enableLight)
@@ -669,6 +683,8 @@ void SceneSP02::RenderMesh(Mesh* mesh, bool enableLight)
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
+
+
 
 }
 
@@ -1193,7 +1209,27 @@ void SceneSP02::RenderPlayers()
 	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
 	modelStack.Rotate(rotateAngle, 0, 1, 0);
 	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_CAR], true);
+	if (!outofmap) {
+		RenderMesh(meshList[GEO_CAR], true);
+	}
+	if (bouncetime <= 2.f && outofmap)
+	{
+		RenderMesh(meshList[GEO_CAR], false);
+	}
+	if (bouncetime >= 2.f && outofmap)
+	{
+		RenderMesh(meshList[GEO_CAR], true);
+		if (bouncetime >= 4.f)
+		{
+			bouncetime = 0.f;
+			flicker++;
+		}
+	}
+	if (flicker == 4)
+	{
+		outofmap = false;
+	}
+	
 	modelStack.PopMatrix();
 
 }
