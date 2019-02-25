@@ -11,7 +11,10 @@ public:
 	void update(double dt);
 	void collisionDetector(bool isThereCollision, bool isItCollidingWithFloor, Entity* collidiedItem);
 	void checkPoint2();
-private:
 
+private:
+	float initialX;
+	float initialY;
+	float initialZ;
 };
 

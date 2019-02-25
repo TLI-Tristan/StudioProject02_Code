@@ -19,6 +19,10 @@ Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rang
 	isItPlayer = false;
 	this->name = name;
 	this->direction = dir;
+
+	this->initialX = pos.x;
+	this->initialY = pos.y;
+	this->initialZ = pos.z;
 }
 
 
@@ -29,72 +33,7 @@ Object::~Object()
 
 void Object::update(double dt)
 {
-	if (name == "gong_trap") {
-
-		if (position.x <= -60)
-		{
-			direction.x = 1;
-		}
-
-		if (position.x >= 60)
-		{
-			direction.x = -1;
-		}
-
-		position.x += speed.x * dt* direction.x;
-
-		
-
-	}
-
-	if (name == "cube") {
-
-		/*if (position.z <= -60)
-		{
-			direction.z = 1;
-		}
-
-		if (position.z >= -20)
-		{
-			direction.z = -1;
-		}
-
-		position.z += speed.z * dt* direction.z;*/
-
-
-		if (Application::IsKeyPressed('U')) {
-
-			position.y += 50 * dt;
-
-		}
-		if (Application::IsKeyPressed('J')) {
-
-			position.y -= 50 * dt;
-
-		}
-		if (Application::IsKeyPressed('T')) {
-
-			position.x += 50 * dt;
-
-		}
-		if (Application::IsKeyPressed('G')) {
-
-			position.x -= 50 * dt;
-
-		}
-		if (Application::IsKeyPressed('H')) {
-
-			position.z += 50 * dt;
-
-		}
-		if (Application::IsKeyPressed('F')) {
-
-			position.z -= 50 * dt;
-
-		}
-
-	}
-
+	
 
 	//if (name == "part1MoivngBlock") {
 
@@ -111,7 +50,35 @@ void Object::update(double dt)
 	//	position.x += speed.x * direction.x * dt;
 	//}
 
+	if (name == "movingBlock2") {
 
+
+		if (position.z <= -940) {
+
+			direction.z = 1;
+		}
+		if (position.z >= -650) {
+
+			direction.z = -1;
+		}
+
+		position.z += speed.z * direction.z * dt;
+	}
+
+	if (name == "movingBlock3" || name == "movingBlock4") {
+
+
+		if (position.z <= initialZ - 30) {
+
+			direction.z = 1;
+		}
+		if (position.z <= initialZ + 30) {
+
+			direction.z = -1;
+		}
+
+		position.z += speed.z * direction.z * dt;
+	}
 
 	
 

@@ -335,7 +335,7 @@ void SceneCustomizationMenu::Update(double dt)
 
 		}
 		else if (customization[1] == 1) {
-			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car2", "Obj/Car2.obj");
+			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car2", "Obj/car2.obj");
 
 			speed = 6;
 			acceleration = 4;

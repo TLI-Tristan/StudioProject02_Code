@@ -65,15 +65,22 @@ void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloo
 
 void Player::update(double dt)
 {
-
+	 
 	if (name == "player01") {
 
 
 
-		if (position.y < 1000 && health > 0)
+		if (position.y < -1000)
 		{
-			health--;
-			position = startposition;
+			if (part2CheckpointReached == true) {
+
+				position.x = 0;
+				position.y = 20;
+				position.z = -800;
+			}
+			else {
+				position = startposition;
+			}
 			falling = false;
 			collidingWithFloor = true;
 			respawn = true;
@@ -210,9 +217,9 @@ void Player::update(double dt)
 
 		if (falling == true) {
 
-			speed.y -= deceleration.y * dt;
+				speed.y -= deceleration.y * dt;
+		
 			position.y += speed.y;
-
 		}
 
 		if (collidingWithFloor == true) {

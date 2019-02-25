@@ -188,7 +188,7 @@ void Application::Run()
 
 	//Scene *scene = GameMenu;
 
-	Scene *scene = CustomizationMenu;
+	Scene *scene = MainGame;
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))

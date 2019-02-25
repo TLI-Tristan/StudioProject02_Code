@@ -1,91 +1,153 @@
-﻿  SceneSP02.cpp
+﻿  Application.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
   d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(149): warning C4305: '=': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(161): warning C4305: '=': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(282): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(303): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(315): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(364): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(429): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(478): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(503): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(505): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(510): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(512): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(619): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(633): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(735): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(747): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(757): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(763): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(769): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(775): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(781): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(787): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(793): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(799): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(805): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(811): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(817): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(823): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(829): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(835): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(847): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(853): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(859): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(865): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(871): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(877): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(883): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(889): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(895): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(901): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(908): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(915): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(921): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(927): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(933): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(939): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(945): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(951): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(957): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(963): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(969): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(975): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(981): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(987): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(993): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(999): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1005): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1011): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1018): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1024): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1030): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1036): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1042): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1048): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1054): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1060): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1066): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1072): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1078): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1084): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1090): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1096): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Camera2.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(65): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Collision.cpp
+  CustomizationMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(112): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(124): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(215): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(384): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(667): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(671): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(675): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(679): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(680): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(681): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(682): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(684): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(684): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(685): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(685): warning C4305: 'argument': truncation from 'double' to 'float'
+  FreeGameMode.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(97): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(109): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(267): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(509): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(515): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(630): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(659): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(668): warning C4018: '<': signed/unsigned mismatch
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(671): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(733): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(112): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(124): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(276): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(552): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  InstructionMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(112): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(124): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(256): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(532): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Object.cpp
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(65): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(80): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  SceneSP02.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(200): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(212): warning C4305: '=': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(334): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(355): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(367): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(416): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(519): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(585): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(610): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(612): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(617): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(619): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(724): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(740): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(842): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(854): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(864): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(870): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(876): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(882): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(888): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(894): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(900): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(906): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(912): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(918): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(924): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(930): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(936): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(942): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(954): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(960): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(966): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(972): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(978): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(984): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(990): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(996): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1002): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1008): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1015): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1022): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1028): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1034): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1040): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1046): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1052): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1058): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1064): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1070): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1076): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1082): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1088): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1094): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1100): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1124): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1130): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1136): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1142): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1148): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1154): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1160): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1166): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1171): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1177): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1182): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1209): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1433): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1438): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1131): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1137): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1149): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1155): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1161): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1167): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1173): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1179): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1185): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1191): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1197): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1203): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1225): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1231): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1237): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1243): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1249): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1255): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1261): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1267): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1273): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1278): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1284): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1289): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1316): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1542): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1547): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   StudioProject02_C++.vcxproj -> D:\Users\539\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe
