@@ -236,6 +236,9 @@ void SceneInstuctionMenu::Update(double dt)
 
 	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
 
+		delay = 0.0;
+
+
 		if (choice == 0) {
 
 

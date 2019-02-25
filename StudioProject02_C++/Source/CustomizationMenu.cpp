@@ -201,7 +201,7 @@ void SceneCustomizationMenu::Update(double dt)
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
 
-	if (Application::IsKeyPressed(VK_UP) && delay >= 0.2) {
+	if (Application::IsKeyPressed(VK_UP) && delay >= 0.3) {
 
 		if (choice == 0) {
 
@@ -218,7 +218,7 @@ void SceneCustomizationMenu::Update(double dt)
 
 
 	}
-	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2) {
+	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3) {
 
 		if (choice == 1) {
 
@@ -234,7 +234,9 @@ void SceneCustomizationMenu::Update(double dt)
 
 	}
 
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
+	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.3) {
+
+		delay = 0.0;
 
 		if (choice == 0) {
 
@@ -245,6 +247,7 @@ void SceneCustomizationMenu::Update(double dt)
 			Application::changeScene = true;
 			Application::SceneChoice = Application::STARTMENU;
 		}
+	
 
 
 	}

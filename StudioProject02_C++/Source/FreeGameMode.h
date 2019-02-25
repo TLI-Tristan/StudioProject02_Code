@@ -8,12 +8,20 @@
 #include "MatrixStack.h"
 #include "Light.h"
 #include "Audio.h"
+#include "TrackMaker.h"
 
 // splitscreen
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-// audio
+#include <vector>	
 
+using namespace std;
+
+extern double CRUSOR_X_POS;
+extern double CRUSOR_Y_POS;
+
+extern double x2Offset;
+extern double y2Offset;
 
 class SceneFreeGameMode : public Scene
 {
@@ -72,6 +80,12 @@ class SceneFreeGameMode : public Scene
 		GEO_BACK,
 		GEO_TEXT,
 		GEO_AXES,
+		GEO_STRAIGHT,
+		GEO_TURNLEFT,
+		GEO_TURNLEFT2,
+		GEO_TURNRIGHT,
+		GEO_TURNRIGHT2,
+		GEO_CAR,
 		NUM_GEOMETRY,
 	};
 
@@ -83,6 +97,18 @@ public:
 	virtual void Update(double dt);
 	virtual void Render();
 	virtual void Exit();
+
+	//void ALLCamera(int angle);
+
+	void ps4Controller(int x);
+
+	int CreateOBJ(int x);
+
+	void LoadMap(vector<string> b);
+
+	void ChoseMapParts();
+
+	void RenderPlayers(int x, int z, int y);
 
 private:
 
@@ -96,10 +122,20 @@ private:
 	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
 	void RenderLight();
 
-	Camera2 camera;
+	TrackMaker tm;
+	Camera2 camera, camera2, camera3;
 	MS modelStack, viewStack, projectionStack;
 	Light light[2];
 	Audio audio;
+
+	vector<string> c;
+	bool objPOINTER[10] = { false, };
+	int parts;
+	bool newplace = false;
+	bool can_spawn = false;
+
+
+	float turnRight = 0, forwards = 0;
 
 	void RenderMesh(Mesh *mesh, bool enableLight);
 

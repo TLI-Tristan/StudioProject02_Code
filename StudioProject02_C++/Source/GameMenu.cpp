@@ -202,7 +202,7 @@ void SceneGameMenu::Update(double dt)
 	static const float LSPEED = 10.0f;
 
 
-	if (Application::IsKeyPressed(VK_UP) && delay >= 0.2) {
+	if (Application::IsKeyPressed(VK_UP) && delay >= 0.3) {
 
 		if (choice == 0) {
 
@@ -219,7 +219,7 @@ void SceneGameMenu::Update(double dt)
 		
 
 	}
-	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2) {
+	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.3) {
 
 		if (choice == 3) {
 
@@ -235,7 +235,10 @@ void SceneGameMenu::Update(double dt)
 
 	}
 
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
+	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.3) {
+
+		delay = 0.0;
+
 
 		if (choice == 0) {
 
@@ -257,6 +260,8 @@ void SceneGameMenu::Update(double dt)
 			exit(0);
 
 		}
+
+
 
 	}
 

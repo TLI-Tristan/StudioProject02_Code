@@ -20,6 +20,61 @@ const unsigned int frameTime = 1000 / FPS; // time for each frame
 int Application::SceneChoice = 0;
 bool Application::changeScene = false;
 
+
+
+double CRUSOR_X_POS;
+double CRUSOR_Y_POS;
+double x2Offset;
+double y2Offset;
+
+
+static void cursorPotionCallback(GLFWwindow *window, double xPos, double yPos) {
+	
+	
+	// make the mouse , camera and object follow the same thing 
+
+
+	CRUSOR_X_POS = xPos - 200;
+	CRUSOR_Y_POS = yPos - 100;
+
+	std::cout << "Xpos : " << CRUSOR_X_POS << std::endl;
+	std::cout << "Ypos : " << CRUSOR_Y_POS << std::endl;
+
+
+
+};
+
+void curosrEnterCallBack(GLFWwindow *window, int entered) {
+
+	if (entered)
+	{
+		std::cout << "Entered Window" << std::endl;
+	}
+	else
+	{
+		std::cout << "Left Window" << std::endl;
+	}
+
+};
+void mouseButtonCallBack(GLFWwindow *window, int button, int action, int mods) {
+	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+	{
+		std::cout << "Right Button pressed" << std::endl;
+	}
+	else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
+	{
+		std::cout << "Right Button pressed" << std::endl;
+	}
+};
+void scrollCallBack(GLFWwindow *window, double xOffset, double yOffset) {
+	//std::cout << "xoff" << xOffset << "      " << "yoffset : " << yOffset << endl;
+
+	x2Offset = xOffset;
+	y2Offset = yOffset;
+}
+
+
+
 //Define an error callback
 static void error_callback(int error, const char* description)
 {
@@ -76,6 +131,14 @@ void Application::Init()
 
 	//Create a window and create its OpenGL context
 	m_window = glfwCreateWindow(1920, 1000, "Test Window", NULL, NULL);
+
+
+	glfwSetCursorPosCallback(m_window, cursorPotionCallback);
+	glfwSetCursorEnterCallback(m_window, curosrEnterCallBack);
+	glfwSetMouseButtonCallback(m_window, mouseButtonCallBack);
+	glfwSetScrollCallback(m_window, scrollCallBack);
+
+	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	//If the window couldn't be created
 	if (!m_window)

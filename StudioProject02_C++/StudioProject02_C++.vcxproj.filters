@@ -126,6 +126,9 @@
     <ClCompile Include="Source\InstructionMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\TrackMaker.cpp">
+      <Filter>Source Files\Others</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="Source\InstructionMenu.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TrackMaker.h">
+      <Filter>Header Files\Others</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -229,180 +229,187 @@ void Player::update(double dt)
 		int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
 
 
-		//if (1 == present)
-		//{
+		if (1 == present)
+		{
 
 
-		if (impulseDone == true) {
+			if (impulseDone == true) {
 
 
-			/*	int buttonCount;
-				const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
+					int buttonCount;
+					const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
+					int axesCount;
+					const float *axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);
 
+					if (axes[1] == 1 )
+					{
+						std::cout << "can press " << std::endl;
 
-				if (GLFW_PRESS == buttons[0])
-				{
-					std::cout << "can press " << std::endl;
-
-					direction.z = 1;
-					if (speed.z < 0.8) {
-						speed.z += acceleration.z * dt * direction.z;
-					}
-					position.z += speed.z;
-					movingObj = true;
-				}
-				if (GLFW_PRESS == buttons[1])
-				{
-					std::cout << "not can press " << std::endl;
-					direction.z = -1;
-					if (speed.z > -0.8) {
-						speed.z += acceleration.z * dt * direction.z;
+						direction.z = 1;
+						if (speed.z < 0.8) {
+							speed.z += acceleration.z * dt * direction.z;
+						}
+						position.z += speed.z;
 						movingObj = true;
 					}
-					position.z += speed.z;
-					movingObj = true;
+					if (axes[1] <= -1 )
+					{
+						std::cout << "not can press " << std::endl;
+						direction.z = -1;
+						if (speed.z > -0.8) {
+							speed.z += acceleration.z * dt * direction.z;
+							movingObj = true;
+						}
+						position.z += speed.z;
+						movingObj = true;
 
-				}*/
+					}
 
-			if (part2CheckpointReached == true) {
+				if (part2CheckpointReached == true) {
 
-				if (Application::IsKeyPressed('I'))
-				{
-					direction.x = -1;
-					if (speed.x > -0.8) {
-						speed.x += acceleration.x * dt * direction.x;
+					/*if (Application::IsKeyPressed('I'))
+					{*/
+
+					if (axes[1] <= -1)
+					{
+						direction.x = -1;
+						if (speed.x > -0.8) {
+							speed.x += acceleration.x * dt * direction.x;
+							movingObj = true;
+						}
+						position.x += speed.x;
 						movingObj = true;
 					}
-					position.x += speed.x;
-					movingObj = true;
-				}
 
-				if (Application::IsKeyPressed('K'))
-				{
-					direction.x = 1;
-					if (speed.x < 0.8) {
-						speed.x += acceleration.x * dt * direction.x;
+					/*if (Application::IsKeyPressed('K'))
+					{*/
+
+					if (axes[1] == 1)
+					{
+						direction.x = 1;
+						if (speed.x < 0.8) {
+							speed.x += acceleration.x * dt * direction.x;
+							movingObj = true;
+						}
+						position.x += speed.x;
 						movingObj = true;
 					}
-					position.x += speed.x;
-					movingObj = true;
-				}
 
-				if ((!Application::IsKeyPressed('I') &&
-					!Application::IsKeyPressed('K')) ||
-					(speed.x < -0.8) || (speed.x > 0.8)) {
+					if ((!axes[1] <= -1 &&
+						!axes[1] == 1) ||
+						(speed.x < -0.8) || (speed.x > 0.8)) {
 
 
-					if (speed.x > -0.05 && speed.x < 0.05) {
-						direction.x = 0.0;
-						speed.x = 0.0;
+						if (speed.x > -0.05 && speed.x < 0.05) {
+							direction.x = 0.0;
+							speed.x = 0.0;
+						}
+
+						if (speed.x > 0.0) {
+
+							speed.x -= deceleration.x * dt;
+						}
+						else if (speed.x < 0.0) {
+
+							speed.x += deceleration.x * dt;
+
+						}
+
+						position.x += speed.x;
 					}
 
-					if (speed.x > 0.0) {
-
-						speed.x -= deceleration.x * dt;
-					}
-					else if (speed.x < 0.0) {
-
-						speed.x += deceleration.x * dt;
-
-					}
-
-					position.x += speed.x;
-				}
-
-				if (Application::IsKeyPressed('J'))
-				{
-					direction.z = 1;
-					if (speed.z < 0.8) {
-						speed.z += acceleration.z * dt * direction.z;
-					}
-					position.z += speed.z;
-					movingObj = true;
-				}
-
-				if (Application::IsKeyPressed('L'))
-				{
-					direction.z = -1;
-					if (speed.z > -0.8) {
-						speed.z += acceleration.z * dt * direction.z;
+					if (axes[2] <= -1)
+					{
+						direction.z = 1;
+						if (speed.z < 0.8) {
+							speed.z += acceleration.z * dt * direction.z;
+						}
+						position.z += speed.z;
 						movingObj = true;
 					}
-					position.z += speed.z;
-					movingObj = true;
+
+					if (axes[2] == 1)
+					{
+						direction.z = -1;
+						if (speed.z > -0.8) {
+							speed.z += acceleration.z * dt * direction.z;
+							movingObj = true;
+						}
+						position.z += speed.z;
+						movingObj = true;
+					}
+
+					if ((!Application::IsKeyPressed('J') &&
+						!Application::IsKeyPressed('L')) ||
+						(speed.z < -0.8) || (speed.z > 0.8)) {
+
+
+						if (speed.z > -0.05 && speed.z < 0.05) {
+							direction.y = 0.0;
+							speed.z = 0.0;
+						}
+
+						if (speed.z > 0.0) {
+
+							speed.z -= deceleration.z * dt;
+						}
+						else if (speed.z < 0.0) {
+
+							speed.z += deceleration.z * dt;
+
+						}
+
+						position.z += speed.z;
+					}
+
 				}
-
-				if ((!Application::IsKeyPressed('J') &&
-					!Application::IsKeyPressed('L')) ||
-					(speed.z < -0.8) || (speed.z > 0.8)) {
-
-
-					if (speed.z > -0.05 && speed.z < 0.05) {
-						direction.y = 0.0;
-						speed.z = 0.0;
+				else {
+					if (Application::IsKeyPressed('K'))
+					{
+						direction.z = 1;
+						if (speed.z < 0.8) {
+							speed.z += acceleration.z * dt * direction.z;
+						}
+						position.z += speed.z;
+						movingObj = true;
 					}
 
-					if (speed.z > 0.0) {
-
-						speed.z -= deceleration.z * dt;
+					if (Application::IsKeyPressed('I'))
+					{
+						direction.z = -1;
+						if (speed.z > -0.8) {
+							speed.z += acceleration.z * dt * direction.z;
+							movingObj = true;
+						}
+						position.z += speed.z;
+						movingObj = true;
 					}
-					else if (speed.z < 0.0) {
 
-						speed.z += deceleration.z * dt;
+					if ((!Application::IsKeyPressed('I') &&
+						!Application::IsKeyPressed('K')) ||
+						(speed.z < -0.8) || (speed.z > 0.8)) {
 
+
+						if (speed.z > -0.05 && speed.z < 0.05) {
+							direction.y = 0.0;
+							speed.z = 0.0;
+						}
+
+						if (speed.z > 0.0) {
+
+							speed.z -= deceleration.z * dt;
+						}
+						else if (speed.z < 0.0) {
+
+							speed.z += deceleration.z * dt;
+
+						}
+
+						position.z += speed.z;
 					}
-
-					position.z += speed.z;
 				}
 
 			}
-			else {
-				if (Application::IsKeyPressed('K'))
-				{
-					direction.z = 1;
-					if (speed.z < 0.8) {
-						speed.z += acceleration.z * dt * direction.z;
-					}
-					position.z += speed.z;
-					movingObj = true;
-				}
-
-				if (Application::IsKeyPressed('I'))
-				{
-					direction.z = -1;
-					if (speed.z > -0.8) {
-						speed.z += acceleration.z * dt * direction.z;
-						movingObj = true;
-					}
-					position.z += speed.z;
-					movingObj = true;
-				}
-
-				if ((!Application::IsKeyPressed('I') &&
-					!Application::IsKeyPressed('K')) ||
-					(speed.z < -0.8) || (speed.z > 0.8)) {
-
-
-					if (speed.z > -0.05 && speed.z < 0.05) {
-						direction.y = 0.0;
-						speed.z = 0.0;
-					}
-
-					if (speed.z > 0.0) {
-
-						speed.z -= deceleration.z * dt;
-					}
-					else if (speed.z < 0.0) {
-
-						speed.z += deceleration.z * dt;
-
-					}
-
-					position.z += speed.z;
-				}
-			}
-
-
 
 		}
 

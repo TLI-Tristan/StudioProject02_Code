@@ -15,29 +15,14 @@ SceneFreeGameMode::~SceneFreeGameMode()
 {
 }
 
-//void SceneSP02::ALLCamera(int angle) {
-//	if (angle == 1)
-//	{
-//		viewStack.LoadIdentity();
-//		viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
-//		modelStack.LoadIdentity();
-//	}
-//	else if (angle == 2) {
-//		viewStack.LoadIdentity();
-//		viewStack.LookAt(camera2.position.x, camera2.position.y, camera2.position.z, camera2.target.x, camera2.target.y, camera2.target.z, camera2.up.x, camera2.up.y, camera2.up.z);
-//		modelStack.LoadIdentity();
-//	}
-//	else if (angle == 3)
-//	{
-//		viewStack.LoadIdentity();
-//		viewStack.LookAt(camera3.position.x, camera3.position.y, camera3.position.z, camera3.target.x, camera3.target.y, camera3.target.z, camera3.up.x, camera3.up.y, camera3.up.z);
-//		modelStack.LoadIdentity();
-//	}
-//}
+
 
 
 void SceneFreeGameMode::Init()
 {
+
+	remove("Position.txt");
+
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Generate a default VAO for now
@@ -45,7 +30,7 @@ void SceneFreeGameMode::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(0, 10, 50), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01");
+	camera.Init(Vector3(-100, -81, -439), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01");
 
 	//audio.SetAudio("1.wav");
 
@@ -162,25 +147,34 @@ void SceneFreeGameMode::Init()
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(255, 255, 255), 1000.f, 600.f, true);
-	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//floor_tile.tga", true);
+	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//grass.tga", true);
 
 	meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(255, 255, 255), 1000.f, 600.f, false);
-	meshList[GEO_TOP]->textureID = LoadTGA("Image//ceiling.tga", false);
+	meshList[GEO_TOP]->textureID = LoadTGA("Image//sky2.tga", false);
 
 	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(255, 255, 255), 600.f, 300.f, false);
-	meshList[GEO_FRONT]->textureID = LoadTGA("Image//ceiling.tga");
+	meshList[GEO_FRONT]->textureID = LoadTGA("Image//sky2.tga");
 
 	meshList[GEO_BACK] = MeshBuilder::GenerateQuad("back", Color(255, 255, 255), 600.f, 300.f, false);
-	meshList[GEO_BACK]->textureID = LoadTGA("Image//wall_with_door.tga");
+	meshList[GEO_BACK]->textureID = LoadTGA("Image//sky2.tga");
 
 	meshList[GEO_LEFT] = MeshBuilder::GenerateQuad("left", Color(255, 255, 255), 1000.f, 300.f, false);
-	meshList[GEO_LEFT]->textureID = LoadTGA("Image//wall4.tga", false);
+	meshList[GEO_LEFT]->textureID = LoadTGA("Image//sky2.tga", false);
 
 	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(255, 255, 255), 1000.f, 300.f, false);
-	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//wall4.tga", false);
+	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//sky2.tga", false);
 
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
+
+	meshList[GEO_STRAIGHT] = MeshBuilder::GenerateOBJ("Gong", "Obj/Cube.obj");
+	meshList[GEO_TURNLEFT] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnLeft.obj");
+	meshList[GEO_TURNLEFT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnLeft2.obj");
+	meshList[GEO_TURNRIGHT] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight.obj");
+	meshList[GEO_TURNRIGHT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight2.obj");
+
+	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
+	meshList[GEO_CAR]->textureID = LoadTGA("Image//car.tga");
 	//audio.PlayAudio();
 
 
@@ -235,6 +229,7 @@ void SceneFreeGameMode::Update(double dt)
 
 	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
 
+		delay = 0.0;
 
 		if (choice == 0) {
 
@@ -257,8 +252,12 @@ void SceneFreeGameMode::Update(double dt)
 	x = std::to_string(camera.position.x);
 	y = std::to_string(camera.position.y);
 	z = std::to_string(camera.position.z);
-}
+	ChoseMapParts();
 
+
+
+
+}
 void SceneFreeGameMode::RenderMesh(Mesh* mesh, bool enableLight)
 {
 	Mtx44 MVP, modelView, modelView_inverse_transpose;
@@ -307,9 +306,6 @@ void SceneFreeGameMode::RenderMesh(Mesh* mesh, bool enableLight)
 	}
 
 }
-
-
-
 void SceneFreeGameMode::RenderSkybox() {
 
 	modelStack.PushMatrix();
@@ -324,7 +320,7 @@ void SceneFreeGameMode::RenderSkybox() {
 	RenderMesh(meshList[GEO_BOTTOM], true);
 	modelStack.PopMatrix();
 
-	modelStack.PushMatrix();
+	/*modelStack.PushMatrix();
 	modelStack.Translate(0, 0, -298);
 	RenderMesh(meshList[GEO_RIGHT], true);
 	modelStack.PopMatrix();
@@ -345,12 +341,10 @@ void SceneFreeGameMode::RenderSkybox() {
 	modelStack.Translate(498, 0, 0);
 	modelStack.Rotate(-90, 0, 1, 0);
 	RenderMesh(meshList[GEO_BACK], true);
-	modelStack.PopMatrix();
+	modelStack.PopMatrix();*/
 
 
 }
-
-
 void SceneFreeGameMode::RenderText(Mesh* mesh, std::string text, Color color)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
@@ -377,7 +371,6 @@ void SceneFreeGameMode::RenderText(Mesh* mesh, std::string text, Color color)
 	glUniform1i(m_parameters[U_TEXT_ENABLED], 0);
 	glEnable(GL_DEPTH_TEST);
 }
-
 void SceneFreeGameMode::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
 {
 	if (!mesh || mesh->textureID <= 0) //Proper error check
@@ -422,57 +415,6 @@ void SceneFreeGameMode::RenderTextOnScreen(Mesh* mesh, std::string text, Color c
 }
 
 
-//void SceneAssignment02::RenderPictureOnScreen(Mesh* mesh, float x, float y)
-//{
-//	if (!mesh || mesh->textureID <= 0) //Proper error check
-//		return;
-//
-//	Mtx44 ortho;
-//	ortho.SetToOrtho(0, 80, 0, 60, -10, 10); //size of screen UI
-//	projectionStack.PushMatrix();
-//	projectionStack.LoadMatrix(ortho);
-//	viewStack.PushMatrix();
-//	viewStack.LoadIdentity(); //No need camera for ortho mode
-//	modelStack.PushMatrix();
-//	modelStack.LoadIdentity(); //Reset modelStack
-//	modelStack.Translate(x, y, 0);
-//
-//	Mtx44 MVP, modelView, modelView_inverse_transpose;
-//
-//	MVP = projectionStack.Top() * viewStack.Top() * modelStack.Top();
-//	glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
-//
-//
-//	glUniform1i(m_parameters[U_LIGHTENABLED], 0);
-//
-//
-//	if (mesh->textureID > 0)
-//	{
-//		glUniform1i(m_parameters[U_COLOR_TEXTURE_ENABLED], 1);
-//		glActiveTexture(GL_TEXTURE0);
-//		glBindTexture(GL_TEXTURE_2D, mesh->textureID);
-//		glUniform1i(m_parameters[U_COLOR_TEXTURE], 0);
-//	}
-//	else
-//	{
-//		glUniform1i(m_parameters[U_COLOR_TEXTURE_ENABLED], 0);
-//	}
-//
-//	mesh->Render();
-//
-//
-//
-//	projectionStack.PopMatrix();
-//	viewStack.PopMatrix();
-//	modelStack.PopMatrix();
-//
-//	if (mesh->textureID > 0)
-//	{
-//		glBindTexture(GL_TEXTURE_2D, 0);
-//	}
-//
-//}
-
 void SceneFreeGameMode::RenderLight() {
 
 
@@ -499,29 +441,49 @@ void SceneFreeGameMode::Render()
 {
 	//Clear color & depth buffer every frame
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	parts = 0;
+	/*for (int i = 0; i < 3; i++)
+	{
+		ALLCamera(i);
+	}
+*/
+	if (objPOINTER[0] == true)
+	{
+		parts = CreateOBJ(9);
+	}
+	if (objPOINTER[1] == true)
+	{
+		parts = CreateOBJ(10);
+	}
+	if (objPOINTER[2] == true)
+	{
+		parts = CreateOBJ(11);
+	}
+	if (objPOINTER[3] == true)
+	{
+		parts = CreateOBJ(12);
+	}
+	if (objPOINTER[4] == true)
+	{
+		parts = CreateOBJ(13);
+	}
 
-	//ALLCamera(1);
-
+	ps4Controller(parts);
 	viewStack.LoadIdentity();
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
 
-
 	modelStack.LoadIdentity();
-
 	/*modelStack.PushMatrix();
 	RenderLight();
 	modelStack.PopMatrix();*/
-
 	RenderMesh(meshList[GEO_AXES], false); //To be removed
-
-
 
 	/*viewStack.LoadIdentity();
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();*/
 
-	//RenderSkybox();
+	RenderSkybox();
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
 
@@ -538,6 +500,194 @@ void SceneFreeGameMode::Render()
 void SceneFreeGameMode::Exit()
 {
 	// Cleanup VBO here
+	remove("Position.txt");
 	glDeleteProgram(m_programID);
+
+}
+
+// for other game mode 
+
+//void SceneFreeGameMode::ALLCamera(int angle) {
+//	if (angle == 1)
+//	{
+//		viewStack.LoadIdentity();
+//		viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+//		modelStack.LoadIdentity();
+//	}
+//	else if (angle == 2) {
+//		viewStack.LoadIdentity();
+//		viewStack.LookAt(camera2.position.x, camera2.position.y, camera2.position.z, camera2.target.x, camera2.target.y, camera2.target.z, camera2.up.x, camera2.up.y, camera2.up.z);
+//		modelStack.LoadIdentity();
+//	}
+//	else if (angle == 3)
+//	{
+//		viewStack.LoadIdentity();
+//		viewStack.LookAt(camera3.position.x, camera3.position.y, camera3.position.z, camera3.target.x, camera3.target.y, camera3.target.z, camera3.up.x, camera3.up.y, camera3.up.z);
+//		modelStack.LoadIdentity();
+//	}
+//}
+
+
+
+void SceneFreeGameMode::ps4Controller(int x)
+{
+
+	/*
+PS4 Controller Code
+	button[0] = "sqaure"
+	button [1] = x
+	button [2] = o
+	button [3] = triangle
+
+	button [4] = "L1"
+	button [5] = "R1"
+
+	button[6] = "L2"
+	button[7] = "R2"
+
+	button[8] = "Share button"
+	button[9] = "Options button"
+*/
+
+	int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
+
+	int axesCount;
+	const float *axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);
+
+
+	if (1 == present)
+	{
+		int buttonCount;
+		const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
+
+		if (axes[0] == 1)
+		{
+			turnRight -= 1;
+		}
+		if (axes[0] <= -1)
+		{
+			turnRight += 1;
+		}
+
+		if (axes[1] == 1)
+		{
+			forwards -= 1;
+		}
+		if (axes[1] <= -1)
+		{
+			forwards += 1;
+		}
+
+		if (GLFW_PRESS == buttons[0])
+		{
+			tm.SaveMap(x, CRUSOR_Y_POS, -CRUSOR_X_POS);
+			can_spawn = true;
+
+			cout << "Allow to Load map " << endl;
+			cout << "Save Current Peice of the map " << endl;
+		}
+
+		if (can_spawn)
+		{
+			if (GLFW_RELEASE == buttons[1])
+			{
+				c = tm.GetMap();
+				LoadMap(c);
+				RenderPlayers(stoi(c[1]), -90, stoi(c[2]));
+				//camera.Init(Vector3(stoi(c[1]), -70, stoi(c[2])), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01");
+			}
+		}
+		else
+		{
+			cout << "No Map to load" << endl;
+		}
+
+	}
+}
+
+int SceneFreeGameMode::CreateOBJ(int x) {
+
+
+	modelStack.PushMatrix();
+	modelStack.Translate(CRUSOR_Y_POS, -90, -CRUSOR_X_POS);
+	modelStack.Scale(2, 2, 2);
+	RenderMesh(meshList[x], true);
+	modelStack.PopMatrix();
+
+	return x;
+}
+
+void SceneFreeGameMode::LoadMap(vector<string> b) {
+	for (int i = 0; i < b.size();)
+	{
+		modelStack.PushMatrix();
+		modelStack.Translate(stoi(b[1 + i]), -90, stoi(b[2 + i]));
+		modelStack.Scale(2, 2, 2);
+		RenderMesh(meshList[stoi(b[0 + i])], true);
+		modelStack.PopMatrix();
+		i += 3;
+	}
+}
+
+void SceneFreeGameMode::ChoseMapParts() {
+
+	if (Application::IsKeyPressed('1'))
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			objPOINTER[i] = false;
+		}
+		cout << "it is spawn" << endl;
+		objPOINTER[0] = true;
+	}
+
+	if (Application::IsKeyPressed('2'))
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			objPOINTER[i] = false;
+		}
+		objPOINTER[1] = true;
+	}
+	if (Application::IsKeyPressed('3'))
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			objPOINTER[i] = false;
+		}
+		objPOINTER[2] = true;
+	}
+
+	if (Application::IsKeyPressed('4'))
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			objPOINTER[i] = false;
+		}
+		objPOINTER[3] = true;
+	}
+
+	if (Application::IsKeyPressed('5'))
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			objPOINTER[i] = false;
+		}
+		objPOINTER[4] = true;
+	}
+
+
+}
+
+
+void SceneFreeGameMode::RenderPlayers(int x, int z, int y)
+{
+	modelStack.PushMatrix();
+	modelStack.Translate(20 + x, 10 + z, 0 + y + forwards);
+	modelStack.Rotate(90 + turnRight, 0, 1, 0);
+	modelStack.Scale(10, 10, 10);
+	RenderMesh(meshList[GEO_CAR], true);
+	modelStack.PopMatrix();
+
 
 }

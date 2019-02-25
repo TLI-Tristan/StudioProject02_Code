@@ -167,6 +167,7 @@
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\SceneSP02.cpp" />
     <ClCompile Include="Source\shader.cpp" />
+    <ClCompile Include="Source\TrackMaker.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +198,7 @@
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneSP02.h" />
     <ClInclude Include="Source\shader.hpp" />
+    <ClInclude Include="Source\TrackMaker.h" />
     <ClInclude Include="Source\Utility.h" />
     <ClInclude Include="Source\Vertex.h" />
   </ItemGroup>
