@@ -536,6 +536,24 @@ void SceneInstructionMenu::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
 
+	// instructoin for the game for level 1 and 2
+	RenderTextOnScreen(meshList[GEO_TEXT], "Level 1 ", Color(0, 255, 0), 2, 1, 20);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use I TO MOVE FORWARD", Color(0, 255, 0), 2, 1, 20);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use K TO MOVE BACK", Color(0, 255, 0), 2, 1, 19);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use J TO MOVE LEFT", Color(0, 255, 0), 2, 1, 18);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use L TO MOVE RIGHT", Color(0, 255, 0), 2, 1, 17);
+
+	RenderTextOnScreen(meshList[GEO_TEXT], "Level 1 ", Color(0, 255, 0), 2, 1, 16);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use 1 - 4 to cycle between objects", Color(0, 255, 0), 2, 1, 15);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse to move object around the map", Color(0, 255, 0), 2, 1, 19);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse BUtton click to place Object down", Color(0, 255, 0), 2, 1, 18);
+
+	// to use for the controler
+	RenderTextOnScreen(meshList[GEO_TEXT], "Ones the car has spawn use the controller ot play or they keyboard ", Color(0, 255, 0), 2, 1, 18);
+
+
+
+
 
 }
 

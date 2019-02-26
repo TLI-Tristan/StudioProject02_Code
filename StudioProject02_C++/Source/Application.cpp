@@ -28,6 +28,7 @@ double CRUSOR_Y_POS;
 double x2Offset;
 double y2Offset;
 
+bool mouse_pressed;
 
 static void cursorPotionCallback(GLFWwindow *window, double xPos, double yPos) {
 	
@@ -58,14 +59,12 @@ void curosrEnterCallBack(GLFWwindow *window, int entered) {
 
 };
 void mouseButtonCallBack(GLFWwindow *window, int button, int action, int mods) {
-	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
 	{
 		std::cout << "Right Button pressed" << std::endl;
+		mouse_pressed = true;
 	}
-	else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
-	{
-		std::cout << "Right Button pressed" << std::endl;
-	}
+
 };
 void scrollCallBack(GLFWwindow *window, double xOffset, double yOffset) {
 	//std::cout << "xoff" << xOffset << "      " << "yoffset : " << yOffset << endl;
@@ -188,7 +187,7 @@ void Application::Run()
 
 	//Scene *scene = GameMenu;
 
-	Scene *scene = MainGame;
+	Scene *scene = GameMenu;
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))

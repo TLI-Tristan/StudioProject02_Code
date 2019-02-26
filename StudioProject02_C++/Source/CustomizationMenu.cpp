@@ -15,6 +15,23 @@ SceneCustomizationMenu::~SceneCustomizationMenu()
 {
 }
 
+
+
+void SceneCustomizationMenu::saveCar(string carName,string carOBJ, string carTexture)
+{
+
+	remove("CarSet.txt");
+
+	ofstream ofs;
+	ofs.open("CarSet.txt", ofstream::out | ofstream::app);
+	ofs << carName << endl;
+	ofs << carOBJ << endl;
+	ofs << carTexture;
+	ofs.close();
+
+}
+
+
 //void SceneSP02::ALLCamera(int angle) {
 //	if (angle == 1)
 //	{
@@ -38,6 +55,7 @@ SceneCustomizationMenu::~SceneCustomizationMenu()
 
 void SceneCustomizationMenu::Init()
 {
+
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Generate a default VAO for now
@@ -291,6 +309,8 @@ void SceneCustomizationMenu::Update(double dt)
 
 		if (choice == 2) {
 
+			
+			saveCar(tempCar[0], tempCar[1] , tempCar[2]);
 	
 		}
 
@@ -326,8 +346,14 @@ void SceneCustomizationMenu::Update(double dt)
 	//chassis
 	if (changeTexture == true) {
 
+		tempCar[0] = "car";
+		tempCar[1] = "Obj/SP_CarObj.obj";
+
+
 		if (customization[1] == 0) {
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
+			tempCar[0] = "car";
+			tempCar[1] = "Obj/SP_CarObj.obj";
 
 			speed = 5;
 			acceleration = 5;
@@ -336,6 +362,8 @@ void SceneCustomizationMenu::Update(double dt)
 		}
 		else if (customization[1] == 1) {
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car2", "Obj/car2.obj");
+			tempCar[0] = "car2";
+			tempCar[1] = "Obj/car2.obj";
 
 			speed = 6;
 			acceleration = 4;
@@ -345,6 +373,8 @@ void SceneCustomizationMenu::Update(double dt)
 		else if (customization[1] == 2) {
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("car3", "Obj/car3.obj");
 
+			tempCar[0] = "car3";
+			tempCar[1] = "Obj/car3.obj";
 			speed = 9;
 			acceleration = 2;
 			handling = 1;
@@ -352,6 +382,8 @@ void SceneCustomizationMenu::Update(double dt)
 		else if (customization[1] == 3) {
 
 			meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("cyl", "Obj/car4.obj");
+			tempCar[0] = "car4";
+			tempCar[1] = "Obj/car4.obj";
 
 			speed = 5;
 			acceleration = 2;
@@ -364,18 +396,24 @@ void SceneCustomizationMenu::Update(double dt)
 	//textures
 	if (changeTexture == true) {
 
+		tempCar[2] = "Image//cartexture.tga";
+
 		if (customization[0] == 0) {
 
 			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//cartexture.tga");
+			tempCar[2] = "Image//cartexture.tga";
 		}
 		else if (customization[0] == 1) {
 			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car2texture.tga");
+			tempCar[2] = "Image//car2texture.tga";
 		}
 		else if (customization[0] == 2) {
 			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car3texture.tga");
+			tempCar[2] = "Image//car3texture.tga";
 		}
 		else if (customization[0] == 3) {
 			meshList[GEO_PLAYER]->textureID = LoadTGA("Image//car4texture.tga");
+			tempCar[2] = "Image//car4texture.tga";
 		}
 
 		changeTexture = false;

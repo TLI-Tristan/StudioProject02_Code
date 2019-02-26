@@ -12,8 +12,10 @@
 // splitscreen
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-// audio
 
+
+#include <vector>
+#include <fstream>
 
 class SceneCustomizationMenu : public Scene
 {
@@ -88,12 +90,16 @@ public:
 	SceneCustomizationMenu();
 	~SceneCustomizationMenu();
 
+	void saveCar(string,string, string);
+
 	virtual void Init();
 	virtual void Update(double dt);
 	virtual void Render();
 	virtual void Exit();
 
 private:
+
+	string tempCar[4];
 
 	unsigned m_vertexArrayID;
 	Mesh* meshList[NUM_GEOMETRY];
@@ -111,7 +117,7 @@ private:
 	Audio audio;
 
 	void RenderMesh(Mesh *mesh, bool enableLight);
-	int customization[4];
+	int customization[2];
 
 	float f_fps;
 	std::string s_fps;

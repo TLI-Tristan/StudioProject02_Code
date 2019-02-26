@@ -9,10 +9,6 @@
 #include "Light.h"
 #include "Audio.h"
 #include "TrackMaker.h"
-#include "Collision.h"
-#include "Entity.h"
-#include "Player.h"
-#include "Object.h"
 
 // splitscreen
 #include <GL/glew.h>
@@ -26,6 +22,8 @@ extern double CRUSOR_Y_POS;
 
 extern double x2Offset;
 extern double y2Offset;
+
+extern bool mouse_pressed;
 
 class SceneFreeGameMode : public Scene
 {
@@ -89,8 +87,6 @@ class SceneFreeGameMode : public Scene
 		GEO_TURNLEFT2,
 		GEO_TURNRIGHT,
 		GEO_TURNRIGHT2,
-		GEO_PLATFORM,
-		GEO_CART,
 		GEO_CAR,
 		NUM_GEOMETRY,
 	};
@@ -116,9 +112,10 @@ public:
 
 	void RenderPlayers(int x, int z, int y);
 
-	Collision collisionChecker;
-
 private:
+	std::vector<Entity*> entityContainer;
+
+	std::vector<int> allSpawningOBJ;
 
 	unsigned m_vertexArrayID;
 	Mesh* meshList[NUM_GEOMETRY];
@@ -129,8 +126,6 @@ private:
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
 	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
 	void RenderLight();
-
-	std::vector<Entity*> entityContainer;
 
 	TrackMaker tm;
 	Camera2 camera, camera2, camera3;
@@ -143,7 +138,7 @@ private:
 	int parts;
 	bool newplace = false;
 	bool can_spawn = false;
-
+	bool spawn_Car = false;
 
 	float turnRight = 0, forwards = 0;
 
@@ -161,7 +156,6 @@ private:
 
 	int choice;
 	int arrowY;
-	bool collisionDetected;
 
 };
 

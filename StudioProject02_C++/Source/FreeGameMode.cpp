@@ -15,9 +15,6 @@ SceneFreeGameMode::~SceneFreeGameMode()
 {
 }
 
-
-
-
 void SceneFreeGameMode::Init()
 {
 
@@ -30,7 +27,7 @@ void SceneFreeGameMode::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(0, 80, 30), Vector3(0, 0, 0), Vector3(0, 1, 0), "player01", false);
+	camera.Init(Vector3(500, 0, 0), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
 
 	//audio.SetAudio("1.wav");
 
@@ -146,14 +143,6 @@ void SceneFreeGameMode::Init()
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 
-	meshList[GEO_CART] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
-	meshList[GEO_CART]->textureID = LoadTGA("Image//cartexture.tga");
-	entityContainer.push_back(new Player(Vector3(0, 0, 10), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01"));
-
-	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("Blockers", "Obj/platform.obj");
-	entityContainer.push_back(new Object(Vector3(0, -10, 0), false, false, 18, 1, 18, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//1
-
-
 	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(255, 255, 255), 1000.f, 600.f, true);
 	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//grass.tga", true);
 
@@ -175,14 +164,18 @@ void SceneFreeGameMode::Init()
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
-	meshList[GEO_STRAIGHT] = MeshBuilder::GenerateOBJ("Gong", "Obj/Cube.obj");
-	meshList[GEO_TURNLEFT] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnLeft.obj");
+
+
+	// for the track
+	meshList[GEO_STRAIGHT] = MeshBuilder::GenerateOBJ("Floor", "Obj/Cube.obj");
+	meshList[GEO_TURNLEFT] = MeshBuilder::GenerateOBJ("turnLeft", "Obj/TurnLeft.obj");
 	meshList[GEO_TURNLEFT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnLeft2.obj");
 	meshList[GEO_TURNRIGHT] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight.obj");
 	meshList[GEO_TURNRIGHT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight2.obj");
-
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//cartexture.tga");
+
+
 	//audio.PlayAudio();
 
 
@@ -195,7 +188,6 @@ void SceneFreeGameMode::Init()
 
 	choice = 0;
 	arrowY = 18;
-	collisionDetected = false; 
 }
 
 void SceneFreeGameMode::Update(double dt)
@@ -252,17 +244,6 @@ void SceneFreeGameMode::Update(double dt)
 
 
 	//}
-
-	for (size_t i = 0; i < entityContainer.size(); i++) {
-
-		entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.checkCollisionWithTheFloor(*entityContainer.at(i), entityContainer), collisionChecker.getCollidiedItem());
-		entityContainer.at(i)->update(dt);
-
-	}
-
-
-
-	collisionDetected = collisionChecker.collisionCheck(entityContainer);
 
 	f_fps = 1.0f / dt;
 
@@ -493,8 +474,6 @@ void SceneFreeGameMode::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();
 
-
-
 	modelStack.LoadIdentity();
 	/*modelStack.PushMatrix();
 	RenderLight();
@@ -505,18 +484,6 @@ void SceneFreeGameMode::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();*/
 
-	modelStack.PushMatrix();
-	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
-	modelStack.Scale(5, 5, 5);
-	RenderMesh(meshList[GEO_CART], true);
-	modelStack.PopMatrix();
-
-	modelStack.PushMatrix();
-	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_PLATFORM], true);
-	modelStack.PopMatrix();
-
 	RenderSkybox();
 
 	/*RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
@@ -524,22 +491,13 @@ void SceneFreeGameMode::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);*/
-	string txt;
-
-	txt = std::to_string(camera.position.x);
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);
-	RenderTextOnScreen(meshList[GEO_TEXT], "XC: ", Color(0, 255, 0), 2, 1, 5);
-
-	txt = std::to_string(camera.position.y);
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 7);
-	RenderTextOnScreen(meshList[GEO_TEXT], "YC: ", Color(0, 255, 0), 2, 1, 7);
-
-	txt = std::to_string(camera.position.z);
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 9);
-	RenderTextOnScreen(meshList[GEO_TEXT], "ZC: ", Color(0, 255, 0), 2, 1, 9);
 
 	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
 	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+
+
+	// spawn the model 
+
 
 
 }
@@ -580,7 +538,7 @@ void SceneFreeGameMode::ps4Controller(int x)
 {
 
 	/*
-PS4 Controller Code
+	PS4 Controller Code
 	button[0] = "sqaure"
 	button [1] = x
 	button [2] = o
@@ -594,7 +552,7 @@ PS4 Controller Code
 
 	button[8] = "Share button"
 	button[9] = "Options button"
-*/
+	*/
 
 	int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
 
@@ -607,41 +565,97 @@ PS4 Controller Code
 		int buttonCount;
 		const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
 
-		if (axes[0] == 1)
-		{
-			turnRight -= 1;
-		}
-		if (axes[0] <= -1)
-		{
-			turnRight += 1;
-		}
+		/*	if (axes[0] == 1)
+			{
+				turnRight -= 1;
+			}
+			if (axes[0] <= -1)
+			{
+				turnRight += 1;
+			}
 
-		if (axes[1] == 1)
-		{
-			forwards -= 1;
-		}
-		if (axes[1] <= -1)
-		{
-			forwards += 1;
-		}
+			if (axes[1] == 1)
+			{
+				forwards -= 1;
+			}
+			if (axes[1] <= -1)
+			{
+				forwards += 1;
+			}*/
 
-		if (GLFW_PRESS == buttons[0])
+		if (GLFW_PRESS == buttons[0] || mouse_pressed == true)
 		{
-			tm.SaveMap(x, CRUSOR_Y_POS, -CRUSOR_X_POS);
 			can_spawn = true;
+			/*tm.SaveMap(x, CRUSOR_Y_POS, -CRUSOR_X_POS);*/
+			// use a vector to store all the order of it and put it in each press to get the right outcome 
 
-			cout << "Allow to Load map " << endl;
-			cout << "Save Current Peice of the map " << endl;
+
+			// spawn all the objects here 
+			if (x == 9)
+			{
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "Floor"));//0
+				allSpawningOBJ.push_back(9);
+			}
+			else if (x == 10)
+			{
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnLeft"));//1
+				allSpawningOBJ.push_back(10);
+			}
+			else if (x == 11)
+			{
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnLeft2"));//2
+				allSpawningOBJ.push_back(11);
+			}
+			else if (x == 12)
+			{
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnRight"));//3
+				allSpawningOBJ.push_back(12);
+			}
+			else if (x == 13)
+			{
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnRight2"));//4
+				allSpawningOBJ.push_back(12);
+			}
+
+			mouse_pressed = false;
+
 		}
 
 		if (can_spawn)
 		{
 			if (GLFW_RELEASE == buttons[1])
 			{
-				c = tm.GetMap();
+				/*c = tm.GetMap();
 				LoadMap(c);
-				RenderPlayers(stoi(c[1]), -90, stoi(c[2]));
+				RenderPlayers(stoi(c[1]), -90, stoi(c[2]));*/
 				//camera.Init(Vector3(stoi(c[1]), -70, stoi(c[2])), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01");
+
+				for (int i = 0; i < entityContainer.size(); i++)
+				{
+					modelStack.PushMatrix();
+					modelStack.Translate(entityContainer.at(i)->getPosX(), entityContainer.at(i)->getPosY(), entityContainer.at(i)->getPosZ());
+					modelStack.Scale(4, 4, 4);
+					RenderMesh(meshList[allSpawningOBJ.at(i)], true);
+					modelStack.PopMatrix();
+				}
+
+				if (GLFW_PRESS == buttons[2])
+				{
+					spawn_Car = true;
+
+					camera.Init(Vector3(entityContainer.at(0)->getPosX(), -80, entityContainer.at(0)->getPosZ()), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
+
+				}
+
+				if (spawn_Car == true)
+				{
+					modelStack.PushMatrix();
+					modelStack.Translate(entityContainer.at(0)->getPosX(), -80, entityContainer.at(0)->getPosZ());
+					modelStack.Scale(10, 10, 10);
+					RenderMesh(meshList[GEO_CAR], true);
+					modelStack.PopMatrix();
+				}
+
 			}
 		}
 		else
@@ -674,6 +688,16 @@ void SceneFreeGameMode::LoadMap(vector<string> b) {
 		modelStack.PopMatrix();
 		i += 3;
 	}
+
+
+
+
+
+
+
+
+
+
 }
 
 void SceneFreeGameMode::ChoseMapParts() {

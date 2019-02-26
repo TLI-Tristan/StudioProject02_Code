@@ -21,7 +21,23 @@ SceneSP02::~SceneSP02()
 {
 }
 
+void SceneSP02::getCar()
+{
+	string line;
+	ifstream file("CarSet.txt");
+	if (file.is_open())
+	{
+		while (getline(file, line))
+		{
+			carSet.push_back(line);
+		}
+		file.close();
+	}
 
+	carName = carSet.at(0);
+	carOBJ = carSet.at(1);
+	carIM = carSet.at(2);
+}
 
 void SceneSP02::getLeaderboard()
 {
@@ -90,6 +106,7 @@ void SceneSP02::saveLeader()
 
 void SceneSP02::Init()
 {
+
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Generate a default VAO for now
@@ -304,8 +321,19 @@ void SceneSP02::Init()
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 
-	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car","Obj/SP_CarObj.obj");
-	meshList[GEO_CAR]->textureID = LoadTGA("Image//cartexture.tga");
+
+	getCar();
+
+	
+	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ(carName, carOBJ);
+	meshList[GEO_CAR]->textureID = LoadTGA(carIM.c_str());
+	
+
+	
+	
+	
+	
+	
 	Playercar = new Player(Vector3(0, 20, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01");
 	entityContainer.push_back(Playercar);//0
 
@@ -1513,8 +1541,8 @@ void SceneSP02::Render()
 	//ALLCamera(1);
 
 	viewStack.LoadIdentity();
-			viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
-			modelStack.LoadIdentity();
+	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+	modelStack.LoadIdentity();
 	
 
 	modelStack.LoadIdentity();

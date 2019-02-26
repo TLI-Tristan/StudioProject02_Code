@@ -148,6 +148,7 @@ public:
 
 	void getLeaderboard();
 	void saveLeader();
+	void getCar();
 
 
 
@@ -159,9 +160,13 @@ public:
 	virtual void Update(double dt);
 	virtual void Render();
 	virtual void Exit();
+	
 
 private:
-
+	vector<string> carSet;
+	string carName;
+	string carOBJ;
+	string carIM;
 	std::vector<Entity*> entityContainer;
 	unsigned m_vertexArrayID;
 	Mesh* meshList[NUM_GEOMETRY];

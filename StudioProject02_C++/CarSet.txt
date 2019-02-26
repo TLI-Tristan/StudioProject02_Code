@@ -1,0 +1,3 @@
+car4
+Obj/car4.obj
+Image//car4texture.tga

@@ -15,6 +15,8 @@ SceneGameMenu::~SceneGameMenu()
 {
 }
 
+
+
 //void SceneSP02::ALLCamera(int angle) {
 //	if (angle == 1)
 //	{
