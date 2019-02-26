@@ -334,7 +334,7 @@ void SceneSP02::Init()
 	
 	
 	
-	Playercar = new Player(Vector3(0, 20, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01");
+	Playercar = new Player(Vector3(0, 20, 110), Vector3(0, 0, 0), 5, 5, 6, 1000.0, "player01", false);
 	entityContainer.push_back(Playercar);//0
 
 	cout << "X: " << entityContainer.at(0)->getPosX() << endl;
@@ -379,7 +379,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-40, 0, -600), true, false, 3.5, 3, 4, Vector3(40.0, 0.0, 0.0), 5000.0, Vector3(-1.0, 0.0, 0.0), "part1MoivngBlock")); //15
 
 	meshList[GEO_WORLD2FLOOR] = MeshBuilder::GenerateOBJ("World2Floor", "Obj/World2_Floor.obj");
-	meshList[GEO_WORLD2FLOOR]->textureID = LoadTGA("Image//cartexture.tga");
+	meshList[GEO_WORLD2FLOOR]->textureID = LoadTGA("Image//floor.tga");
 	entityContainer.push_back(new Object(Vector3(-250, -4.2, -805), false, false, 300, 3, 150, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//16
 
 	meshList[GEO_MOVINGBLOCKS1] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
@@ -429,7 +429,7 @@ void SceneSP02::Init()
 	/*meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/Gate.obj");*/
 
 	meshList[GEO_GIANTBLOCK] = MeshBuilder::GenerateOBJ("GiantBlock", "Obj/GiantBlock.obj");
-	meshList[GEO_GIANTBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
+	meshList[GEO_GIANTBLOCK]->textureID = LoadTGA("Image//blocks.tga");
 	entityContainer.push_back(new Object(Vector3(-495, -3, -683), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//41
 	entityContainer.push_back(new Object(Vector3(-495, -3, -766), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//42
 	entityContainer.push_back(new Object(Vector3(-495, -3, -849), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//43
@@ -443,6 +443,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-555, -3, -721), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//47
 
 	meshList[GEO_WORLD2FLOORPART2] = MeshBuilder::GenerateOBJ("stage2floor", "Obj/World2_FloorPart2.obj");
+	meshList[GEO_WORLD2FLOORPART2]->textureID = LoadTGA("Image//floor.tga");
     entityContainer.push_back(new Object(Vector3(-1000, -4.2, -805), false, false, 500, 3, 150, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//48
 
 	//meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");

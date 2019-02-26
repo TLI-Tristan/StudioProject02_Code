@@ -9,6 +9,7 @@
 #include "Light.h"
 #include "Audio.h"
 #include "TrackMaker.h"
+#include "Collision.h"
 
 // splitscreen
 #include <GL/glew.h>
@@ -88,6 +89,8 @@ class SceneFreeGameMode : public Scene
 		GEO_TURNRIGHT,
 		GEO_TURNRIGHT2,
 		GEO_CAR,
+		GEO_PLATFORM,
+		GEO_TEST,
 		NUM_GEOMETRY,
 	};
 
@@ -111,6 +114,8 @@ public:
 	void ChoseMapParts();
 
 	void RenderPlayers(int x, int z, int y);
+
+	Collision collisionChecker;
 
 private:
 	std::vector<Entity*> entityContainer;
@@ -153,6 +158,9 @@ private:
 
 	double delay;
 	double dt;
+
+	bool paused;
+	int onesOnly = 0;
 
 	int choice;
 	int arrowY;

@@ -1,3 +1,3 @@
-car4
-Obj/car4.obj
-Image//car4texture.tga
+car2
+Obj/car2.obj
+Image//car2texture.tga

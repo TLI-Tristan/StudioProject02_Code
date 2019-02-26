@@ -122,6 +122,9 @@ bool Collision::collisionCheck(Entity &firstEntity, std::vector <Entity*> &entit
 
 					
 				}
+				else {
+					collidiedItem = nullptr;
+				}
 
 
 			}

@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Application.h"
 
-Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, float mass, std::string name)
+Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float rangeY, float rangeZ, float mass, std::string name, bool control)
 {
 	this->position = pos;
 	this->movingObj = false;
@@ -29,7 +29,7 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->part2CheckpointReached = false;
 	this->cameraChanged = false;
 	this->collidiedItem = nullptr;
-
+	this->control = control;
 
 }
 
@@ -106,14 +106,14 @@ void Player::update(double dt)
 						if (collidiedItem->getDirection().x == direction.x || direction.x == 0) {
 
 							//speed.x += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
-							speed.x = 3;
+							speed.x = 4;
 							speed.x *= collidiedItem->getDirection().x;
 							impulseDone = false;
 
 						}
 						else {
 							//speed.x -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().x);
-							speed.x = 3;
+							speed.x = 4;
 							direction.x *= -1;
 							speed.x *= direction.x;
 							impulseDone = false;
@@ -125,7 +125,7 @@ void Player::update(double dt)
 						if (collidiedItem->getDirection().y == direction.y || direction.y == 0) {
 
 							//speed.y += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
-							speed.y = 3;
+							speed.y = 4;
 							speed.y *= collidiedItem->getDirection().y;
 							impulseDone = false;
 
@@ -133,7 +133,7 @@ void Player::update(double dt)
 						else {
 
 							//speed.y -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().y);
-							speed.y = 3;
+							speed.y = 4;
 							direction.y *= -1;
 							speed.y *= direction.y;
 							impulseDone = false;
@@ -146,7 +146,7 @@ void Player::update(double dt)
 						if (collidiedItem->getDirection().z == direction.z || direction.z == 0) {
 
 							//speed.z += c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
-							speed.z = 3;
+							speed.z = 4;
 							speed.z *= collidiedItem->getDirection().z;
 							impulseDone = false;
 
@@ -154,7 +154,7 @@ void Player::update(double dt)
 						else {
 
 							//speed.z -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
-							speed.z = 3;
+							speed.z = 4;
 							direction.z *= -1;
 							speed.z *= direction.z;
 							impulseDone = false;
@@ -212,7 +212,7 @@ void Player::update(double dt)
 
 		if (falling == true) {
 
-				speed.y -= deceleration.y * dt;
+			speed.y -= deceleration.y * dt;
 		
 			position.y += speed.y;
 		}
@@ -306,6 +306,7 @@ void Player::update(double dt)
 					position.x += speed.x;
 				}
 
+
 				if (Application::IsKeyPressed('J'))
 				{
 					direction.z = 1;
@@ -352,6 +353,57 @@ void Player::update(double dt)
 
 			}
 			else {
+
+
+				if (control == true) {
+
+					if (Application::IsKeyPressed('L'))
+					{
+						direction.x = 1;
+						if (speed.x < 0.8) {
+							speed.x += acceleration.x * dt * direction.x;
+						}
+						position.x += speed.x;
+						movingObj = true;
+					}
+
+					if (Application::IsKeyPressed('J'))
+					{
+						direction.x = -1;
+						if (speed.x > -0.8) {
+							speed.x += acceleration.x * dt * direction.x;
+							movingObj = true;
+						}
+						position.x += speed.x;
+						movingObj = true;
+					}
+
+					if ((!Application::IsKeyPressed('J') &&
+						!Application::IsKeyPressed('L')) ||
+						(speed.x < -0.8) || (speed.x > 0.8)) {
+
+
+						if (speed.x > -0.05 && speed.x < 0.05) {
+							direction.x = 0.0;
+							speed.x = 0.0;
+						}
+
+						if (speed.z > 0.0) {
+
+							speed.z -= deceleration.z * dt;
+						}
+						else if (speed.z < 0.0) {
+
+							speed.z += deceleration.z * dt;
+
+						}
+
+						position.z += speed.z;
+					}
+
+
+				}
+
 				if (Application::IsKeyPressed('K'))
 				{
 					direction.z = 1;
@@ -379,7 +431,7 @@ void Player::update(double dt)
 
 
 					if (speed.z > -0.05 && speed.z < 0.05) {
-						direction.y = 0.0;
+						direction.z = 0.0;
 						speed.z = 0.0;
 					}
 

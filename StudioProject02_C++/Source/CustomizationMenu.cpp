@@ -722,8 +722,8 @@ void SceneCustomizationMenu::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], "<", Color(255, 0, 0), 1.7, 37, arrowY);
 	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(255, 0, 0), 1.7, arrowX, arrowY);
 
-	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
-	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+	//RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
+	//RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
 
 
 }

@@ -27,7 +27,7 @@ void SceneFreeGameMode::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(500, 0, 0), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
+	camera.Init(Vector3(500, 0, 0), Vector3(0, 10, 0), Vector3(0, 1, 0), "player01", false);
 
 	//audio.SetAudio("1.wav");
 
@@ -171,13 +171,21 @@ void SceneFreeGameMode::Init()
 	meshList[GEO_TURNLEFT] = MeshBuilder::GenerateOBJ("turnLeft", "Obj/TurnLeft.obj");
 	meshList[GEO_TURNLEFT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnLeft2.obj");
 	meshList[GEO_TURNRIGHT] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight.obj");
+
 	meshList[GEO_TURNRIGHT2] = MeshBuilder::GenerateOBJ("Gong", "Obj/TurnRight2.obj");
+
+
 	meshList[GEO_CAR] = MeshBuilder::GenerateOBJ("car", "Obj/SP_CarObj.obj");
 	meshList[GEO_CAR]->textureID = LoadTGA("Image//cartexture.tga");
 
+	entityContainer.push_back(new Player(Vector3(109, -70, 192), Vector3(0, 0, 0), 5, 5, 6, 500, "player01", true));//0
 
+	meshList[GEO_PLATFORM] = MeshBuilder::GenerateOBJ("platform", "Obj/platform.obj");
+
+	entityContainer.push_back(new Object(Vector3(109, -80, 192), false, false, 18, 1, 18, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform")); //15
 	//audio.PlayAudio();
 
+	meshList[GEO_TEST] = MeshBuilder::GenerateOBJ("platform", "Obj/platform.obj");
 
 	f_fps = 0;
 
@@ -187,13 +195,19 @@ void SceneFreeGameMode::Init()
 	delay = 0.0;
 
 	choice = 0;
-	arrowY = 18;
+	arrowY = 14;
+
+	paused = false;
 }
 
 void SceneFreeGameMode::Update(double dt)
 {
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
+
+	if (dt > 0.1) {
+		dt = 0.1;
+	}
 
 	//if (Application::IsKeyPressed(VK_UP) && delay >= 0.2) {
 
@@ -245,6 +259,90 @@ void SceneFreeGameMode::Update(double dt)
 
 	//}
 
+
+	if (paused == false) {
+
+		for (size_t i = 0; i < entityContainer.size(); i++) {
+
+			entityContainer.at(i)->collisionDetector(collisionChecker.collisionCheck(*entityContainer.at(i), entityContainer), collisionChecker.checkCollisionWithTheFloor(*entityContainer.at(i), entityContainer), collisionChecker.getCollidiedItem());
+			entityContainer.at(i)->update(dt);
+
+		}
+
+	}
+	else {
+
+		if (Application::IsKeyPressed(VK_UP) && delay >= 0.2 && paused == true) {
+
+			if (choice == 0) {
+
+				choice = 1;
+				arrowY = 12;
+
+			}
+			else {
+				choice -= 1;
+				arrowY += 2;
+			}
+
+			delay = 0.0;
+
+		}
+		if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2 && paused == true) {
+
+			if (choice == 1) {
+
+				choice = 0;
+				arrowY = 14;
+			}
+			else {
+				choice += 1;
+				arrowY -= 2;
+			}
+
+			delay = 0.0;
+
+		}
+	}
+
+	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2 && paused == true) {
+
+		if (choice == 0) {
+
+
+
+			Application::SceneChoice = Application::NORMALMODE;
+			Application::changeScene = true;
+
+			for (size_t i = 0; i < entityContainer.size(); i++) {
+				delete entityContainer.at(i);
+			}
+			Exit();
+		}
+		else if (choice == 1) {
+
+			Application::SceneChoice = Application::STARTMENU;
+			Application::changeScene = true;
+
+		}
+
+
+	}
+
+	if (Application::IsKeyPressed('P') && delay >= 0.2) {
+
+		if (paused == false) {
+
+			paused = true;
+		}
+		else {
+			paused = false;
+		}
+
+		delay = 0.0;
+	}
+	
+
 	f_fps = 1.0f / dt;
 
 	delay += dt;
@@ -259,6 +357,7 @@ void SceneFreeGameMode::Update(double dt)
 
 
 }
+
 void SceneFreeGameMode::RenderMesh(Mesh* mesh, bool enableLight)
 {
 	Mtx44 MVP, modelView, modelView_inverse_transpose;
@@ -484,16 +583,47 @@ void SceneFreeGameMode::Render()
 	viewStack.LookAt(camera.position.x, camera.position.y, camera.position.z, camera.target.x, camera.target.y, camera.target.z, camera.up.x, camera.up.y, camera.up.z);
 	modelStack.LoadIdentity();*/
 
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(1)->getPosX(), entityContainer.at(1)->getPosY(), entityContainer.at(1)->getPosZ());
+	modelStack.Scale(15, 25, 15);
+	RenderMesh(meshList[GEO_PLATFORM], true);
+	modelStack.PopMatrix();
+
+
+
+	modelStack.PushMatrix();
+	modelStack.Translate(entityContainer.at(0)->getPosX(), entityContainer.at(0)->getPosY(), entityContainer.at(0)->getPosZ());
+	modelStack.Scale(5, 5, 5);
+	RenderMesh(meshList[GEO_CAR], true);
+	modelStack.PopMatrix();
+
+
 	RenderSkybox();
 
-	/*RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS FREE GAME MODE", Color(0, 255, 0), 2, 12, 25);
+	if (paused == true) {
 
-	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
-	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);*/
+		RenderTextOnScreen(meshList[GEO_TEXT], "GAME IS PAUSEDDDD", Color(0, 255, 0), 2, 12, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Press 'P' to resume", Color(0, 255, 0), 2, 14, 18);
+		RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Reset", Color(0, 255, 0), 2, 16, 14);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Return to Menu", Color(0, 255, 0), 2, 16, 12);
+	}
 
-	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
-	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+	string txt;
+	txt = std::to_string(camera.position.x);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);
+	RenderTextOnScreen(meshList[GEO_TEXT], "XC: ", Color(0, 255, 0), 2, 1, 5);
+
+	txt = std::to_string(camera.position.y);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 7);
+	RenderTextOnScreen(meshList[GEO_TEXT], "YC: ", Color(0, 255, 0), 2, 1, 7);
+
+	txt = std::to_string(camera.position.z);
+	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 9);
+	RenderTextOnScreen(meshList[GEO_TEXT], "ZC: ", Color(0, 255, 0), 2, 1, 9);
+
+	/*RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
+	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);*/
 
 
 	// spawn the model 
@@ -531,8 +661,6 @@ void SceneFreeGameMode::Exit()
 //		modelStack.LoadIdentity();
 //	}
 //}
-
-
 
 void SceneFreeGameMode::ps4Controller(int x)
 {
@@ -586,6 +714,10 @@ void SceneFreeGameMode::ps4Controller(int x)
 		if (GLFW_PRESS == buttons[0] || mouse_pressed == true)
 		{
 			can_spawn = true;
+
+
+
+
 			/*tm.SaveMap(x, CRUSOR_Y_POS, -CRUSOR_X_POS);*/
 			// use a vector to store all the order of it and put it in each press to get the right outcome 
 
@@ -593,28 +725,28 @@ void SceneFreeGameMode::ps4Controller(int x)
 			// spawn all the objects here 
 			if (x == 9)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "Floor"));//0
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//0
 				allSpawningOBJ.push_back(9);
 			}
 			else if (x == 10)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnLeft"));//1
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//1
 				allSpawningOBJ.push_back(10);
 			}
 			else if (x == 11)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnLeft2"));//2
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//2
 				allSpawningOBJ.push_back(11);
 			}
 			else if (x == 12)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnRight"));//3
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//3
 				allSpawningOBJ.push_back(12);
 			}
 			else if (x == 13)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "turnRight2"));//4
-				allSpawningOBJ.push_back(12);
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//4
+				allSpawningOBJ.push_back(13);
 			}
 
 			mouse_pressed = false;
@@ -623,6 +755,10 @@ void SceneFreeGameMode::ps4Controller(int x)
 
 		if (can_spawn)
 		{
+
+
+			
+
 			if (GLFW_RELEASE == buttons[1])
 			{
 				/*c = tm.GetMap();
@@ -630,31 +766,34 @@ void SceneFreeGameMode::ps4Controller(int x)
 				RenderPlayers(stoi(c[1]), -90, stoi(c[2]));*/
 				//camera.Init(Vector3(stoi(c[1]), -70, stoi(c[2])), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01");
 
-				for (int i = 0; i < entityContainer.size(); i++)
+				for (size_t i = 2; i < entityContainer.size(); i++)
 				{
 					modelStack.PushMatrix();
 					modelStack.Translate(entityContainer.at(i)->getPosX(), entityContainer.at(i)->getPosY(), entityContainer.at(i)->getPosZ());
 					modelStack.Scale(4, 4, 4);
-					RenderMesh(meshList[allSpawningOBJ.at(i)], true);
+					RenderMesh(meshList[allSpawningOBJ.at(i - 2)], true);
 					modelStack.PopMatrix();
 				}
 
-				if (GLFW_PRESS == buttons[2])
+				/*if (GLFW_PRESS == buttons[2])
 				{
 					spawn_Car = true;
-
 					camera.Init(Vector3(entityContainer.at(0)->getPosX(), -80, entityContainer.at(0)->getPosZ()), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
 
-				}
+				}*/
 
-				if (spawn_Car == true)
+				/*if (spawn_Car == true)
 				{
+					
+
+
 					modelStack.PushMatrix();
 					modelStack.Translate(entityContainer.at(0)->getPosX(), -80, entityContainer.at(0)->getPosZ());
 					modelStack.Scale(10, 10, 10);
 					RenderMesh(meshList[GEO_CAR], true);
 					modelStack.PopMatrix();
-				}
+
+				}*/
 
 			}
 		}
