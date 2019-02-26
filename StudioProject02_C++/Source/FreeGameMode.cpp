@@ -27,7 +27,7 @@ void SceneFreeGameMode::Init()
 	glBindVertexArray(m_vertexArrayID);
 	glEnable(GL_CULL_FACE);
 
-	camera.Init(Vector3(500, 0, 0), Vector3(0, 10, 0), Vector3(0, 1, 0), "player01", false);
+	camera.Init(Vector3(500, 0, 0), Vector3(0, 10, 0), Vector3(0, 1, 0), "player01", true);
 
 	//audio.SetAudio("1.wav");
 
@@ -329,6 +329,20 @@ void SceneFreeGameMode::Update(double dt)
 
 	}
 
+	if (Application::IsKeyPressed('B') && delay >= 0.2) {
+
+		camera.lockCamera = true;
+
+		delay = 0.0;
+	}
+
+	if (Application::IsKeyPressed('V') && delay >= 0.2) {
+
+		camera.lockCamera = false;
+
+		delay = 0.0;
+	}
+
 	if (Application::IsKeyPressed('P') && delay >= 0.2) {
 
 		if (paused == false) {
@@ -353,7 +367,7 @@ void SceneFreeGameMode::Update(double dt)
 	z = std::to_string(camera.position.z);
 	ChoseMapParts();
 
-	camera.Update(dt);
+	camera.Update(dt, entityContainer.at(0));
 
 
 }

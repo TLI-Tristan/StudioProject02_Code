@@ -3,18 +3,18 @@ c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(1
   d:\users\539\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
 d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(94): warning C4305: '=': truncation from 'double' to 'float'
 d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(106): warning C4305: '=': truncation from 'double' to 'float'
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(587): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(595): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(607): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(728): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(733): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(738): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(743): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(748): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(772): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(812): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(821): warning C4018: '<': signed/unsigned mismatch
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(824): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(896): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(360): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(601): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(609): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(621): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(742): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(747): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(752): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(757): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(762): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(786): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(826): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(835): warning C4018: '<': signed/unsigned mismatch
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(838): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\users\539\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(910): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   StudioProject02_C++.vcxproj -> D:\Users\539\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe
