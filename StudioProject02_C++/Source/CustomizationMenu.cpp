@@ -683,7 +683,7 @@ void SceneCustomizationMenu::Render()
 	RenderLight();
 	modelStack.PopMatrix();*/
 
-	RenderMesh(meshList[GEO_AXES], false); //To be removed
+//	RenderMesh(meshList[GEO_AXES], false); //To be removed
 
 	modelStack.PushMatrix();
 	modelStack.Rotate(Rotatecar, 0, 1, 0);

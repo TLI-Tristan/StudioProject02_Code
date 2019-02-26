@@ -517,7 +517,7 @@ void SceneInstructionMenu::Render()
 	RenderLight();
 	modelStack.PopMatrix();*/
 
-	RenderMesh(meshList[GEO_AXES], false); //To be removed
+	//RenderMesh(meshList[GEO_AXES], false); //To be removed
 
 
 

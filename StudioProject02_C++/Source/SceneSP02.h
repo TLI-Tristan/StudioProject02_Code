@@ -82,17 +82,41 @@ class SceneSP02 : public Scene
 		U_LIGHT2_COSINNER,
 		U_LIGHT2_EXPONENT,
 
-		//U_LIGHT3_POSITION,
-		//U_LIGHT3_COLOR,
-		//U_LIGHT3_POWER,
-		//U_LIGHT3_KC,
-		//U_LIGHT3_KL,
-		//U_LIGHT3_KQ,
-		//U_LIGHT3_TYPE,
-		//U_LIGHT3_SPOTDIRECTION,
-		//U_LIGHT3_COSCUTOFF,
-		//U_LIGHT3_COSINNER,
-		//U_LIGHT3_EXPONENT,
+		U_LIGHT3_POSITION,
+		U_LIGHT3_COLOR,
+		U_LIGHT3_POWER,
+		U_LIGHT3_KC,
+		U_LIGHT3_KL,
+		U_LIGHT3_KQ,
+		U_LIGHT3_TYPE,
+		U_LIGHT3_SPOTDIRECTION,
+		U_LIGHT3_COSCUTOFF,
+		U_LIGHT3_COSINNER,
+		U_LIGHT3_EXPONENT,
+
+		U_LIGHT4_POSITION,
+		U_LIGHT4_COLOR,
+		U_LIGHT4_POWER,
+		U_LIGHT4_KC,
+		U_LIGHT4_KL,
+		U_LIGHT4_KQ,
+		U_LIGHT4_TYPE,
+		U_LIGHT4_SPOTDIRECTION,
+		U_LIGHT4_COSCUTOFF,
+		U_LIGHT4_COSINNER,
+		U_LIGHT4_EXPONENT,
+
+		U_LIGHT5_POSITION,
+		U_LIGHT5_COLOR,
+		U_LIGHT5_POWER,
+		U_LIGHT5_KC,
+		U_LIGHT5_KL,
+		U_LIGHT5_KQ,
+		U_LIGHT5_TYPE,
+		U_LIGHT5_SPOTDIRECTION,
+		U_LIGHT5_COSCUTOFF,
+		U_LIGHT5_COSINNER,
+		U_LIGHT5_EXPONENT,
 
 		U_LIGHTENABLED,
 		U_NUMLIGHTS,
@@ -139,6 +163,7 @@ class SceneSP02 : public Scene
 		GEO_SLOWPAD,
 		GEO_UPDOWNBLOCKS,
 		GEO_FLOATINGBLOCK,
+		GEO_STREETLAMP,
 		NUM_GEOMETRY,
 	};
 
@@ -154,12 +179,25 @@ public:
 
 	void ALLCamera(int angle);
 
+
 	Collision collisionChecker;
 
 	virtual void Init();
 	virtual void Update(double dt);
 	virtual void Render();
 	virtual void Exit();
+
+	void RenderSkybox();
+	void RenderGamePlatformPart01();
+	void RenderGamePlatformPart02();
+	void RenderPart01Objects();
+	void RenderPart02Objects();
+	void RenderPlayers();
+	void RenderText(Mesh* mesh, std::string text, Color color);
+	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
+	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
+	void RenderLight();
+	void RenderStreetLamps();
 	
 
 private:
@@ -172,20 +210,11 @@ private:
 	Mesh* meshList[NUM_GEOMETRY];
 	unsigned m_programID;
 	unsigned m_parameters[U_TOTAL];
-	void RenderSkybox();
-	void RenderGamePlatformPart01();
-	void RenderGamePlatformPart02();
-	void RenderPart01Objects();
-	void RenderPart02Objects();
-	void RenderPlayers();
-	void RenderText(Mesh* mesh, std::string text, Color color);
-	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
-	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
-	void RenderLight();
+
 
 	Camera2 camera, camera2, camera3;
 	MS modelStack, viewStack, projectionStack;
-	Light light[4];
+	Light light[6];
 	Audio audio;
 
 	void RenderMesh(Mesh *mesh, bool enableLight);
@@ -225,8 +254,6 @@ private:
 	std::string s_secs;
 	std::string s_mins;
 
-
-	
 	Player * Playercar;
 	bool outofmap = false;
 
