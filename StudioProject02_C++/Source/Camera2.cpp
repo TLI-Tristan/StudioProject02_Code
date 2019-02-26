@@ -78,7 +78,7 @@ void Camera2::Update(double dt, Entity* player01)
 		up = right.Cross(view).Normalized();
 
 		this->position.x = player01->getPosX() + 100;
-		this->position.y = player01->getPosY() + 80;
+		this->position.y = player01->getPosY() + 20;
 		this->position.z = player01->getPosZ();
 
 	}

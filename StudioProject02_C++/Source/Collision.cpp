@@ -172,5 +172,6 @@ bool Collision::checkCollisionWithTheFloor(Entity& firstEntity, std::vector <Ent
 Entity* Collision::getCollidiedItem() {
 
 	return collidiedItem;
+
 }
 

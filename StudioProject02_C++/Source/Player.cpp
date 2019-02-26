@@ -68,27 +68,22 @@ void Player::update(double dt)
 	 
 	if (name == "player01") {
 
-
-
 		if (position.y < -1000)
 		{
-			if (part2CheckpointReached == true) {
-
-				position.x = 0;
-				position.y = 20;
-				position.z = -800;
-			}
-			else {
-				position = startposition;
-			}
-			falling = false;
-			collidingWithFloor = true;
-			respawn = true;
+			respawnAtLastCheckpoint();
 		}
+
+		
 
 		if (collided == true && collidiedItem != nullptr && impulseDone == true) {
 
-			if (collidiedItem->getName() != "platform") {
+			if (collidiedItem->getName() == "crusher" || collidiedItem->getName() == "movingspike") {
+				respawnAtLastCheckpoint();
+			}
+
+			else if (collidiedItem->getName() != "platform" && collidiedItem->getName() != "crusher" && collidiedItem->getName() != "movingspike") {
+
+				
 
 				if (collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == false) {
 
@@ -158,7 +153,7 @@ void Player::update(double dt)
 						}
 						else {
 
-							speed.z -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
+							//speed.z -= c_Physics.calFinalSpeed(collidiedItem->getMass(), collidiedItem->getSpeed().z);
 							speed.z = 3;
 							direction.z *= -1;
 							speed.z *= direction.z;
@@ -419,6 +414,24 @@ void Player::checkPoint2()
 	position.y = 20;
 	falling = true;
 	collidingWithFloor = false;
+
+}
+
+void Player::respawnAtLastCheckpoint()
+{
+	
+		if (part2CheckpointReached == true) {
+
+			position.x = 0;
+			position.y = 20;
+			position.z = -800;
+		}
+		else {
+			position = startposition;
+		}
+		falling = false;
+		collidingWithFloor = true;
+		respawn = true;
 
 }
 

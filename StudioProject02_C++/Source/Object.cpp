@@ -35,22 +35,22 @@ void Object::update(double dt)
 {
 	
 
-	//if (name == "part1MoivngBlock") {
+	if (name == "part1MoivngBlock") {
 
 
-	//	if (position.x <= -50) {
+		if (position.x <= -50) {
 
-	//		direction.x = 1;
-	//	}
-	//	if (position.x >= 50) {
+			direction.x = 1;
+		}
+		if (position.x >= 50) {
 
-	//		direction.x = -1;
-	//	}
+			direction.x = -1;
+		}
 
-	//	position.x += speed.x * direction.x * dt;
-	//}
+		position.x += speed.x * direction.x * dt;
+	}
 
-	if (name == "movingBlock2") {
+	if (name == "movingBlock2" || name == "movingBlock5") {
 
 
 		if (position.z <= -940) {
@@ -65,14 +65,14 @@ void Object::update(double dt)
 		position.z += speed.z * direction.z * dt;
 	}
 
-	if (name == "movingBlock3" || name == "movingBlock4") {
+	if (name == "movingBlock3" || name == "movingBlock4" || name == "movingBlock6") {
 
 
 		if (position.z <= initialZ - 30) {
 
 			direction.z = 1;
 		}
-		if (position.z <= initialZ + 30) {
+		if (position.z >= initialZ + 30) {
 
 			direction.z = -1;
 		}
@@ -80,7 +80,41 @@ void Object::update(double dt)
 		position.z += speed.z * direction.z * dt;
 	}
 
-	
+	if (name == "crusher") {
+
+		if (position.y >= initialY + 40) {
+
+			position.y = initialY;
+
+		}
+		else {
+
+			position.y += speed.y * direction.y * dt;
+
+		}
+
+
+
+	}
+
+
+	if (name == "movingspike") {
+
+		if (direction.z == 1 && position.z >= -810) {
+
+			position.z = initialZ;
+
+		}
+		else if(direction.z == -1 && position.z <= -800){
+
+			position.z = initialZ;
+
+		}
+
+
+		position.z += speed.z * direction.z * dt;
+
+	}
 
 }
 

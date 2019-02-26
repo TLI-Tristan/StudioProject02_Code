@@ -373,34 +373,35 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-240, 0, -942), false, false, 4, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//24
 
 	meshList[GEO_UPDOWNBLOCKS] = MeshBuilder::GenerateOBJ("UpDownBlock", "Obj/UPDownBlocks.obj");
-	entityContainer.push_back(new Object(Vector3(-233, 0, -710), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//25
-	entityContainer.push_back(new Object(Vector3(-233, 0, -750), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//26
-	entityContainer.push_back(new Object(Vector3(-233, 0, -790), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//27
-	entityContainer.push_back(new Object(Vector3(-233, 0, -830), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//28
-	entityContainer.push_back(new Object(Vector3(-233, 0, -870), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//29
-	entityContainer.push_back(new Object(Vector3(-233, 0, -910), false, false, 4, 8, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "crusher"));//30
+	entityContainer.push_back(new Object(Vector3(-233, 0, -710), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//25
+	entityContainer.push_back(new Object(Vector3(-233, 0, -750), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//26
+	entityContainer.push_back(new Object(Vector3(-233, 0, -790), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//27
+	entityContainer.push_back(new Object(Vector3(-233, 0, -830), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//28
+	entityContainer.push_back(new Object(Vector3(-233, 0, -870), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//29
+	entityContainer.push_back(new Object(Vector3(-233, 0, -910), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//30
 
 	meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 	meshList[GEO_LEFTMOVINGBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
-	entityContainer.push_back(new Object(Vector3(-280, 0, -650), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//31
-	entityContainer.push_back(new Object(Vector3(-280, 0, -720), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//32
-	entityContainer.push_back(new Object(Vector3(-280, 0, -790), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//33
-	entityContainer.push_back(new Object(Vector3(-280, 0, -860), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//34
-	entityContainer.push_back(new Object(Vector3(-280, 0, -930), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//35
+	entityContainer.push_back(new Object(Vector3(-280, 0, -650), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//31
+	entityContainer.push_back(new Object(Vector3(-280, 0, -720), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//32
+	entityContainer.push_back(new Object(Vector3(-280, 0, -790), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//33
+	entityContainer.push_back(new Object(Vector3(-280, 0, -860), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//34
+	entityContainer.push_back(new Object(Vector3(-280, 0, -930), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock3"));//35
 
 	meshList[GEO_RIGHTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 	meshList[GEO_RIGHTMOVINGBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
-	entityContainer.push_back(new Object(Vector3(-320, 0, -650), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//36
-	entityContainer.push_back(new Object(Vector3(-320, 0, -720), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//37
-	entityContainer.push_back(new Object(Vector3(-320, 0, -790), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//38
-	entityContainer.push_back(new Object(Vector3(-320, 0, -860), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//39
-	entityContainer.push_back(new Object(Vector3(-320, 0, -930), true, false, 5, 5, 10, Vector3(0.0, 0.0, 50.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//40
+	entityContainer.push_back(new Object(Vector3(-320, 0, -650), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//36
+	entityContainer.push_back(new Object(Vector3(-320, 0, -720), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//37
+	entityContainer.push_back(new Object(Vector3(-320, 0, -790), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//38
+	entityContainer.push_back(new Object(Vector3(-320, 0, -860), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//39
+	entityContainer.push_back(new Object(Vector3(-320, 0, -930), true, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock4"));//40
 
 
 
 	/*meshList[GEO_GATE] = MeshBuilder::GenerateOBJ("Gates", "Obj/Gate.obj");*/
 
 	meshList[GEO_GIANTBLOCK] = MeshBuilder::GenerateOBJ("GiantBlock", "Obj/GiantBlock.obj");
+	meshList[GEO_GIANTBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-495, -3, -683), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//41
 	entityContainer.push_back(new Object(Vector3(-495, -3, -766), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//42
 	entityContainer.push_back(new Object(Vector3(-495, -3, -849), false, false, 26, 10, 26, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//43
@@ -408,6 +409,7 @@ void SceneSP02::Init()
 
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
+	meshList[GEO_FLOATINGBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
 	entityContainer.push_back(new Object(Vector3(-555, -3, -889), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//45
 	entityContainer.push_back(new Object(Vector3(-555, -3, -805), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//46
 	entityContainer.push_back(new Object(Vector3(-555, -3, -721), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//47
@@ -417,24 +419,24 @@ void SceneSP02::Init()
 
 	//meshList[GEO_LEFTMOVINGBLOCK] = MeshBuilder::GenerateOBJ("Blockers", "Obj/MovingBlocks.obj");
 
-	entityContainer.push_back(new Object(Vector3(-650, 0, -650), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//49
-	entityContainer.push_back(new Object(Vector3(-650, 0, -720), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//50
-	entityContainer.push_back(new Object(Vector3(-650, 0, -790), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//51
-	entityContainer.push_back(new Object(Vector3(-650, 0, -860), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//52
-	entityContainer.push_back(new Object(Vector3(-650, 0, -930), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//53
+	entityContainer.push_back(new Object(Vector3(-650, 0, -650), false, false, 5, 5, 10, Vector3(0.0, 0.0, 100.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock5"));//49
+	entityContainer.push_back(new Object(Vector3(-650, 0, -720), false, false, 5, 5, 10, Vector3(0.0, 0.0, 100.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock5"));//50
+	entityContainer.push_back(new Object(Vector3(-650, 0, -790), false, false, 5, 5, 10, Vector3(0.0, 0.0, 100.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock5"));//51
+	entityContainer.push_back(new Object(Vector3(-650, 0, -860), false, false, 5, 5, 10, Vector3(0.0, 0.0, 100.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock5"));//52
+	entityContainer.push_back(new Object(Vector3(-650, 0, -930), false, false, 5, 5, 10, Vector3(0.0, 0.0, 100.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingBlock5"));//53
 	//right
-	entityContainer.push_back(new Object(Vector3(-690, 0, -660), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//54
-	entityContainer.push_back(new Object(Vector3(-690, 0, -730), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//55
-	entityContainer.push_back(new Object(Vector3(-690, 0, -800), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//56
-	entityContainer.push_back(new Object(Vector3(-690, 0, -870), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//57
-	entityContainer.push_back(new Object(Vector3(-690, 0, -940), false, false, 5, 5, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "moving"));//58
+	entityContainer.push_back(new Object(Vector3(-690, 0, -660), false, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock6"));//54
+	entityContainer.push_back(new Object(Vector3(-690, 0, -730), false, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock6"));//55
+	entityContainer.push_back(new Object(Vector3(-690, 0, -800), false, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock6"));//56
+	entityContainer.push_back(new Object(Vector3(-690, 0, -870), false, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock6"));//57
+	entityContainer.push_back(new Object(Vector3(-690, 0, -940), false, false, 5, 5, 10, Vector3(0.0, 0.0, 90.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingBlock6"));//58
 
 	meshList[GEO_LEFTCLAMP] = MeshBuilder::GenerateOBJ("LeftClamp", "Obj/LeftClamp.obj");
 	meshList[GEO_LEFTCLAMP]->textureID = LoadTGA("Image//Spike2.tga");
-	entityContainer.push_back(new Object(Vector3(-1200, 30, -650), false, false, 60, 40, 7, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "movingspike"));//59
+	entityContainer.push_back(new Object(Vector3(-1200, 30, -650), false, false, 60, 40, 7, Vector3(0.0, 0.0, 40.0), 5000.0, Vector3(0.0, 0.0, -1.0), "movingspike"));//59
 	meshList[GEO_RIGHTCLAMP] = MeshBuilder::GenerateOBJ("RightClamp", "Obj/RightClamp.obj");
 	meshList[GEO_RIGHTCLAMP]->textureID = LoadTGA("Image//Spike2.tga");
-	entityContainer.push_back(new Object(Vector3(-1200, 30, -960), false, false, 60, 40, 7, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "movingspike"));//60
+	entityContainer.push_back(new Object(Vector3(-1200, 30, -960), false, false, 60, 40, 7, Vector3(0.0, 0.0, 40.0), 5000.0, Vector3(0.0, 0.0, 1.0), "movingspike"));//60
 
 	meshList[GEO_FALLENTRUNK] = MeshBuilder::GenerateOBJ("FallenTrunk", "Obj/FallenTrunk.obj");
 	meshList[GEO_FALLENTRUNK]->textureID = LoadTGA("Image//Spike2.tga");
@@ -468,7 +470,7 @@ void SceneSP02::Init()
 	delay = 0.0;
 	gameFinished = false;
 	choice = 0;
-	arrowY = 18;
+	arrowY = 14;
 	paused = false;
 	checkpoint2 = false;
 	showStage2 = false;
@@ -631,12 +633,12 @@ void SceneSP02::Update(double dt)
 
 	}
 	else {
-		if (Application::IsKeyPressed(VK_UP) && delay >= 0.2 && gameFinished == true) {
+		if (Application::IsKeyPressed(VK_UP) && delay >= 0.2 && ((gameFinished == true) || (paused == true))) {
 
 			if (choice == 0) {
 
 				choice = 1;
-				arrowY = 16;
+				arrowY = 12;
 
 			}
 			else {
@@ -647,12 +649,12 @@ void SceneSP02::Update(double dt)
 			delay = 0.0;
 
 		}
-		if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2 && gameFinished == true) {
+		if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2 && ((gameFinished == true) || (paused == true))) {
 
 			if (choice == 1) {
 
 				choice = 0;
-				arrowY = 18;
+				arrowY = 14;
 			}
 			else {
 				choice += 1;
@@ -664,7 +666,7 @@ void SceneSP02::Update(double dt)
 		}
 	}
 
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2 && gameFinished == true) {
+	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2 && ((gameFinished == true) || (paused == true))) {
 
 		if (choice == 0) {
 
@@ -1521,7 +1523,7 @@ void SceneSP02::Render()
 	RenderLight();
 	modelStack.PopMatrix();
 
-	RenderMesh(meshList[GEO_AXES], false); //To be removed
+	//RenderMesh(meshList[GEO_AXES], false); //To be removed
 
 
 
@@ -1539,23 +1541,27 @@ void SceneSP02::Render()
 	if (gameFinished == false && paused == true) {
 
 		RenderTextOnScreen(meshList[GEO_TEXT], "GAME IS PAUSEDDDD", Color(0, 255, 0), 2, 12, 25);
-		RenderTextOnScreen(meshList[GEO_TEXT], "Press 'P' to resume", Color(0, 255, 0), 2, 14, arrowY);
-		}
-	if (gameFinished == true) {
-
-		RenderTextOnScreen(meshList[GEO_TEXT], "GAME IS OVER", Color(0, 255, 0), 2, 12, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Press 'P' to resume", Color(0, 255, 0), 2, 14, 18);
 		RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
-		RenderTextOnScreen(meshList[GEO_TEXT], "Play Again", Color(0, 255, 0), 2, 16, 18);
-		RenderTextOnScreen(meshList[GEO_TEXT], "Return to Menu", Color(0, 255, 0), 2, 16, 16);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Play Again", Color(0, 255, 0), 2, 16, 14);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Return to Menu", Color(0, 255, 0), 2, 16, 12);
 	}
 
-	if (collisionDetected == false) {
+	if (gameFinished == true) {
+
+		RenderTextOnScreen(meshList[GEO_TEXT], "YOU HAVE WON", Color(0, 255, 0), 2, 15, 25);
+		RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Play Again", Color(0, 255, 0), 2, 16, 14);
+		RenderTextOnScreen(meshList[GEO_TEXT], "Return to Menu", Color(0, 255, 0), 2, 16, 12);
+	}
+
+	/*if (collisionDetected == false) {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);
 	}
 	else {
 		RenderTextOnScreen(meshList[GEO_TEXT], "Collision DETECTED", Color(220, 20, 60), 2, 1, 20);
 	}
-
+*/
 	if (showStage2 == true && shown == false) {
 
 		RenderTextOnScreen(meshList[GEO_TEXT], "STAGE 2", Color(220, 20, 60), 2, 15, 25);
@@ -1570,30 +1576,30 @@ void SceneSP02::Render()
 		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 2]), Color(0, 255, 0), 2, 12, 21);
 	}
 
-	string txt;
-	txt = std::to_string(entityContainer.at(0)->getPosZ());
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 3);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Z: ", Color(0, 255, 0), 2, 1, 3);
+	//string txt;
+	//txt = std::to_string(entityContainer.at(0)->getPosZ());
+	//RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 3);
+	//RenderTextOnScreen(meshList[GEO_TEXT], "Z: ", Color(0, 255, 0), 2, 1, 3);
 
-	txt = std::to_string(entityContainer.at(0)->getPosY());
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 14, 3);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Y: ", Color(0, 255, 0), 2, 10, 3);
+	//txt = std::to_string(entityContainer.at(0)->getPosY());
+	//RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 14, 3);
+	//RenderTextOnScreen(meshList[GEO_TEXT], "Y: ", Color(0, 255, 0), 2, 10, 3);
 
-	txt = std::to_string(camera.position.x);
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);
-	RenderTextOnScreen(meshList[GEO_TEXT], "XC: ", Color(0, 255, 0), 2, 1, 5);
+	//txt = std::to_string(camera.position.x);
+	//RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);
+	//RenderTextOnScreen(meshList[GEO_TEXT], "XC: ", Color(0, 255, 0), 2, 1, 5);
 
-	txt = std::to_string(camera.position.y);
-	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 7);
-	RenderTextOnScreen(meshList[GEO_TEXT], "YC: ", Color(0, 255, 0), 2, 1, 7);
+	//txt = std::to_string(camera.position.y);
+	//RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 7);
+	//RenderTextOnScreen(meshList[GEO_TEXT], "YC: ", Color(0, 255, 0), 2, 1, 7);
 
-	txt = std::to_string(camera.position.z);
+	/*txt = std::to_string(camera.position.z);
 	RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 9);
-	RenderTextOnScreen(meshList[GEO_TEXT], "ZC: ", Color(0, 255, 0), 2, 1, 9);
+	RenderTextOnScreen(meshList[GEO_TEXT], "ZC: ", Color(0, 255, 0), 2, 1, 9);*/
 
 
-	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
-	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+	//RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
+	//RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
 
 
 
