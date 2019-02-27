@@ -710,27 +710,27 @@ void SceneFreeGameMode::ps4Controller(int x)
 			can_spawn = true;
 			if (x == 9)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//0
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 0.1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//0
 				allSpawningOBJ.push_back(9);
 			}
 			else if (x == 10)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//1
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 0.1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//1
 				allSpawningOBJ.push_back(10);
 			}
 			else if (x == 11)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//2
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 0.1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//2
 				allSpawningOBJ.push_back(11);
 			}
 			else if (x == 12)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//3
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 0.1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//3
 				allSpawningOBJ.push_back(12);
 			}
 			else if (x == 13)
 			{
-				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//4
+				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 0.1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//4
 				allSpawningOBJ.push_back(13);
 			}
 
