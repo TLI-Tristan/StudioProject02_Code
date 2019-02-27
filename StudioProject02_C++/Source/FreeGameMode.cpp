@@ -29,14 +29,11 @@ void SceneFreeGameMode::Init()
 
 	camera.Init(Vector3(500, 0, 0), Vector3(0, 10, 0), Vector3(0, 1, 0), "player01", true);
 
-	//audio.SetAudio("1.wav");
-
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
 	projectionStack.LoadMatrix(projection);
 
 	//Load vertex and fragment shaders
-
 	//m_programID = LoadShaders("Shader//Texture.vertexshader", "Shader//Blending.fragmentshader");
 	m_programID = LoadShaders("Shader//Texture.vertexshader", "Shader//Text.fragmentshader");
 	m_parameters[U_COLOR_TEXTURE_ENABLED] = glGetUniformLocation(m_programID, "colorTextureEnabled");
@@ -355,7 +352,7 @@ void SceneFreeGameMode::Update(double dt)
 
 		delay = 0.0;
 	}
-	
+
 
 	f_fps = 1.0f / dt;
 
@@ -678,7 +675,6 @@ void SceneFreeGameMode::Exit()
 
 void SceneFreeGameMode::ps4Controller(int x)
 {
-
 	/*
 	PS4 Controller Code
 	button[0] = "sqaure"
@@ -707,36 +703,11 @@ void SceneFreeGameMode::ps4Controller(int x)
 		int buttonCount;
 		const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
 
-		/*	if (axes[0] == 1)
-			{
-				turnRight -= 1;
-			}
-			if (axes[0] <= -1)
-			{
-				turnRight += 1;
-			}
 
-			if (axes[1] == 1)
-			{
-				forwards -= 1;
-			}
-			if (axes[1] <= -1)
-			{
-				forwards += 1;
-			}*/
 
 		if (GLFW_PRESS == buttons[0] || mouse_pressed == true)
 		{
 			can_spawn = true;
-
-
-
-
-			/*tm.SaveMap(x, CRUSOR_Y_POS, -CRUSOR_X_POS);*/
-			// use a vector to store all the order of it and put it in each press to get the right outcome 
-
-
-			// spawn all the objects here 
 			if (x == 9)
 			{
 				entityContainer.push_back(new Object(Vector3(CRUSOR_Y_POS, -90, -CRUSOR_X_POS), false, false, 4, 1, 10, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//0
@@ -769,45 +740,18 @@ void SceneFreeGameMode::ps4Controller(int x)
 
 		if (can_spawn)
 		{
-
-
-			
-
-			if (GLFW_RELEASE == buttons[1])
+			if (GLFW_RELEASE == buttons[1] || GLFW_PRESS == buttons[1])
 			{
-				/*c = tm.GetMap();
-				LoadMap(c);
-				RenderPlayers(stoi(c[1]), -90, stoi(c[2]));*/
-				//camera.Init(Vector3(stoi(c[1]), -70, stoi(c[2])), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01");
+
 
 				for (size_t i = 2; i < entityContainer.size(); i++)
 				{
 					modelStack.PushMatrix();
 					modelStack.Translate(entityContainer.at(i)->getPosX(), entityContainer.at(i)->getPosY(), entityContainer.at(i)->getPosZ());
-					modelStack.Scale(4, 4, 4);
+					modelStack.Scale(2, 2, 2);
 					RenderMesh(meshList[allSpawningOBJ.at(i - 2)], true);
 					modelStack.PopMatrix();
 				}
-
-				/*if (GLFW_PRESS == buttons[2])
-				{
-					spawn_Car = true;
-					camera.Init(Vector3(entityContainer.at(0)->getPosX(), -80, entityContainer.at(0)->getPosZ()), Vector3(0, -10, 0), Vector3(0, 1, 0), "player01", false);
-
-				}*/
-
-				/*if (spawn_Car == true)
-				{
-					
-
-
-					modelStack.PushMatrix();
-					modelStack.Translate(entityContainer.at(0)->getPosX(), -80, entityContainer.at(0)->getPosZ());
-					modelStack.Scale(10, 10, 10);
-					RenderMesh(meshList[GEO_CAR], true);
-					modelStack.PopMatrix();
-
-				}*/
 
 			}
 		}
@@ -841,16 +785,6 @@ void SceneFreeGameMode::LoadMap(vector<string> b) {
 		modelStack.PopMatrix();
 		i += 3;
 	}
-
-
-
-
-
-
-
-
-
-
 }
 
 void SceneFreeGameMode::ChoseMapParts() {
@@ -904,14 +838,12 @@ void SceneFreeGameMode::ChoseMapParts() {
 }
 
 
-void SceneFreeGameMode::RenderPlayers(int x, int z, int y)
-{
-	modelStack.PushMatrix();
-	modelStack.Translate(20 + x, 10 + z, 0 + y + forwards);
-	modelStack.Rotate(90 + turnRight, 0, 1, 0);
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_CAR], true);
-	modelStack.PopMatrix();
-
-
-}
+//void SceneFreeGameMode::RenderPlayers(int x, int z, int y)
+//{
+//	modelStack.PushMatrix();
+//	modelStack.Translate(20 + x, 10 + z, 0 + y + forwards);
+//	modelStack.Rotate(90 + turnRight, 0, 1, 0);
+//	modelStack.Scale(10, 10, 10);
+//	RenderMesh(meshList[GEO_CAR], true);
+//	modelStack.PopMatrix();
+//}

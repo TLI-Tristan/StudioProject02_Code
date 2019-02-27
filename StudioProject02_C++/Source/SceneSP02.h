@@ -198,7 +198,7 @@ public:
 	//void RenderPictureOnScreen(Mesh* mesh, float x, float y);
 	void RenderLight();
 	void RenderStreetLamps();
-	
+
 
 private:
 	vector<string> carSet;
@@ -240,11 +240,11 @@ private:
 	bool showStage2;
 	bool shown;
 	float time;
+	int onlyOnes = 1;
 
 	vector<int> allTime;
 	bool showBoard = false;
 	int totalLength;
-	// timer code
 
 private:
 	int i_milisecs;
@@ -253,6 +253,7 @@ private:
 	std::string s_milisecs;
 	std::string s_secs;
 	std::string s_mins;
+	bool timeON = true;
 
 	Player * Playercar;
 	bool outofmap = false;

@@ -43,7 +43,7 @@ Player::~Player()
 
 void Player::calAcceleration() {
 
-	acceleration.z = (horsePower - c_Physics.calFriction(this->mass) ) / this->mass;
+	acceleration.z = (horsePower - c_Physics.calFriction(this->mass)) / this->mass;
 	acceleration.x = (horsePower - c_Physics.calFriction(this->mass)) / this->mass;
 	acceleration.y = (jumpForce - c_Physics.calWeight(this->mass)) / this->mass;
 
@@ -65,7 +65,7 @@ void Player::collisionDetector(bool isThereCollision, bool isItCollidingWithFloo
 
 void Player::update(double dt)
 {
-	 
+
 	if (name == "player01") {
 
 		if (position.y < -1000)
@@ -73,7 +73,7 @@ void Player::update(double dt)
 			respawnAtLastCheckpoint();
 		}
 
-		
+
 
 		if (collided == true && collidiedItem != nullptr && impulseDone == true) {
 
@@ -83,7 +83,7 @@ void Player::update(double dt)
 
 			else if (collidiedItem->getName() != "platform" && collidiedItem->getName() != "crusher" && collidiedItem->getName() != "movingspike") {
 
-				
+
 
 				if (collidiedItem->getAbletoMove() == false && collidiedItem->getIsItMoving() == false) {
 
@@ -213,7 +213,7 @@ void Player::update(double dt)
 		if (falling == true) {
 
 			speed.y -= deceleration.y * dt;
-		
+
 			position.y += speed.y;
 		}
 
@@ -227,12 +227,13 @@ void Player::update(double dt)
 
 		int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
 
+		int buttonCount;
+		const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
+		int axesCount;
+		const float *axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);
 
-		//if (1 == present)
-		//{
+		if (impulseDone == true && 1 == present) {
 
-
-		if (impulseDone == true) {
 
 
 			/*	int buttonCount;
@@ -261,7 +262,7 @@ void Player::update(double dt)
 
 			if (part2CheckpointReached == true) {
 
-				if (Application::IsKeyPressed('I'))
+				if (Application::IsKeyPressed('I') || GLFW_PRESS == buttons[7])
 				{
 					direction.x = -1;
 					if (speed.x > -0.8) {
@@ -272,7 +273,7 @@ void Player::update(double dt)
 					movingObj = true;
 				}
 
-				if (Application::IsKeyPressed('K'))
+				if (Application::IsKeyPressed('K') || GLFW_PRESS == buttons[6])
 				{
 					direction.x = 1;
 					if (speed.x < 0.8) {
@@ -283,9 +284,7 @@ void Player::update(double dt)
 					movingObj = true;
 				}
 
-				if ((!Application::IsKeyPressed('I') &&
-					!Application::IsKeyPressed('K')) ||
-					(speed.x < -0.8) || (speed.x > 0.8)) {
+				if ((!Application::IsKeyPressed('I') && !Application::IsKeyPressed('K')) || (speed.x < -0.8) || (speed.x > 0.8) || (!GLFW_PRESS == buttons[7] && !GLFW_PRESS == buttons[6])) {
 
 
 					if (speed.x > -0.05 && speed.x < 0.05) {
@@ -307,7 +306,7 @@ void Player::update(double dt)
 				}
 
 
-				if (Application::IsKeyPressed('J'))
+				if (Application::IsKeyPressed('J') || axes[0] <= -1)
 				{
 					direction.z = 1;
 					if (speed.z < 0.8) {
@@ -317,7 +316,7 @@ void Player::update(double dt)
 					movingObj = true;
 				}
 
-				if (Application::IsKeyPressed('L'))
+				if (Application::IsKeyPressed('L') || axes[0] == 1)
 				{
 					direction.z = -1;
 					if (speed.z > -0.8) {
@@ -328,9 +327,8 @@ void Player::update(double dt)
 					movingObj = true;
 				}
 
-				if ((!Application::IsKeyPressed('J') &&
-					!Application::IsKeyPressed('L')) ||
-					(speed.z < -0.8) || (speed.z > 0.8)) {
+				if ((!Application::IsKeyPressed('J') && !Application::IsKeyPressed('L')) ||
+					(speed.z < -0.8) || (speed.z > 0.8) || (!axes[0] <= -1 && !axes[0] == 1)) {
 
 
 					if (speed.z > -0.05 && speed.z < 0.05) {
@@ -357,7 +355,7 @@ void Player::update(double dt)
 
 				if (control == true) {
 
-					if (Application::IsKeyPressed('L'))
+					if (Application::IsKeyPressed('L') || axes[0] == 1)
 					{
 						direction.x = 1;
 						if (speed.x < 0.8) {
@@ -367,7 +365,7 @@ void Player::update(double dt)
 						movingObj = true;
 					}
 
-					if (Application::IsKeyPressed('J'))
+					if (Application::IsKeyPressed('J') || axes[0] <= -1)
 					{
 						direction.x = -1;
 						if (speed.x > -0.8) {
@@ -380,7 +378,7 @@ void Player::update(double dt)
 
 					if ((!Application::IsKeyPressed('J') &&
 						!Application::IsKeyPressed('L')) ||
-						(speed.x < -0.8) || (speed.x > 0.8)) {
+						(speed.x < -0.8) || (speed.x > 0.8) || (!axes[0] <= -1 && !axes[0] == 1)) {
 
 
 						if (speed.x > -0.05 && speed.x < 0.05) {
@@ -404,7 +402,7 @@ void Player::update(double dt)
 
 				}
 
-				if (Application::IsKeyPressed('K'))
+				if (Application::IsKeyPressed('K') || GLFW_PRESS == buttons[6])
 				{
 					direction.z = 1;
 					if (speed.z < 0.8) {
@@ -414,7 +412,7 @@ void Player::update(double dt)
 					movingObj = true;
 				}
 
-				if (Application::IsKeyPressed('I'))
+				if (Application::IsKeyPressed('I') || GLFW_PRESS == buttons[7])
 				{
 					direction.z = -1;
 					if (speed.z > -0.8) {
@@ -427,7 +425,7 @@ void Player::update(double dt)
 
 				if ((!Application::IsKeyPressed('I') &&
 					!Application::IsKeyPressed('K')) ||
-					(speed.z < -0.8) || (speed.z > 0.8)) {
+					(speed.z < -0.8) || (speed.z > 0.8) || (!GLFW_PRESS == buttons[7] && !GLFW_PRESS == buttons[6])) {
 
 
 					if (speed.z > -0.05 && speed.z < 0.05) {
@@ -449,9 +447,10 @@ void Player::update(double dt)
 				}
 			}
 
-
-
 		}
+
+
+
 
 	}
 }
@@ -471,19 +470,19 @@ void Player::checkPoint2()
 
 void Player::respawnAtLastCheckpoint()
 {
-	
-		if (part2CheckpointReached == true) {
 
-			position.x = 0;
-			position.y = 20;
-			position.z = -800;
-		}
-		else {
-			position = startposition;
-		}
-		falling = false;
-		collidingWithFloor = true;
-		respawn = true;
+	if (part2CheckpointReached == true) {
+
+		position.x = 0;
+		position.y = 20;
+		position.z = -800;
+	}
+	else {
+		position = startposition;
+	}
+	falling = false;
+	collidingWithFloor = true;
+	respawn = true;
 
 }
 

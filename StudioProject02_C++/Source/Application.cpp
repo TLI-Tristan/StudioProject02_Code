@@ -39,29 +39,25 @@ static void cursorPotionCallback(GLFWwindow *window, double xPos, double yPos) {
 	CRUSOR_X_POS = xPos - 200;
 	CRUSOR_Y_POS = yPos - 100;
 
-	std::cout << "Xpos : " << CRUSOR_X_POS << std::endl;
-	std::cout << "Ypos : " << CRUSOR_Y_POS << std::endl;
-
-
-
+	
 };
 
 void curosrEnterCallBack(GLFWwindow *window, int entered) {
 
 	if (entered)
 	{
-		std::cout << "Entered Window" << std::endl;
+		//std::cout << "Entered Window" << std::endl;
 	}
 	else
 	{
-		std::cout << "Left Window" << std::endl;
+		//std::cout << "Left Window" << std::endl;
 	}
 
 };
 void mouseButtonCallBack(GLFWwindow *window, int button, int action, int mods) {
 	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
 	{
-		std::cout << "Right Button pressed" << std::endl;
+		//std::cout << "Right Button pressed" << std::endl;
 		mouse_pressed = true;
 	}
 

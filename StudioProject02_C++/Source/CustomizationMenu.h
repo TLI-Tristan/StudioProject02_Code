@@ -90,7 +90,7 @@ public:
 	SceneCustomizationMenu();
 	~SceneCustomizationMenu();
 
-	void saveCar(string,string, string);
+	void saveCar(string, string, string);
 
 	virtual void Init();
 	virtual void Update(double dt);
