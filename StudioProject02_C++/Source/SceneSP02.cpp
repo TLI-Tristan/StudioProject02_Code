@@ -14,6 +14,8 @@ SceneSP02::SceneSP02()
 	i_secs = 0;
 	i_mins = 0;
 
+
+
 }
 
 SceneSP02::~SceneSP02()
@@ -94,7 +96,6 @@ void SceneSP02::saveLeader()
 
 void SceneSP02::Init()
 {
-
 	getLeaderboard();
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -561,10 +562,15 @@ void SceneSP02::Init()
 	rotateAngle = 0.0;
 	shown = false;
 	time = 0.0;
+
+
+
 }
 
 void SceneSP02::Update(double dt)
 {
+
+	
 
 	if (timeON)
 	{
@@ -588,6 +594,8 @@ void SceneSP02::Update(double dt)
 		s_mins = std::to_string(i_mins);
 
 	}
+
+
 
 
 
@@ -1660,6 +1668,8 @@ void SceneSP02::Render()
 	RenderPart02Objects();
 	RenderStreetLamps();
 
+
+
 	if (gameFinished == false && paused == true) {
 
 		RenderTextOnScreen(meshList[GEO_TEXT], "GAME IS PAUSEDDDD", Color(0, 255, 0), 2, 12, 25);
@@ -1693,6 +1703,8 @@ void SceneSP02::Render()
 		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 0]), Color(0, 255, 0), 2, 1, 27);
 		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 1]), Color(0, 255, 0), 2, 1, 26);
 		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 2]), Color(0, 255, 0), 2, 1, 25);
+
+
 	}
 
 //	string txt;

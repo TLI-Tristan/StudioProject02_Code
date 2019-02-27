@@ -40,8 +40,11 @@ SceneGameMenu::~SceneGameMenu()
 
 void SceneGameMenu::Init()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+	audio.SetAudio("gameSound.wav");
+	audio.PlayAudio();
+
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	// Generate a default VAO for now
 	glGenVertexArrays(1, &m_vertexArrayID);
 	glBindVertexArray(m_vertexArrayID);

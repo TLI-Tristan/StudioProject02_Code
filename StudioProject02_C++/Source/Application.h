@@ -3,6 +3,7 @@
 #define APPLICATION_H
 
 #include "timer.h"
+#include "Audio.h"
 
 class Application
 {
@@ -28,7 +29,7 @@ public:
 private:
 
 	
-
+	Audio audio;
 	//Declare a window object
 	StopWatch m_timer;
 };

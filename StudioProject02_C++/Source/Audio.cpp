@@ -17,11 +17,13 @@ void Audio::SetAudio(string name)
 	// music for one (init)
 	unsigned int res2 = soloud.init();
 	unsigned int smpl = sample.load(c);
+
 }
 
 void Audio::PlayAudio()
 {
-	soloud.playBackground(sample);
+
+		soloud.playBackground(sample);
 }
 
 void Audio::StopAudio()
