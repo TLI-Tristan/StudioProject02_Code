@@ -538,9 +538,9 @@ void SceneSP02::Init()
 	//meshList[GEO_GONG]->textureID = LoadTGA("Image//gong.tga");
 	//entityContainer.push_back(new Object(Vector3(0, -20, 30), false, false, 3.5, 17, 12, Vector3(00.0, 0.0, 0.0), 5.0, Vector3(0.0, 0.0, 0.0), "gong"));//71
 
-	meshList[GEO_SLOWPAD] = MeshBuilder::GenerateOBJ("SlowPad", "Obj/SlowPad.obj");
-
 	meshList[GEO_STREETLAMP] = MeshBuilder::GenerateOBJ("streetlamp", "Obj/streetlamp1.obj");
+
+	
 
 	audio.PlayAudio();
 
@@ -806,6 +806,7 @@ void SceneSP02::Update(double dt)
 
 		delay = 0.0;
 	}
+
 
 	f_fps = 1.0f / dt;
 
@@ -1293,8 +1294,6 @@ void SceneSP02::RenderPart02Objects() {
 	RenderMesh(meshList[GEO_RIGHTMOVINGBLOCK], true);
 	modelStack.PopMatrix();
 
-
-
 	/*modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
@@ -1306,8 +1305,6 @@ void SceneSP02::RenderPart02Objects() {
 	//modelStack.Scale(10, 10, 10);
 	//RenderMesh(meshList[GEO_GATE], true);
 	//modelStack.PopMatrix();
-
-
 
 	modelStack.PushMatrix();
 	modelStack.Translate(entityContainer.at(59)->getPosX(), entityContainer.at(59)->getPosY(), entityContainer.at(59)->getPosZ());
@@ -1379,23 +1376,13 @@ void SceneSP02::RenderPart02Objects() {
 	RenderMesh(meshList[GEO_FALLENTRUNK], true);
 	modelStack.PopMatrix();
 
-
-
 	/*modelStack.PushMatrix();
 	modelStack.Translate(0, 0, 0);
 	modelStack.Scale(10, 10, 10);
 	RenderMesh(meshList[GEO_RIGHTMOVINGBLOCK], true);
 	modelStack.PopMatrix();*/
 
-	modelStack.PushMatrix();
-	modelStack.Translate(0, 0, 0);
-	modelStack.Scale(10, 10, 10);
-	RenderMesh(meshList[GEO_SLOWPAD], true);
-	modelStack.PopMatrix();
-
-
-
-
+	
 }
 
 void SceneSP02::RenderPlayers()
@@ -1691,13 +1678,7 @@ void SceneSP02::Render()
 
 	}
 
-	/*if (collisionDetected == false) {
-		RenderTextOnScreen(meshList[GEO_TEXT], "Collision not detected", Color(220, 20, 60), 2, 1,15);
-	}
-	else {
-		RenderTextOnScreen(meshList[GEO_TEXT], "Collision DETECTED", Color(220, 20, 60), 2, 1, 20);
-	}
-*/
+
 	if (showStage2 == true && shown == false) {
 
 		RenderTextOnScreen(meshList[GEO_TEXT], "STAGE 2", Color(220, 20, 60), 2, 15, 25);
@@ -1714,14 +1695,7 @@ void SceneSP02::Render()
 		RenderTextOnScreen(meshList[GEO_TEXT], std::to_string(allTime[totalLength - 1 - 2]), Color(0, 255, 0), 2, 1, 25);
 	}
 
-	//string txt;
-	////txt = std::to_string(entityContainer.at(0)->getPosZ());
-	////RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 3);
-	////RenderTextOnScreen(meshList[GEO_TEXT], "Z: ", Color(0, 255, 0), 2, 1, 3);
-
-	////txt = std::to_string(entityContainer.at(0)->getPosY());
-	////RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 14, 3);
-	////RenderTextOnScreen(meshList[GEO_TEXT], "Y: ", Color(0, 255, 0), 2, 10, 3);
+//	string txt;
 
 	//txt = std::to_string(camera.position.x);
 	//RenderTextOnScreen(meshList[GEO_TEXT], txt, Color(0, 255, 0), 2, 5, 5);

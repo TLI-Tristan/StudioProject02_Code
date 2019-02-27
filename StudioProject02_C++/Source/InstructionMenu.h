@@ -113,8 +113,6 @@ private:
 	double delay;
 	double dt;
 
-	int choice;
-	int arrowY;
 
 };
 

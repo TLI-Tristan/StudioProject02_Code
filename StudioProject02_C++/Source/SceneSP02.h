@@ -160,7 +160,6 @@ class SceneSP02 : public Scene
 		GEO_RIGHTCLAMP,
 		GEO_LEFTMOVINGBLOCK,
 		GEO_RIGHTMOVINGBLOCK,
-		GEO_SLOWPAD,
 		GEO_UPDOWNBLOCKS,
 		GEO_FLOATINGBLOCK,
 		GEO_STREETLAMP,
@@ -199,8 +198,9 @@ public:
 	void RenderLight();
 	void RenderStreetLamps();
 
-
 private:
+	std::vector<Vector3>RainPosit;
+	const int raincount = 40;
 	vector<string> carSet;
 	string carName;
 	string carOBJ;

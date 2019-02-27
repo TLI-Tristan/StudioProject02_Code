@@ -191,9 +191,6 @@ void SceneInstructionMenu::Init()
 	z = "/0";
 	delay = 0.0;
 
-	choice = 0;
-	arrowY = 18;
-
 }
 
 void SceneInstructionMenu::Update(double dt)
@@ -201,54 +198,13 @@ void SceneInstructionMenu::Update(double dt)
 	this->dt = dt;
 	static const float LSPEED = 10.0f;
 
-	if (Application::IsKeyPressed(VK_UP) && delay >= 0.2) {
 
-		if (choice == 0) {
-
-			choice = 1;
-			arrowY = 16;
-
-		}
-		else {
-			choice -= 1;
-			arrowY += 2;
-		}
+	if (Application::IsKeyPressed('P') && delay >= 0.2) {
 
 		delay = 0.0;
-
-
-	}
-	if (Application::IsKeyPressed(VK_DOWN) && delay >= 0.2) {
-
-		if (choice == 1) {
-
-			choice = 0;
-			arrowY = 18;
-		}
-		else {
-			choice += 1;
-			arrowY -= 2;
-		}
-
-		delay = 0.0;
-
-	}
-
-	if (Application::IsKeyPressed(VK_RETURN) && delay >= 0.2) {
-
-		delay = 0.0;
-
-		if (choice == 0) {
-
-
-		}
-		else if (choice == 1) {
 
 			Application::changeScene = true;
 			Application::SceneChoice = Application::STARTMENU;
-		}
-
-
 	}
 
 
@@ -312,8 +268,6 @@ void SceneInstructionMenu::RenderMesh(Mesh* mesh, bool enableLight)
 
 }
 
-
-
 void SceneInstructionMenu::RenderSkybox() {
 
 	modelStack.PushMatrix();
@@ -353,7 +307,6 @@ void SceneInstructionMenu::RenderSkybox() {
 
 
 }
-
 
 void SceneInstructionMenu::RenderText(Mesh* mesh, std::string text, Color color)
 {
@@ -409,7 +362,7 @@ void SceneInstructionMenu::RenderTextOnScreen(Mesh* mesh, std::string text, Colo
 	for (unsigned i = 0; i < text.length(); ++i)
 	{
 		Mtx44 characterSpacing;
-		characterSpacing.SetToTranslation(i * 1.0f, 0, 0); //1.0f is the spacing of each character, you may change this value
+		characterSpacing.SetToTranslation(i * 0.7f, 0, 0); //1.0f is the spacing of each character, you may change this value
 		Mtx44 MVP = projectionStack.Top() * viewStack.Top() * modelStack.Top() *
 			characterSpacing;
 		glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
@@ -424,7 +377,6 @@ void SceneInstructionMenu::RenderTextOnScreen(Mesh* mesh, std::string text, Colo
 	glEnable(GL_DEPTH_TEST);
 
 }
-
 
 //void SceneAssignment02::RenderPictureOnScreen(Mesh* mesh, float x, float y)
 //{
@@ -529,27 +481,24 @@ void SceneInstructionMenu::Render()
 
 	RenderTextOnScreen(meshList[GEO_TEXT], "THIS IS INSTRUCTION MENU", Color(0, 255, 0), 2, 12, 25);
 
-	RenderTextOnScreen(meshList[GEO_TEXT], ">", Color(0, 255, 0), 2, 14, arrowY);
-	RenderTextOnScreen(meshList[GEO_TEXT], "This does absolutely nothing", Color(0, 255, 0), 2, 16, 18);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Return", Color(0, 255, 0), 2, 16, 16);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Press 'P' to return to main menu", Color(0, 255, 0), 2, 6, 5);
 
-	RenderTextOnScreen(meshList[GEO_TEXT], s_fps, Color(0, 255, 0), 2, 5, 1);
-	RenderTextOnScreen(meshList[GEO_TEXT], "FPS: ", Color(0, 255, 0), 2, 1, 1);
+
 
 	// instructoin for the game for level 1 and 2
-	RenderTextOnScreen(meshList[GEO_TEXT], "Level 1 ", Color(0, 255, 0), 2, 1, 11);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Main Game ", Color(0, 255, 0), 2, 1, 11);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Use I TO MOVE FORWARD", Color(0, 255, 0), 2, 1, 10);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Use K TO MOVE BACK", Color(0, 255, 0), 2, 1, 9);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Use J TO MOVE LEFT", Color(0, 255, 0), 2, 1, 8);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Use L TO MOVE RIGHT", Color(0, 255, 0), 2, 1, 7);
 
-	RenderTextOnScreen(meshList[GEO_TEXT], "Level 1 ", Color(0, 255, 0), 2, 1, 16);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Use 1 - 4 to cycle between objects", Color(0, 255, 0), 2, 1, 15);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse to move object around the map", Color(0, 255, 0), 2, 1, 14);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse BUtton click to place Object down", Color(0, 255, 0), 2, 1, 13);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Free Game Mode ", Color(0, 255, 0), 2, 1, 20);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use 1 - 4 to cycle between objects", Color(0, 255, 0), 1.5, 1, 24);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse to move object around the map", Color(0, 255, 0), 1.5, 1, 23);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse BUtton click to place Object down", Color(0, 255, 0), 1.5, 1, 22);
 
 	// to use for the controler
-	RenderTextOnScreen(meshList[GEO_TEXT], "Ones the car has spawn use the controller ot play or they keyboard ", Color(0, 255, 0), 2, 1, 12);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Ones the car has spawn use the controller to play or keyboard ", Color(0, 255, 0), 1.5, 1, 21);
 
 
 
