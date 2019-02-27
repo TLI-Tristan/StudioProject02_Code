@@ -12,14 +12,11 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->direction = dir;
 	this->mass = mass;
 	this->horsePower = 10000;
-	this->jumpForce = 10000;
 	speed = (0.0, 0.0, 0.0);
 	acceleration = (0.0, 0.0, 0.0);
 	deceleration = (0.0, 0.0, 0.0);
-	startposition = pos;
-	health = 3;
-	ghostMode = false;
 	isItPlayer = true;
+	initialPosition = pos;
 	this->name = name;
 	this->impulseDone = true;
 	calAcceleration();
@@ -27,7 +24,6 @@ Player::Player(const Vector3& pos, const Vector3& dir, float rangeX, float range
 	this->collidingWithFloor = true;
 	this->falling = true;
 	this->part2CheckpointReached = false;
-	this->cameraChanged = false;
 	this->collidiedItem = nullptr;
 	this->control = control;
 
@@ -45,7 +41,6 @@ void Player::calAcceleration() {
 
 	acceleration.z = (horsePower - c_Physics.calFriction(this->mass)) / this->mass;
 	acceleration.x = (horsePower - c_Physics.calFriction(this->mass)) / this->mass;
-	acceleration.y = (jumpForce - c_Physics.calWeight(this->mass)) / this->mass;
 
 }
 
@@ -478,7 +473,7 @@ void Player::respawnAtLastCheckpoint()
 		position.z = -800;
 	}
 	else {
-		position = startposition;
+		position = initialPosition;
 	}
 	falling = false;
 	collidingWithFloor = true;

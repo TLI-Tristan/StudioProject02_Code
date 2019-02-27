@@ -49,27 +49,25 @@ public:
 	Physics c_Physics;
 
 protected:
-	std::string name;
-	Vector3 direction;
-	Vector3 position;
-	Vector3 startposition;
+	std::string name; // to differentiate each obj / player
+	Vector3 direction; // direction the obj / player is moving
+	Vector3 position; // current pos of the obj / player
+	Vector3 initialPosition; //initial pos of the obj / player
 	bool movingObj; // see if the obj is moving.
 	Vector3 speed; // ms^-1
-	float sizeX;
-	float sizeY;
-	float sizeZ;
-	float heighest_X;
-	float heighest_Y;
-	float heighest_Z;
-	float lowest_X;
-	float lowest_Y;
-	float lowest_Z;
+	float sizeX; // the size of collision box in x axis
+	float sizeY; // the size of collision box in y axis
+	float sizeZ; // the size of collision box in z axis
+	float heighest_X; // the heighest size of collision box in x axis
+	float heighest_Y; // the heighest size of collision box in y axis
+	float heighest_Z; // the heighest size of collision box in z axis
+	float lowest_X; // the lowest size of collision box in x axis
+	float lowest_Y ;// the lowest size of collision box in y axis
+	float lowest_Z; // the lowest size of collision box in z axis
 	float mass; // kg
 	bool movableObj; // see if the obj is able to move upon collison
-	bool isItPlayer;
+	bool isItPlayer; // to differentiate obj from player
 	double dt;
-	int health;
-	
 
 
 };

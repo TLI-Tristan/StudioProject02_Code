@@ -20,9 +20,7 @@ Object::Object(const Vector3& pos, bool isItMoving, bool isItMovable, float rang
 	this->name = name;
 	this->direction = dir;
 
-	this->initialX = pos.x;
-	this->initialY = pos.y;
-	this->initialZ = pos.z;
+	this->initialPosition = pos;
 }
 
 
@@ -68,11 +66,11 @@ void Object::update(double dt)
 	if (name == "movingBlock3" || name == "movingBlock4" || name == "movingBlock6") {
 
 
-		if (position.z <= initialZ - 30) {
+		if (position.z <= initialPosition.z - 30) {
 
 			direction.z = 1;
 		}
-		if (position.z >= initialZ + 30) {
+		if (position.z >= initialPosition.z + 30) {
 
 			direction.z = -1;
 		}
@@ -82,9 +80,9 @@ void Object::update(double dt)
 
 	if (name == "crusher") {
 
-		if (position.y >= initialY + 40) {
+		if (position.y >= initialPosition.y + 40) {
 
-			position.y = initialY;
+			position.y = initialPosition.y;
 
 		}
 		else {
@@ -102,12 +100,12 @@ void Object::update(double dt)
 
 		if (direction.z == 1 && position.z >= -810) {
 
-			position.z = initialZ;
+			position.z = initialPosition.z;
 
 		}
 		else if(direction.z == -1 && position.z <= -800){
 
-			position.z = initialZ;
+			position.z = initialPosition.z;
 
 		}
 
