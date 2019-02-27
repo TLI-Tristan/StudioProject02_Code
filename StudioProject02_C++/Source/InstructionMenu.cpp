@@ -495,10 +495,10 @@ void SceneInstructionMenu::Render()
 	RenderTextOnScreen(meshList[GEO_TEXT], "Free Game Mode ", Color(0, 255, 0), 2, 1, 20);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Use 1 - 4 to cycle between objects", Color(0, 255, 0), 1.5, 1, 24);
 	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse to move object around the map", Color(0, 255, 0), 1.5, 1, 23);
-	RenderTextOnScreen(meshList[GEO_TEXT], "Use Mouse BUtton click to place Object down", Color(0, 255, 0), 1.5, 1, 22);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Use Left Mouse Button to place Object down", Color(0, 255, 0), 1.5, 1, 22);
 
 	// to use for the controler
-	RenderTextOnScreen(meshList[GEO_TEXT], "Ones the car has spawn use the controller to play or keyboard ", Color(0, 255, 0), 1.5, 1, 21);
+	RenderTextOnScreen(meshList[GEO_TEXT], "Once the car has spawn use the controller to play or keyboard ", Color(0, 255, 0), 1.5, 1, 21);
 
 
 

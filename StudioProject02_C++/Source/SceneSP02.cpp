@@ -413,6 +413,7 @@ void SceneSP02::Init()
 	meshList[GEO_TRAPS] = MeshBuilder::GenerateOBJ("Trap", "Obj/Traps.obj");
 
 	meshList[GEO_NEW2DWORLD] = MeshBuilder::GenerateOBJ("WorldFloor", "Obj/new2dworld.obj");
+	meshList[GEO_NEW2DWORLD]->textureID = LoadTGA("Image//brown.tga");
 	entityContainer.push_back(new Object(Vector3(0, -4.2, -265), false, false, 3.5, 3, 390, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//1
 
 	meshList[GEO_BLOCKS] = MeshBuilder::GenerateOBJ("Blockers", "Obj/Blocks.obj");
@@ -455,6 +456,7 @@ void SceneSP02::Init()
 	entityContainer.push_back(new Object(Vector3(-240, 0, -942), false, false, 4, 4, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "block"));//24
 
 	meshList[GEO_UPDOWNBLOCKS] = MeshBuilder::GenerateOBJ("UpDownBlock", "Obj/UPDownBlocks.obj");
+	meshList[GEO_UPDOWNBLOCKS]->textureID = LoadTGA("Image//lampwhite.tga");
 	entityContainer.push_back(new Object(Vector3(-233, 0, -710), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//25
 	entityContainer.push_back(new Object(Vector3(-233, 0, -750), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//26
 	entityContainer.push_back(new Object(Vector3(-233, 0, -790), true, false, 4, 8, 4, Vector3(0.0, 30.0, 0.0), 5000.0, Vector3(0.0, 1.0, 0.0), "crusher"));//27
@@ -491,7 +493,7 @@ void SceneSP02::Init()
 
 
 	meshList[GEO_FLOATINGBLOCK] = MeshBuilder::GenerateOBJ("FloatingBlocks", "Obj/FloatingBlock.obj");
-	meshList[GEO_FLOATINGBLOCK]->textureID = LoadTGA("Image//cartexture.tga");
+	meshList[GEO_FLOATINGBLOCK]->textureID = LoadTGA("Image//brown.tga");
 	entityContainer.push_back(new Object(Vector3(-555, -3, -889), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//45
 	entityContainer.push_back(new Object(Vector3(-555, -3, -805), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//46
 	entityContainer.push_back(new Object(Vector3(-555, -3, -721), false, false, 13, 3, 4, Vector3(0.0, 0.0, 0.0), 5000.0, Vector3(0.0, 0.0, 0.0), "platform"));//47
@@ -540,7 +542,7 @@ void SceneSP02::Init()
 	//entityContainer.push_back(new Object(Vector3(0, -20, 30), false, false, 3.5, 17, 12, Vector3(00.0, 0.0, 0.0), 5.0, Vector3(0.0, 0.0, 0.0), "gong"));//71
 
 	meshList[GEO_STREETLAMP] = MeshBuilder::GenerateOBJ("streetlamp", "Obj/streetlamp1.obj");
-
+	meshList[GEO_STREETLAMP]->textureID = LoadTGA("Image//lampcover.tga");
 	
 
 	audio.PlayAudio();
