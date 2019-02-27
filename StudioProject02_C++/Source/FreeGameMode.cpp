@@ -692,20 +692,19 @@ void SceneFreeGameMode::ps4Controller(int x)
 	button[9] = "Options button"
 	*/
 
-	int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
+	/*int present = glfwJoystickPresent(GLFW_JOYSTICK_1);
 
 	int axesCount;
-	const float *axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);
+	const float *axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);*/
 
 
-	if (1 == present)
-	{
+	
 		int buttonCount;
 		const unsigned char *buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
 
 
 
-		if (GLFW_PRESS == buttons[0] || mouse_pressed == true)
+		if ( mouse_pressed == true)
 		{
 			can_spawn = true;
 			if (x == 9)
@@ -740,7 +739,7 @@ void SceneFreeGameMode::ps4Controller(int x)
 
 		if (can_spawn)
 		{
-			if (GLFW_RELEASE == buttons[1] || GLFW_PRESS == buttons[1])
+			if (mouse_pressed == false)
 			{
 
 
@@ -760,7 +759,12 @@ void SceneFreeGameMode::ps4Controller(int x)
 			cout << "No Map to load" << endl;
 		}
 
-	}
+	
+
+
+
+
+
 }
 
 int SceneFreeGameMode::CreateOBJ(int x) {
