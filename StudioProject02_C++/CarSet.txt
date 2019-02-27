@@ -1,3 +1,3 @@
-car
-Obj/SP_CarObj.obj
-Image//cartexture.tga
+car3
+Obj/car3.obj
+Image//car2texture.tga
