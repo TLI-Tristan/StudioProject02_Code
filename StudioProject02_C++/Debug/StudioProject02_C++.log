@@ -1,3 +1,270 @@
-﻿  Audio.cpp
+﻿  Application.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Audio.cpp
 c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\audio.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Camera.cpp
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(65): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(67): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(69): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(71): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(73): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(75): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(78): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(79): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(80): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(83): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(84): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(85): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+  Camera2.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(65): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Collision.cpp
+  CustomizationMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(130): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(142): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(233): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(422): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(705): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(709): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(713): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(717): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(718): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(719): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(720): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(722): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(722): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(723): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(723): warning C4305: 'argument': truncation from 'double' to 'float'
+  Entity.cpp
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\entity.cpp(28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\entity.cpp(33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\entity.cpp(38): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  FreeGameMode.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(91): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(103): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(357): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(598): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(606): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(618): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(713): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(713): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(718): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(718): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(723): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(723): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(728): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(728): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(733): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(733): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(750): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(770): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(779): warning C4018: '<': signed/unsigned mismatch
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(782): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(117): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(129): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(281): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(557): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  InstructionMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(112): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(124): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(212): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  LoadOBJ.cpp
+  LoadTGA.cpp
+  Mesh.cpp
+  MeshBuilder.cpp
+  Object.cpp
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(48): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(63): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(78): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(90): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(113): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Physics.cpp
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(7): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(8): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(61): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Player.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(15): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(86): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(90): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(183): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(188): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(193): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(198): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(210): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(242): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(253): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(272): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(276): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(288): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(298): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(317): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(321): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(338): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(348): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(367): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(371): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(385): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(395): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(414): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(418): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(445): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(456): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(474): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(478): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(490): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(500): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(507): warning C4804: '<=': unsafe use of type 'bool' in operation
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(518): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(522): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(539): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(549): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(556): warning C4804: '<=': unsafe use of type 'bool' in operation
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(567): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(571): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(585): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(595): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(613): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(617): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  SceneSP02.cpp
+c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\jagat\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(229): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(241): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(416): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(437): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(449): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(501): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(607): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(675): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(700): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(702): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(707): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(709): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(819): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(835): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(939): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(951): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(961): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(967): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(973): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(979): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(985): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(991): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(997): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1003): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1009): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1015): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1021): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1027): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1033): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1039): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1051): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1057): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1063): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1069): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1075): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1081): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1087): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1093): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1099): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1105): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1119): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1131): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1137): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1149): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1155): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1161): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1167): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1173): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1179): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1185): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1191): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1197): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1203): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1209): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1215): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1222): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1228): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1234): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1240): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1246): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1252): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1258): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1264): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1270): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1276): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1282): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1288): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1294): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1300): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1318): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1324): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1330): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1336): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1342): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1348): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1354): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1360): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1366): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1371): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1377): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1382): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1399): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1677): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jagat\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1685): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  TrackMaker.cpp
+  Utility.cpp
+  Generating Code...
+  Compiling...
+  main.cpp
+  shader.cpp
+  Generating Code...
+  LINK : C:\Users\jagat\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+soloud_static.lib(darray.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(darray.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(klatt.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(klatt.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(resonator.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(resonator.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_speech.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_speech.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(tts.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(tts.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(dr_impl.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_wav.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_wav.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(stb_vorbis.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(stb_vorbis.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_audiosource.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_audiosource.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_basicops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_basicops.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_getters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_getters.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_setters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_setters.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_voicegroup.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_voicegroup.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_voiceops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_voiceops.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_fader.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_fader.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_fft.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_fft.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_file.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_file.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_thread.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_thread.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_winmm.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_winmm.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_null.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_null.obj)' or at 'C:\Users\jagat\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
   StudioProject02_C++.vcxproj -> C:\Users\jagat\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe
