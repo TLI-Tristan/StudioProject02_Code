@@ -1,24 +1,273 @@
-﻿  FreeGameMode.cpp
-d:\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\github clone project\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(91): warning C4305: '=': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(103): warning C4305: '=': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(357): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(598): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(606): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(618): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(712): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(712): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(717): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(717): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(722): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(722): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(727): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(727): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(732): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(732): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(749): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(774): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(783): warning C4018: '<': signed/unsigned mismatch
-d:\github clone project\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(786): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  StudioProject02_C++.vcxproj -> D:\Github Clone Project\StudioProject02_Code\Debug\StudioProject02_C++.exe
+﻿  MatrixStack.cpp
+  Mtx44.cpp
+  timer.cpp
+  Vector3.cpp
+  Application.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Audio.cpp
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\audio.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Camera.cpp
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(65): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(67): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(69): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(71): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(73): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(75): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(78): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(79): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(80): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(83): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(84): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera.cpp(85): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+  Camera2.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(65): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\camera2.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Collision.cpp
+  CustomizationMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(130): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(142): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(233): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(422): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(705): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(709): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(713): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(717): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(718): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(719): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(720): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(722): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(722): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(723): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\customizationmenu.cpp(723): warning C4305: 'argument': truncation from 'double' to 'float'
+  Entity.cpp
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\entity.cpp(28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\entity.cpp(33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\entity.cpp(38): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  FreeGameMode.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(91): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(103): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(357): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(598): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(606): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(618): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(712): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(712): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(717): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(717): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(722): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(722): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(727): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(727): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(732): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(732): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(749): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(774): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(783): warning C4018: '<': signed/unsigned mismatch
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\freegamemode.cpp(786): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(117): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(129): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(281): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\gamemenu.cpp(557): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  InstructionMenu.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(112): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(124): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\instructionmenu.cpp(212): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  LoadOBJ.cpp
+  LoadTGA.cpp
+  main.cpp
+  Mesh.cpp
+  MeshBuilder.cpp
+  Object.cpp
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(48): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(63): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(78): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(90): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\object.cpp(113): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  Physics.cpp
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(7): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(8): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\physics.cpp(61): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Player.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(15): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(86): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(90): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(183): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(188): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(193): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(198): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(210): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(242): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(253): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(272): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(276): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(288): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(298): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(317): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(321): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(338): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(348): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(367): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(371): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(385): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(395): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(414): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(418): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(445): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(456): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(474): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(478): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(490): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(500): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(507): warning C4804: '<=': unsafe use of type 'bool' in operation
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(518): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(522): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(539): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(549): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(556): warning C4804: '<=': unsafe use of type 'bool' in operation
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(567): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(571): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(585): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(595): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(613): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\player.cpp(617): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  SceneSP02.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\chew hui feng\desktop\studioproject02_code\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(229): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(241): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(417): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(438): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(450): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(503): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(609): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(677): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(702): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(704): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(709): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(711): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(821): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(837): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(941): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(953): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(963): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(969): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(975): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(981): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(987): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(993): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(999): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1005): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1011): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1017): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1023): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1029): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1035): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1041): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1053): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1059): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1065): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1071): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1077): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1083): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1089): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1095): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1101): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1121): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1127): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1133): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1139): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1145): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1151): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1157): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1163): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1169): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1175): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1181): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1187): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1193): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1199): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1205): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1211): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1217): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1224): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1230): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1236): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1248): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1254): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1260): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1266): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1272): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1278): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1284): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1290): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1296): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1302): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1320): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1326): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1332): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1338): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1344): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1350): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1356): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1362): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1368): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1373): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1379): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1384): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1401): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1679): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\chew hui feng\desktop\studioproject02_code\studioproject02_c++\source\scenesp02.cpp(1687): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  shader.cpp
+  TrackMaker.cpp
+  Utility.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+soloud_static.lib(darray.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(darray.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(klatt.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(klatt.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(resonator.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(resonator.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_speech.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_speech.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(tts.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(tts.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(dr_impl.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_wav.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_wav.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(stb_vorbis.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(stb_vorbis.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_audiosource.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_audiosource.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_basicops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_basicops.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_getters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_getters.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_setters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_setters.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_voicegroup.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_voicegroup.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_voiceops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_voiceops.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_fader.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_fader.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_fft.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_fft.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_file.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_file.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_thread.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_thread.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_winmm.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_winmm.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_null.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_null.obj)' or at 'C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\soloud_static.pdb'; linking object as if no debug info
+  StudioProject02_C++.vcxproj -> C:\Users\Chew Hui Feng\Desktop\StudioProject02_Code\Debug\StudioProject02_C++.exe
